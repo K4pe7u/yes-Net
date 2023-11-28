@@ -12,9 +12,8 @@ function Ourself() {
         </div>
         <div className={css.infoBlock}>
           <p className={css.info}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium dignissimos necessitatibus nulla sequi at, sed deserunt,
-            molestiae odit
+            Jesteśmy dumni z tego, że jesteśmy ludźmi dla ludzi i zawsze
+            pracujemy nad zapewnieniem komfortu dla naszych klientów
           </p>
         </div>
       </section>
@@ -26,9 +25,8 @@ function Ourself() {
         </div>
         <div className={css.infoBlock}>
           <p className={css.info}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium dignissimos necessitatibus nulla sequi at, sed deserunt,
-            molestiae odit
+            Możesz na nas liczyć, że wszystkie połączenia zostaną wykonanę z
+            należytą starannością
           </p>
         </div>
       </section>
@@ -54,9 +52,8 @@ function Ourself() {
         </div>
         <div className={css.infoBlock}>
           <p className={css.info}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium dignissimos necessitatibus nulla sequi at, sed deserunt,
-            molestiae odit
+            Kochanie tego, co robisz, jest pierwszym krokiem do zapewnienia
+            wysokiej jakości pracy - i my to robimy.
           </p>
         </div>
       </section>
@@ -67,11 +64,7 @@ function Ourself() {
           </svg>
         </div>
         <div className={css.infoBlock}>
-          <p className={css.info}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium dignissimos necessitatibus nulla sequi at, sed deserunt,
-            molestiae odit
-          </p>
+          <p className={css.info}>something</p>
         </div>
       </section>
       <section className={css.singleBlock}>
@@ -82,9 +75,8 @@ function Ourself() {
         </div>
         <div className={css.infoBlock}>
           <p className={css.info}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium dignissimos necessitatibus nulla sequi at, sed deserunt,
-            molestiae odit
+            Bacznie obserwujemy każdy element naszej pracy, aby upewnić się, że
+            nic nie zostało pominięte.
           </p>
         </div>
       </section>
