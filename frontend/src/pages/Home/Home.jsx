@@ -2,6 +2,7 @@ import React from "react";
 import css from "./Home.module.css";
 import Header from "../../components/Header/Header";
 import Mainset from "../../components/Mainset/Mainset";
+import Ourself from "../../components/Ourself/Ourself";
 
 function Home() {
   return (
@@ -27,7 +28,9 @@ function Home() {
         </div>
       </section>
       <section className={css.section}>
-        <div className={css.container}></div>
+        <div className={css.container}>
+          <Ourself />
+        </div>
       </section>
       <section className={css.section}>
         <div className={css.container}></div>
