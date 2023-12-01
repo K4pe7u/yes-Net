@@ -1,13 +1,11 @@
 .sellContainer {
-  background: url(../../image/individual.png);
-  background-position: center;
-  background-size: cover;
   display: flex;
   justify-content: space-around;
   padding: 0 48px;
+  background-color: rgba(90, 90, 90, 0.2);
 }
 .titleContainer {
-  color: black;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
