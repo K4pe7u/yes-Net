@@ -1,5 +1,6 @@
 import css from "./Home.module.css";
 import Header from "../../components/Header/Header";
+import Ourself from "../../components/Ourself/Ourself";
 
 function Home() {
   return (
@@ -13,7 +14,9 @@ function Home() {
         <div className={css.container}></div>
       </section>
       <section className={css.section}>
-        <div className={css.container}></div>
+        <div className={css.container}>
+          <Ourself />
+        </div>
       </section>
       <section className={css.section}>
         <div className={css.container}></div>
