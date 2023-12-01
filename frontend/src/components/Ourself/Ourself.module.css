@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+  padding: 0 20px;
 }
 
 .singleBlock {
@@ -50,102 +51,13 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    width: 100%;
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .singleBlock {
-    width: 100%;
-    background-color: #464753;
-    margin-top: 80px;
-    height: 300px;
-    border-radius: 25px;
-    position: relative;
-    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .iconBlock {
-    width: 90px;
-    height: 90px;
-    background-color: #b1b1b1;
-    position: absolute;
-    transform: translateX(-50%);
-    top: -20%;
-    left: 50%;
-    border-radius: 10px;
-    border: 4px solid #4e4e4e;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .infoBlock {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-  }
-
-  .info {
-    font-size: 24px;
-    text-align: center;
-    font-family: "poppins";
   }
 }
 
 @media screen and (min-width: 1200px) {
   .container {
-    width: 100%;
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
-  }
-
-  .singleBlock {
-    width: auto;
-    background-color: #464753;
-    margin-top: 80px;
-    height: 300px;
-    border-radius: 25px;
-    position: relative;
-    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .iconBlock {
-    width: 90px;
-    height: 90px;
-    background-color: #b1b1b1;
-    position: absolute;
-    transform: translateX(-50%);
-    top: -20%;
-    left: 50%;
-    border-radius: 10px;
-    border: 4px solid #4e4e4e;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .infoBlock {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-  }
-
-  .info {
-    font-size: 24px;
-    text-align: center;
-    font-family: "poppins";
   }
 }

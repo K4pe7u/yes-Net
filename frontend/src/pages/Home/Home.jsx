@@ -11,12 +11,12 @@ function Home() {
         </div>
       </section>
       <section className={css.section}>
+        <div className={css.container}></div>
+      </section>
+      <section className={css.section}>
         <div className={css.container}>
           <Ourself />
         </div>
-      </section>
-      <section className={css.section}>
-        <div className={css.container}></div>
       </section>
       <section className={css.section}>
         <div className={css.container}></div>
