@@ -1,0 +1,31 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: -350px; /* Początkowa pozycja po prawej stronie (schowane) */
+  height: 100%;
+  width: 350px; /* Szerokość paska menu */
+  background-color: #f0f0f0; /* Inny odcień tła */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow-x: hidden;
+  transition: right 0.3s ease; /* Animacja pojawiania się/znikania */
+}
+
+.open {
+  right: 0; /* Pozycja pojawionego paska menu (przesuniętego w lewo) */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  display: none; /* Ukrywamy na początku */
+}
+
+.open .overlay {
+  display: block; /* Po otwarciu menu pokazujemy overlay */
+}

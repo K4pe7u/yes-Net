@@ -1,24 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./Header.module.css";
-import planet from "../../icons/planet.svg";
-import yes from "../../icons/yes.svg";
-import net from "../../icons/net.svg";
-import menu from "../../icons/menu.svg";
+import icon from "../../icons/icons.svg";
+import Menu from "../Menu/Menu";
 
-function Header() {
+const Header = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const handleMenuClick = () => {
+    setOpenMenu(!openMenu);
+  };
+
   return (
     <div className={css.header}>
-      <div className={css.logo_container}>
-        <img src={planet} alt="geometric planet" width="120" />
-        <div className={css.logo_name}>
-          <img src={yes} alt="word yes" width="120" />
-          <img src={net} alt="word net" width="120" />
-        </div>
+      <svg
+        className={`${css.logo_icon}`}
+        width="120px"
+        height="90px"
+        fill="white"
+      >
+        <use href={`${icon}#logo`}></use>
+      </svg>
+
+      <div
+        className={`${css.menu_icon} ${openMenu ? css.menu_open : ""}`}
+        onClick={handleMenuClick}
+      >
+        <svg width="60px" height="45px" fill="white">
+          <use href={`${icon}#menu`}></use>
+        </svg>
       </div>
-      <div className={css.menu_container}>
-        <img src={menu} alt="hamburger" width="60" />
-      </div>
+
+      <Menu open={openMenu} onClose={() => setOpenMenu(false)} />
     </div>
   );
-}
+};
+
 export default Header;

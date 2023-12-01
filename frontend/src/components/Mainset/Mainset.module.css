@@ -1,0 +1,56 @@
+.sellContainer {
+  background: url(../../image/individual.png);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 48px;
+}
+.titleContainer {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.solution {
+  font-size: 124px;
+}
+
+.secondarySolution {
+  margin-top: -48px;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.optionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 68px;
+}
+
+.individualOption {
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid;
+  background: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.individualOption:hover {
+  background-color: rgba(84, 84, 84, 0.5);
+  color: #fff;
+}
+
+.companyOption {
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid;
+  background: none;
+}

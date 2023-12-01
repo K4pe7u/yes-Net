@@ -10,17 +10,130 @@ ul {
 
 .page {
   font-family: "Josefin Sans", sans-serif;
+
   color: #ffffff;
-  background-color: #33343f;
 }
 
 .section {
-  padding: 48px 0px;
-  border-bottom: 1px solid #f4a844;
+  padding: 0px;
+  border-bottom: 1px solid grey;
 }
 
 .container {
-  width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+}
+
+.gradientBackground__wrapper {
+  background: #141414;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.gradientBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(250px);
+  filter: blur(250px);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.gradientBackground__shape {
+  mix-blend-mode: lighten;
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  position: absolute;
+  border-radius: 100%;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.1, 0, 0.9, 1);
+  animation-timing-function: cubic-bezier(0.1, 0, 0.9, 1);
+}
+.gradientBackground__shape__1 {
+  bottom: 0;
+  left: 0;
+  width: 700px;
+  height: 700px;
+  background: #4f4f4f;
+  mix-blend-mode: lighten;
+  -webkit-transform: translate(-30%, 40%);
+  transform: translate(-30%, 40%);
+  -webkit-animation-name: gradientShapeAnimation1;
+  animation-name: gradientShapeAnimation1;
+}
+.gradientBackground__shape__2 {
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  background: #010030;
+  -webkit-transform: translate(20%, -40%);
+  transform: translate(20%, -40%);
+  -webkit-animation-name: gradientShapeAnimation2;
+  animation-name: gradientShapeAnimation2;
+}
+@keyframes gradientShapeAnimation1 {
+  0% {
+    -webkit-transform: translate(-30%, 40%) rotate(-20deg);
+    transform: translate(-30%, 40%) rotate(-20deg);
+  }
+
+  25% {
+    -webkit-transform: translate(0%, 20%) skew(-15deg, -15deg) rotate(80deg);
+    transform: translate(0%, 20%) skew(-15deg, -15deg) rotate(80deg);
+  }
+
+  50% {
+    -webkit-transform: translate(30%, -10%) rotate(180deg);
+    transform: translate(30%, -10%) rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: translate(-30%, 40%) skew(15deg, 15deg) rotate(240deg);
+    transform: translate(-30%, 40%) skew(15deg, 15deg) rotate(240deg);
+  }
+
+  100% {
+    -webkit-transform: translate(-30%, 40%) rotate(-20deg);
+    transform: translate(-30%, 40%) rotate(-20deg);
+  }
+}
+
+@keyframes gradientShapeAnimation2 {
+  0% {
+    -webkit-transform: translate(20%, -40%) rotate(-20deg);
+    transform: translate(20%, -40%) rotate(-20deg);
+  }
+
+  20% {
+    -webkit-transform: translate(0%, 0%) skew(-15deg, -15deg) rotate(80deg);
+    transform: translate(0%, 0%) skew(-15deg, -15deg) rotate(80deg);
+  }
+
+  40% {
+    -webkit-transform: translate(-40%, 50%) rotate(180deg);
+    transform: translate(-40%, 50%) rotate(180deg);
+  }
+
+  60% {
+    -webkit-transform: translate(-20%, -20%) skew(15deg, 15deg) rotate(80deg);
+    transform: translate(-20%, -20%) skew(15deg, 15deg) rotate(80deg);
+  }
+
+  80% {
+    -webkit-transform: translate(10%, -30%) rotate(180deg);
+    transform: translate(10%, -30%) rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: translate(20%, -40%) rotate(340deg);
+    transform: translate(20%, -40%) rotate(340deg);
+  }
 }
