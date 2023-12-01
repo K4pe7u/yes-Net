@@ -1,4 +1,10 @@
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridContainer {
   width: 100%;
   max-width: 1680px;
   display: grid;
@@ -50,13 +56,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .gridContainer {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .container {
+  .gridContainer {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
   }
