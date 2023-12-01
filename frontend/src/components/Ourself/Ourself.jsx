@@ -1,5 +1,5 @@
 import css from "./Ourself.module.css";
-import planet from "./assets/icons.svg";
+import icons from "./assets/icons.svg";
 
 function Ourself() {
   return (
@@ -7,7 +7,7 @@ function Ourself() {
       <section className={css.singleBlock}>
         <div className={css.iconBlock}>
           <svg width="90%" height="90%">
-            <use href={`${planet}#Hands`}></use>
+            <use href={`${icons}#Hands`}></use>
           </svg>
         </div>
         <div className={css.infoBlock}>
@@ -20,7 +20,7 @@ function Ourself() {
       <section className={css.singleBlock}>
         <div className={css.iconBlock}>
           <svg width="90%" height="90%">
-            <use href={`${planet}#Lock`}></use>
+            <use href={`${icons}#Lock`}></use>
           </svg>
         </div>
         <div className={css.infoBlock}>
@@ -33,21 +33,20 @@ function Ourself() {
       <section className={css.singleBlock}>
         <div className={css.iconBlock}>
           <svg width="90%" height="90%">
-            <use href={`${planet}#Planet`}></use>
+            <use href={`${icons}#Planet`}></use>
           </svg>
         </div>
         <div className={css.infoBlock}>
           <p className={css.info}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium dignissimos necessitatibus nulla sequi at, sed deserunt,
-            molestiae odit
+            Łączymy świat za pomocą niezawodnych usług internetowych na całym
+            świecie.
           </p>
         </div>
       </section>
       <section className={css.singleBlock}>
         <div className={css.iconBlock}>
           <svg width="90%" height="90%">
-            <use href={`${planet}#People`}></use>
+            <use href={`${icons}#People`}></use>
           </svg>
         </div>
         <div className={css.infoBlock}>
@@ -60,17 +59,20 @@ function Ourself() {
       <section className={css.singleBlock}>
         <div className={css.iconBlock}>
           <svg width="90%" height="90%">
-            <use href={`${planet}#Cloud`}></use>
+            <use href={`${icons}#Cloud`}></use>
           </svg>
         </div>
         <div className={css.infoBlock}>
-          <p className={css.info}>something</p>
+          <p className={css.info}>
+            Łącząc świat płynnie, nasze usługi internetowe przekraczają granice,
+            zamieniając cały świat w cyfrowy plac zabaw.
+          </p>
         </div>
       </section>
       <section className={css.singleBlock}>
         <div className={css.iconBlock}>
           <svg width="90%" height="90%">
-            <use href={`${planet}#Eye`}></use>
+            <use href={`${icons}#Eye`}></use>
           </svg>
         </div>
         <div className={css.infoBlock}>
