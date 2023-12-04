@@ -4,10 +4,10 @@ import icon from "../../icons/icons.svg";
 import Menu from "../Menu/Menu";
 
 const Header = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const handleMenuClick = () => {
-    setOpenMenu(!openMenu);
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -20,17 +20,13 @@ const Header = () => {
       >
         <use href={`${icon}#logo`}></use>
       </svg>
+      <Menu open={isMenuOpen} onClose={toggleMenu} />
 
-      <div
-        className={`${css.menu_icon} ${openMenu ? css.menu_open : ""}`}
-        onClick={handleMenuClick}
-      >
-        <svg width="60px" height="45px" fill="white">
-          <use href={`${icon}#menu`}></use>
-        </svg>
+      <div className={css.menu} onClick={toggleMenu}>
+        <div className={css.menu_icon}></div>
+        <div className={css.menu_icon}></div>
+        <div className={css.menu_icon}></div>
       </div>
-
-      <Menu open={openMenu} onClose={() => setOpenMenu(false)} />
     </div>
   );
 };

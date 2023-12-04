@@ -1,31 +1,81 @@
 .menu {
-  position: fixed;
-  top: 0;
-  right: -350px; /* Początkowa pozycja po prawej stronie (schowane) */
   height: 100%;
-  width: 350px; /* Szerokość paska menu */
-  background-color: #f0f0f0; /* Inny odcień tła */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  width: 0;
+  background: #333;
   overflow-x: hidden;
-  transition: right 0.3s ease; /* Animacja pojawiania się/znikania */
+  transition: 0.5s;
+  z-index: 1;
 }
 
-.open {
-  right: 0; /* Pozycja pojawionego paska menu (przesuniętego w lewo) */
+.menu.open {
+  width: 70%;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 999;
-  display: none; /* Ukrywamy na początku */
+.menu ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 8px 20px;
+  margin: 0;
+  gap: 12px;
 }
 
-.open .overlay {
-  display: block; /* Po otwarciu menu pokazujemy overlay */
+.menu ul li {
+  padding: 4px 10px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu ul li:hover {
+  background-color: rgba(84, 84, 84, 0.6);
+  color: #fff;
+}
+
+.menu ul li::after {
+  content: "";
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu ul li:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 2;
+}
+.tooltip span {
+  margin-left: 8px;
+  cursor: pointer;
 }
