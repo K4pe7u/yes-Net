@@ -18,6 +18,7 @@ function Promotion() {
         <div className={css.rectangleItem}></div>
         <div className={css.rectangleItem}></div>
         <div className={css.rectangleItem}></div>
+        <div className={css.rectangleItem}></div>
       </section>
     </div>
   );
