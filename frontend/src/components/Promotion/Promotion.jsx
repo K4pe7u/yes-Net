@@ -7,7 +7,10 @@ function Promotion() {
   const minutesRef = useRef(null);
   const secondsRef = useRef(null);
 
-  let timeLeft = 7689600000;
+  const startDate = new Date();
+  const endDate = new Date(2024, 1, 1);
+
+  let timeLeft = endDate - startDate;
 
   function convertMs(ms) {
     const second = 1000;
