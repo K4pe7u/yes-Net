@@ -3,6 +3,7 @@ import css from "./Home.module.css";
 import Header from "../../components/Header/Header";
 import Mainset from "../../components/Mainset/Mainset";
 import Ourself from "../../components/Ourself/Ourself";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
   return (
@@ -39,7 +40,9 @@ function Home() {
         <div className={css.container}></div>
       </section>
       <section className={css.section}>
-        <div className={css.container}></div>
+        <div className={css.container}>
+          <Footer />
+        </div>
       </section>
     </div>
   );
