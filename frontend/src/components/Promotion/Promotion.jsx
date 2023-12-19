@@ -1,7 +1,10 @@
 import css from "./Promotion.module.css";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
+import DialogWindow from "./assets/DialogWindow";
 
 function Promotion() {
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+
   const daysRef = useRef(null);
   const hoursRef = useRef(null);
   const minutesRef = useRef(null);
@@ -57,77 +60,90 @@ function Promotion() {
     }, 1000);
   }
 
+  function changeStateOfWindow() {
+    setIsMoreOpen(!isMoreOpen);
+  }
+
+  function handleClose() {
+    setIsMoreOpen(!isMoreOpen);
+  }
+
   useEffect(() => {
     startCountDown();
   }, []);
   return (
-    <section className={css.allIn}>
-      <div className={css.bGcontainer}>
-        <div className={css.streetLamps}>
-          <div className={css.streetLamp}></div>
-          <div className={css.streetLamp}></div>
-          <div className={css.streetLamp}></div>
-          <div className={css.streetLamp}></div>
-          <div className={css.streetLamp}></div>
-        </div>
-
-        <div className={css.carsIncoming}>
-          <div className={css.car}></div>
-          <div className={css.car}></div>
-          <div className={css.car}></div>
-          <span className={css.reflect}></span>
-          <span className={css.reflect}></span>
-          <span className={css.reflect}></span>
-        </div>
-
-        <div className={css.carsGoing}>
-          <div className={css.car}></div>
-          <span className={css.reflect}></span>
-        </div>
-
-        <div className={css.carsGoingFlash}>
-          <div className={css.car}></div>
-          <span className={css.reflect}></span>
-        </div>
-
-        <div className={css.cityLights}>
-          <div className={css.light}></div>
-          <div className={css.light}></div>
-          <div className={css.light}></div>
-          <div className={css.light}></div>
-          <div className={css.light}></div>
-        </div>
-      </div>
-      <div className={css.container}>
-        <div className={css.rectangleTimer}>
-          <div className={css.field}>
-            <span className={css.value} ref={daysRef}>
-              00
-            </span>
-            <span className={css.label}>D</span>
+    <>
+      <section className={css.allIn}>
+        <div className={css.bGcontainer}>
+          <div className={css.streetLamps}>
+            <div className={css.streetLamp}></div>
+            <div className={css.streetLamp}></div>
+            <div className={css.streetLamp}></div>
+            <div className={css.streetLamp}></div>
+            <div className={css.streetLamp}></div>
           </div>
-          <div className={css.field}>
-            <span className={css.value} ref={hoursRef}>
-              00
-            </span>
-            <span className={css.label}>H</span>
+
+          <div className={css.carsIncoming}>
+            <div className={css.car}></div>
+            <div className={css.car}></div>
+            <div className={css.car}></div>
+            <span className={css.reflect}></span>
+            <span className={css.reflect}></span>
+            <span className={css.reflect}></span>
           </div>
-          <div className={css.field}>
-            <span className={css.value} ref={minutesRef}>
-              00
-            </span>
-            <span className={css.label}>M</span>
+
+          <div className={css.carsGoing}>
+            <div className={css.car}></div>
+            <span className={css.reflect}></span>
           </div>
-          <div className={css.field}>
-            <span className={css.value} ref={secondsRef}>
-              00
-            </span>
-            <span className={css.label}>S</span>
+
+          <div className={css.carsGoingFlash}>
+            <div className={css.car}></div>
+            <span className={css.reflect}></span>
+          </div>
+
+          <div className={css.cityLights}>
+            <div className={css.light}></div>
+            <div className={css.light}></div>
+            <div className={css.light}></div>
+            <div className={css.light}></div>
+            <div className={css.light}></div>
           </div>
         </div>
-        <button className={css.promotionBtn}>More</button>
-      </div>
-    </section>
+        <div className={css.container}>
+          <div className={css.rectangleTimer}>
+            <div className={css.field}>
+              <span className={css.value} ref={daysRef}>
+                00
+              </span>
+              <span className={css.label}>D</span>
+            </div>
+            <div className={css.field}>
+              <span className={css.value} ref={hoursRef}>
+                00
+              </span>
+              <span className={css.label}>H</span>
+            </div>
+            <div className={css.field}>
+              <span className={css.value} ref={minutesRef}>
+                00
+              </span>
+              <span className={css.label}>M</span>
+            </div>
+            <div className={css.field}>
+              <span className={css.value} ref={secondsRef}>
+                00
+              </span>
+              <span className={css.label}>S</span>
+            </div>
+          </div>
+          <button className={css.promotionBtn} onClick={changeStateOfWindow}>
+            More
+          </button>
+        </div>
+      </section>
+      <DialogWindow isOpen={isMoreOpen} closeFunc={handleClose}></DialogWindow>
+    </>
   );
 }
 
