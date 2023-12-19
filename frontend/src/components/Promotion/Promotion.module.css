@@ -1,0 +1,397 @@
+@import url("https://fonts.googleapis.com/css2?family=Dhurjati&family=Roboto+Condensed:wght@900&family=Roboto+Slab:wght@300&family=Roboto:wght@500&display=swap");
+
+.container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 4;
+}
+
+.promotionBtn {
+  width: 130px;
+  height: 50px;
+  background-color: #334;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  transition: background-color 0.3s;
+}
+
+.promotionBtn:hover {
+  background-color: rgb(51, 70, 68);
+  cursor: pointer;
+}
+
+.rectangleTimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 80px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6b6b, #43e97b);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* BREAKKKKKKKKKKKKKKKKKKKKKK */
+
+.bGcontainer,
+.bGcontainer > *,
+.bGcontainer .streetLamps .streetLamp,
+.bGcontainer .carsIncoming .car,
+.bGcontainer .carsIncoming .reflect,
+.bGcontainer .carsGoing .car,
+.bGcontainer .carsGoingFlash .car,
+.bGcontainer .carsGoing .reflect,
+.bGcontainer .carsGoingFlash .reflect,
+.bGcontainer .cityLights .light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+.bGcontainer,
+.bGcontainer > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.bGcontainer .streetLamps .streetLamp::before,
+.bGcontainer .carsIncoming .car::before,
+.bGcontainer .carsIncoming .reflect::before,
+.bGcontainer .carsGoing .car::before,
+.bGcontainer .carsGoingFlash .car::before,
+.bGcontainer .carsGoing .reflect::before,
+.bGcontainer .carsGoingFlash .reflect::before,
+.bGcontainer .cityLights .light::before,
+.bGcontainer .streetLamps .streetLamp::after,
+.bGcontainer .carsIncoming .car::after,
+.bGcontainer .carsIncoming .reflect::after,
+.bGcontainer .carsGoing .car::after,
+.bGcontainer .carsGoingFlash .car::after,
+.bGcontainer .carsGoing .reflect::after,
+.bGcontainer .carsGoingFlash .reflect::after,
+.bGcontainer .cityLights .light::after {
+  mask-image: radial-gradient(
+    closest-side,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.8) 75%,
+    white
+  );
+}
+.bGcontainer .streetLamps .streetLamp,
+.bGcontainer .carsIncoming .car,
+.bGcontainer .carsIncoming .reflect,
+.bGcontainer .carsGoing .car,
+.bGcontainer .carsGoingFlash .car,
+.bGcontainer .carsGoing .reflect,
+.bGcontainer .carsGoingFlash .reflect,
+.bGcontainer .cityLights .light {
+  display: block;
+  width: var(--width);
+  height: var(--size);
+  position: absolute;
+  animation: move var(--speed) linear infinite forwards;
+  filter: blur(2px);
+}
+.bGcontainer .streetLamps .streetLamp::before,
+.bGcontainer .carsIncoming .car::before,
+.bGcontainer .carsIncoming .reflect::before,
+.bGcontainer .carsGoing .car::before,
+.bGcontainer .carsGoingFlash .car::before,
+.bGcontainer .carsGoing .reflect::before,
+.bGcontainer .carsGoingFlash .reflect::before,
+.bGcontainer .cityLights .light::before,
+.bGcontainer .streetLamps .streetLamp::after,
+.bGcontainer .carsIncoming .car::after,
+.bGcontainer .carsIncoming .reflect::after,
+.bGcontainer .carsGoing .car::after,
+.bGcontainer .carsGoingFlash .car::after,
+.bGcontainer .carsGoing .reflect::after,
+.bGcontainer .carsGoingFlash .reflect::after,
+.bGcontainer .cityLights .light::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: currentColor;
+}
+.bGcontainer .streetLamps .streetLamp::before,
+.bGcontainer .carsIncoming .car::before,
+.bGcontainer .carsIncoming .reflect::before,
+.bGcontainer .carsGoing .car::before,
+.bGcontainer .carsGoingFlash .car::before,
+.bGcontainer .carsGoing .reflect::before,
+.bGcontainer .carsGoingFlash .reflect::before,
+.bGcontainer .cityLights .light::before {
+  left: 0;
+}
+.bGcontainer .streetLamps .streetLamp::after,
+.bGcontainer .carsIncoming .car::after,
+.bGcontainer .carsIncoming .reflect::after,
+.bGcontainer .carsGoing .car::after,
+.bGcontainer .carsGoingFlash .car::after,
+.bGcontainer .carsGoing .reflect::after,
+.bGcontainer .carsGoingFlash .reflect::after,
+.bGcontainer .cityLights .light::after {
+  right: 0;
+}
+
+.allIn {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(to bottom, #334, #111);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bGcontainer {
+  --scale: 0.7;
+  transform: scale(var(--scale));
+  perspective: 100rem;
+  animation: bump 5s linear 3s infinite forwards;
+  opacity: 0.4;
+}
+.bGcontainer,
+.bGcontainer * {
+  transform-style: preserve-3d;
+}
+.bGcontainer .streetLamps .streetLamp {
+  --size: 28rem;
+  --width: 80rem;
+  --startZ: -1000rem;
+  --endZ: 100rem;
+  --speed: 10s;
+  --size-mod: 0.4;
+  color: #ffde6b;
+  margin-top: -50rem;
+  margin-left: -15rem;
+}
+.bGcontainer .streetLamps .streetLamp:nth-of-type(1) {
+  animation-delay: -2s;
+}
+.bGcontainer .streetLamps .streetLamp:nth-of-type(2) {
+  animation-delay: -4s;
+}
+.bGcontainer .streetLamps .streetLamp:nth-of-type(3) {
+  animation-delay: -6s;
+}
+.bGcontainer .streetLamps .streetLamp:nth-of-type(4) {
+  animation-delay: -8s;
+}
+.bGcontainer .streetLamps .streetLamp:nth-of-type(5) {
+  animation-delay: -10s;
+}
+.bGcontainer .carsIncoming .car,
+.bGcontainer .carsIncoming .reflect {
+  --size: 24rem;
+  --width: 20rem;
+  --startZ: -1000rem;
+  --endZ: 100rem;
+  --speed: 3s;
+  --size-mod: 0.4;
+  color: white;
+  margin-top: 16rem;
+  margin-left: -90rem;
+}
+.bGcontainer .carsIncoming .car:nth-last-of-type(2),
+.bGcontainer .carsIncoming .reflect:nth-last-of-type(2) {
+  --speed: 3s;
+  color: white;
+  animation-delay: -0.5s;
+  --width: 22rem;
+  margin-left: -140rem;
+  margin-top: 18rem;
+}
+.bGcontainer .carsIncoming .car:nth-last-of-type(3),
+.bGcontainer .carsIncoming .reflect:nth-last-of-type(3) {
+  animation-delay: -1.8s;
+  margin-top: 15rem;
+  color: white;
+}
+.bGcontainer .carsGoing .car,
+.bGcontainer .carsGoingFlash .car,
+.bGcontainer .carsGoing .reflect,
+.bGcontainer .carsGoingFlash .reflect {
+  --size: 20rem;
+  --width: 20rem;
+  --startZ: -1000rem;
+  --endZ: 100rem;
+  --speed: 12s;
+  --size-mod: 0.4;
+  color: #ff4d22;
+  margin-top: 16rem;
+  margin-left: 50rem;
+}
+.bGcontainer .carsGoingFlash .car,
+.bGcontainer .carsGoingFlash .reflect {
+  color: #ffbf3a;
+  --width: 24rem;
+  --aproach-alpha: 0.5;
+  animation-name: move, approach2 !important;
+}
+.bGcontainer .carsGoingFlash .car::before,
+.bGcontainer .carsGoingFlash .reflect::before {
+  display: none;
+}
+.bGcontainer .carsGoingFlash .car::after,
+.bGcontainer .carsGoingFlash .reflect::after {
+  animation: flash 1s infinite linear forwards;
+}
+.bGcontainer .carsGoingFlash .reflect {
+  --aproach-alpha: 0.1;
+}
+.bGcontainer .cityLights .light {
+  --size: 28rem;
+  --width: 200rem;
+  --startZ: -1000rem;
+  --endZ: 100rem;
+  --speed: 10s;
+  --opacity: 0.2;
+  color: #9adeff;
+  margin-top: -30rem;
+  margin-left: -15rem;
+}
+.bGcontainer .cityLights .light:nth-child(1) {
+  color: #9adeff;
+}
+.bGcontainer .cityLights .light:nth-child(1)::after {
+  display: none;
+}
+.bGcontainer .cityLights .light:nth-child(2) {
+  --width: 220rem;
+  animation-delay: -2s;
+  color: #d7ad52;
+  margin-top: -40rem;
+}
+.bGcontainer .cityLights .light:nth-child(2)::after {
+  display: none;
+}
+.bGcontainer .cityLights .light:nth-child(3) {
+  --width: 210rem;
+  animation-delay: -3.4s;
+  color: #d7ad52;
+  margin-top: -40rem;
+}
+.bGcontainer .cityLights .light:nth-child(3)::before {
+  display: none;
+}
+.bGcontainer .cityLights .light:nth-child(4) {
+  --width: 180rem;
+  animation-delay: -5s;
+  color: #8fbaff;
+  margin-top: -40rem;
+}
+.bGcontainer .cityLights .light:nth-child(4)::before {
+  display: none;
+}
+.bGcontainer .cityLights .light:nth-child(5) {
+  --width: 190rem;
+  animation-delay: -7.5s;
+  color: #d7ad52;
+  margin-top: -40rem;
+}
+.bGcontainer .cityLights .light:nth-child(5)::after {
+  display: none;
+}
+.bGcontainer .reflect {
+  --opacity: 0.2 !important;
+  margin-top: 32rem !important;
+  filter: blur(50px) !important;
+  animation-name: move, approach !important;
+}
+@keyframes move {
+  0% {
+    transform: translateZ(var(--startZ)) rotateX(var(--rotX, 0deg));
+    opacity: 0;
+  }
+  50% {
+    opacity: calc(var(--opacity, 0.7) * 0.75);
+  }
+  100% {
+    opacity: var(--opacity, 0.7);
+    transform: translateZ(var(--endZ)) rotateX(var(--rotX, 0deg));
+    height: calc(var(--size) * var(--size-mod, 0.5));
+  }
+}
+@keyframes approach {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  75% {
+    opacity: var(--aproach-alpha, 0.1);
+  }
+}
+@keyframes approach2 {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  61% {
+    opacity: var(--aproach-alpha, 0.1);
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes bump {
+  0% {
+    transform: translateY(0px) scale(var(--scale));
+  }
+  10% {
+    transform: translateY(2px) scale(var(--scale));
+  }
+  20% {
+    transform: translateY(-1px) scale(var(--scale));
+  }
+  25% {
+    transform: translateY(2px) scale(var(--scale));
+  }
+  31% {
+    transform: translateY(-1px) scale(var(--scale));
+  }
+  49% {
+    transform: translateY(0px) scale(var(--scale));
+  }
+  60% {
+    transform: translateY(0px) scale(var(--scale));
+  }
+  90% {
+    transform: translateY(1px) scale(var(--scale));
+  }
+  100% {
+    transform: translateY(0px) scale(var(--scale));
+  }
+}

@@ -43,6 +43,10 @@
   align-items: center;
 }
 
+.iconBlock svg {
+  fill: #fff;
+}
+
 .infoBlock {
   display: flex;
   justify-content: center;
