@@ -1,0 +1,10 @@
+.googleMap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.googleMap iframe {
+  --width: 60%;
+  width: var(--width);
+  height: 32vw;
+}

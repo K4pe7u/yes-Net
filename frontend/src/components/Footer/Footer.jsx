@@ -1,5 +1,4 @@
 import React from "react";
-import css from "./Footer.module.css";
 import Contact from "./Contact/Contact";
 import GoogleMap from "./GoogleMap/GoogleMap";
 import Footnote from "./Footnote/Footnote";
@@ -7,13 +6,13 @@ import Footnote from "./Footnote/Footnote";
 const Footer = () => {
   return (
     <div>
-      <div className={css.contactFooter}>
+      <div>
         <Contact />
       </div>
-      <div className={css.googleMapFooter}>
+      <div>
         <GoogleMap />
       </div>
-      <div className={css.footnoteFooter}>
+      <div>
         <Footnote />
       </div>
     </div>

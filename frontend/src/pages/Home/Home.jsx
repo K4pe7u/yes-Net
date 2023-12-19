@@ -5,6 +5,7 @@ import Mainset from "../../components/Mainset/Mainset";
 import Ourself from "../../components/Ourself/Ourself";
 import Footer from "../../components/Footer/Footer";
 import Promotion from "../../components/Promotion/Promotion";
+import News from "../../components/News/News";
 
 function Home() {
   return (
@@ -40,7 +41,9 @@ function Home() {
         </div>
       </section>
       <section className={css.section}>
-        <div className={css.container}></div>
+        <div className={css.container}>
+          <News />
+        </div>
       </section>
       <section className={css.section}>
         <div className={css.container}>
