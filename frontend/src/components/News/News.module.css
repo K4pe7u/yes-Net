@@ -1,0 +1,125 @@
+.newsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsList {
+}
+
+.newsHeading {
+  text-align: center;
+  margin: 60px 0px 80px 0px;
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.newsItems {
+  display: flex;
+  gap: 16px;
+  transform: skew(-15deg);
+}
+
+.newsItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 60px;
+  width: 300px;
+  height: 240px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgb(168, 168, 163);
+  transition: background-color 0.3s ease;
+}
+
+.newsItem:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.title {
+  font-size: 24px;
+}
+.date {
+  font-size: 18px;
+  color: #888;
+}
+
+.newsDetails {
+  max-width: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  border: #888 1px solid;
+  margin-bottom: 60px;
+  padding: 0px 20px;
+}
+
+.newsDetailTitle {
+}
+
+.newsDetailContent {
+}
+
+.newsDetailDate {
+  font-style: italic;
+  color: #888;
+}
+
+.noNewsSelected {
+  font-style: italic;
+  color: #888;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.pageButton {
+  padding: 8px 16px;
+  margin: 0 5px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pageButton:hover {
+  background-color: #2980b9;
+}
+
+.pageButton:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.pageButtonDisabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.pageButton.activePage {
+  background-color: #2c3e50;
+}
+
+.pageButton.rotate {
+  animation: rotateAnimation 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
