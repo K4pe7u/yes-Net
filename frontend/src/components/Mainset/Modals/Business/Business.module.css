@@ -1,0 +1,45 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+label {
+  margin-bottom: 10px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.formPartOne {
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
+}
+.formPartId {
+  max-width: 20%;
+  align-items: flex-start;
+}

@@ -24,7 +24,7 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(-6px); /* Pulsacja w lewo */
+    transform: translateX(-6px);
   }
   100% {
     transform: translateX(0);

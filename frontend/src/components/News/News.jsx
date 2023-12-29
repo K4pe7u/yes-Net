@@ -18,8 +18,10 @@ const News = () => {
   };
 
   const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-    setCurrentNews(null);
+    if (typeof newPage === "number" && newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+      setCurrentNews(null);
+    }
   };
 
   const paginatedNews = newsData.slice(
@@ -72,14 +74,14 @@ const News = () => {
       <div className={css.pagination}>
         <button
           disabled={currentPage === 1}
-          onClick={() => handlePageChange(1)}
+          onClick={() => handlePageChange(currentPage - 1)}
           className={
             currentPage === 1
               ? `${css.pageButton} ${css.activePage}`
               : css.pageButton
           }
         >
-          {"<<"}
+          {"<"}
         </button>
 
         {getPageNumbers().map((page, index) => (
@@ -91,6 +93,7 @@ const News = () => {
                 ? `${css.pageButton} ${css.activePage}`
                 : css.pageButton
             }
+            disabled={page === "..."}
           >
             {page}
           </button>
@@ -98,14 +101,14 @@ const News = () => {
 
         <button
           disabled={currentPage === totalPages}
-          onClick={() => handlePageChange(totalPages)}
+          onClick={() => handlePageChange(currentPage + 1)}
           className={
             currentPage === totalPages
               ? `${css.pageButton} ${css.activePage}`
               : css.pageButton
           }
         >
-          {">>"}
+          {">"}
         </button>
       </div>
     );
