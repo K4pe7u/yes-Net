@@ -41,4 +41,5 @@
 
 .modalContent {
   padding: 24px 0px;
+  overflow: auto;
 }
