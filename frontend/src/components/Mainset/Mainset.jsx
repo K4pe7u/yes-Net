@@ -26,14 +26,16 @@ const Mainset = () => {
           type="button"
           className={css.individualOption}
         >
-          Rozwiązania indywidualne
+          <span className={css.highlight2}></span>
+          <span className={css.buttonText2}>Rozwiązania indywidualne</span>
         </button>
         <button
           onClick={() => openModal("business")}
           type="button"
           className={css.companyOption}
         >
-          Rozwiązania dla firmy
+          <span className={css.highlight}></span>
+          <span className={css.buttonText}>Rozwiązania dla firmy</span>
         </button>
       </div>
 

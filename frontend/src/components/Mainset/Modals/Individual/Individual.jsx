@@ -60,7 +60,7 @@ const IndividualModal = ({ onClose }) => {
   return (
     <Modal onClose={onClose}>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className={css.formPartOne}>
           <label>
             Imię:
             <input
@@ -89,100 +89,110 @@ const IndividualModal = ({ onClose }) => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className={css.addressLabel}>
           Adres:
-          <input
-            type="text"
-            name="address.street"
-            value={formData.address.street}
-            onChange={handleChange}
-            placeholder="Ulica"
-          />
-          <input
-            type="text"
-            name="address.houseNumber"
-            value={formData.address.houseNumber}
-            onChange={handleChange}
-            placeholder="Nr Domu"
-          />
-          <input
-            type="text"
-            name="address.flatNumber"
-            value={formData.address.flatNumber}
-            onChange={handleChange}
-            placeholder="Nr Lokalu"
-          />
-          <input
-            type="text"
-            name="address.city"
-            value={formData.address.city}
-            onChange={handleChange}
-            placeholder="Miejscowość"
-          />
-          <input
-            type="text"
-            name="address.postalCode"
-            value={formData.address.postalCode}
-            onChange={handleChange}
-            placeholder="Kod Pocztowy"
-          />
+          <div className={css.formPartSecond}>
+            <input
+              type="text"
+              name="address.street"
+              value={formData.address.street}
+              onChange={handleChange}
+              placeholder="Ulica"
+            />
+            <input
+              type="text"
+              name="address.houseNumber"
+              value={formData.address.houseNumber}
+              onChange={handleChange}
+              placeholder="Nr Domu"
+            />
+            <input
+              type="text"
+              name="address.flatNumber"
+              value={formData.address.flatNumber}
+              onChange={handleChange}
+              placeholder="Nr Lokalu"
+            />
+          </div>
+          <div className={css.formPartThird}>
+            <input
+              type="text"
+              name="address.city"
+              value={formData.address.city}
+              onChange={handleChange}
+              placeholder="Miejscowość"
+            />
+            <input
+              type="text"
+              name="address.postalCode"
+              value={formData.address.postalCode}
+              onChange={handleChange}
+              placeholder="Kod Pocztowy"
+            />
+          </div>
         </label>
         <label>
           Adres instalacji:
-          <input
-            type="text"
-            name="installationAddress.street"
-            value={formData.installationAddress.street}
-            onChange={handleChange}
-            placeholder="Ulica"
-          />
-          <input
-            type="text"
-            name="installationAddress.houseNumber"
-            value={formData.installationAddress.houseNumber}
-            onChange={handleChange}
-            placeholder="Nr Domu"
-          />
-          <input
-            type="text"
-            name="installationAddress.flatNumber"
-            value={formData.installationAddress.flatNumber}
-            onChange={handleChange}
-            placeholder="Nr Lokalu"
-          />
-          <input
-            type="text"
-            name="installationAddress.city"
-            value={formData.installationAddress.city}
-            onChange={handleChange}
-            placeholder="Miejscowość"
-          />
-          <input
-            type="text"
-            name="installationAddress.postalCode"
-            value={formData.installationAddress.postalCode}
-            onChange={handleChange}
-            placeholder="Kod Pocztowy"
-          />
+          <div className={css.formPartSecond}>
+            <input
+              type="text"
+              name="installationAddress.street"
+              value={formData.installationAddress.street}
+              onChange={handleChange}
+              placeholder="Ulica"
+            />
+            <input
+              type="text"
+              name="installationAddress.houseNumber"
+              value={formData.installationAddress.houseNumber}
+              onChange={handleChange}
+              placeholder="Nr Domu"
+            />
+            <input
+              type="text"
+              name="installationAddress.flatNumber"
+              value={formData.installationAddress.flatNumber}
+              onChange={handleChange}
+              placeholder="Nr Lokalu"
+            />
+          </div>
+          <div className={css.formPartThird}>
+            <input
+              type="text"
+              name="installationAddress.city"
+              value={formData.installationAddress.city}
+              onChange={handleChange}
+              placeholder="Miejscowość"
+            />
+            <input
+              type="text"
+              name="installationAddress.postalCode"
+              value={formData.installationAddress.postalCode}
+              onChange={handleChange}
+              placeholder="Kod Pocztowy"
+            />
+          </div>
         </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Telefon:
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-          />
-        </label>
+        <div className={css.formPartOne}>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Telefon:
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
         <label>
           Pakiety:
           <select

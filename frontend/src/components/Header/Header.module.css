@@ -2,7 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 48px;
+  padding: 12px 48px;
+}
+
+.logo_icon {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 0.2;
 }
 
 .menu {
@@ -40,7 +46,7 @@
   transition: background-color 0.3s, transform 0.3s, opacity 0.3s, width 0.3s;
 }
 .menu:hover .menu_icon {
-  background-color: rgb(0, 136, 255);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .menu:hover .menu_icon:nth-child(1) {
@@ -55,4 +61,8 @@
 
 .menu:hover .menu_icon:nth-child(3) {
   transform: translateY(-1.5px) rotate(30deg);
+}
+
+.menu:hover {
+  animation: pulse 1.2s infinite;
 }

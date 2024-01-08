@@ -12,12 +12,7 @@ const Header = () => {
 
   return (
     <div className={css.header}>
-      <svg
-        className={`${css.logo_icon}`}
-        width="120px"
-        height="90px"
-        fill="white"
-      >
+      <svg className={`${css.logo_icon}`} width="120px" height="90px">
         <use href={`${icon}#logo`}></use>
       </svg>
       <Menu open={isMenuOpen} onClose={toggleMenu} />

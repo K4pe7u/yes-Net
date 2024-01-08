@@ -36,15 +36,18 @@
   border: none;
   background: none;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.4s ease, color 0.4s ease;
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   position: relative;
   overflow: hidden;
 }
 
-.menu ul li:hover {
-  background-color: rgba(84, 84, 84, 0.6);
-  color: #fff;
+.envelop {
+  transition: fill 0.4s ease;
+}
+
+.envelop:hover {
+  fill: rgb(31 41 55);
 }
 
 .menu ul li::after {
