@@ -18,9 +18,21 @@ const Header = () => {
       <Menu open={isMenuOpen} onClose={toggleMenu} />
 
       <div className={css.menu} onClick={toggleMenu}>
-        <div className={css.menu_icon}></div>
-        <div className={css.menu_icon}></div>
-        <div className={css.menu_icon}></div>
+        <div
+          className={`${css.menu_icon} ${
+            isMenuOpen ? css.menu_icon_close : css.menu_icon_open
+          }`}
+        ></div>
+        <div
+          className={`${css.menu_icon} ${
+            isMenuOpen ? css.menu_icon_close : css.menu_icon_open
+          }`}
+        ></div>
+        <div
+          className={`${css.menu_icon} ${
+            isMenuOpen ? css.menu_icon_close : css.menu_icon_open
+          }`}
+        ></div>
       </div>
     </div>
   );
