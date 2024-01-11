@@ -9,9 +9,9 @@ const Menu = ({ open, onClose }) => {
   };
   return (
     <>
-      {open && (
+      {
         <>
-          <div className={`${css.menu} ${open ? css.open : ""}`}>
+          <div className={`${css.menu} ${open ? css.open : css.close}`}>
             <ul>
               <li>Karmel</li>
               <li>Ciastko</li>
@@ -56,7 +56,7 @@ const Menu = ({ open, onClose }) => {
             </div>
           )}
         </>
-      )}
+      }
     </>
   );
 };

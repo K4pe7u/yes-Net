@@ -3,17 +3,27 @@
   width: 0;
   background: #333;
   overflow-x: hidden;
-  transition: 0.5s;
   z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  transition: opacity 0.5s;
 }
 
-.menu.open {
+.open {
+  opacity: 1;
   width: 70%;
   border: none;
   border-radius: 8px;
   background-color: transparent;
-  display: flex;
-  justify-content: space-between;
+}
+
+.close {
+  width: 70%;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .menu ul {
@@ -40,6 +50,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   position: relative;
   overflow: hidden;
+  user-select: none;
 }
 
 .menu ul li:hover {
