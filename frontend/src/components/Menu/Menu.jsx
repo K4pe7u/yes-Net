@@ -12,6 +12,11 @@ const Menu = ({ open, onClose }) => {
       {
         <>
           <div className={`${css.menu} ${open ? css.open : css.close}`}>
+            <div className={css.arrow}>
+              <div className={css.arrow_icon}></div>
+              <div className={css.arrow_icon}></div>
+              <div className={css.arrow_icon}></div>
+            </div>
             <ul>
               <li>Karmel</li>
               <li>Ciastko</li>
