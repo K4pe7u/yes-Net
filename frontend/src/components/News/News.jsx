@@ -118,18 +118,21 @@ const News = () => {
     <div className={css.newsContainer}>
       <div className={css.newsList}>
         <h2 className={css.newsHeading}>Informator Sieci</h2>
-        <ul className={css.newsItems}>
+        <div className={css.newsItems}>
           {paginatedNews.map((news) => (
-            <li
+            <div
               key={news.id}
               className={css.newsItem}
               onClick={() => handleNewsClick(news.id)}
             >
-              <div className={css.title}>{news.title}</div>
-              <div className={css.date}>{news.date}</div>
-            </li>
+              <span className={css.glow}></span>
+              <div className={css.informationContainer}>
+                <span className={css.title}>{news.title}</span>
+                <span className={css.date}>{news.date}</span>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       {renderPagination()}
       <div className={css.newsDetails}>
