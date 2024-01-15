@@ -9,4 +9,5 @@
   --width: 60%;
   width: var(--width);
   height: 32vw;
+  margin-top: 32px;
 }
