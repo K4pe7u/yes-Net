@@ -4,9 +4,12 @@
   align-items: center;
   border-bottom: 1px solid grey;
   padding-bottom: 64px;
+  background-color: rgba(90, 90, 90, 0.2);
 }
 .googleMap iframe {
   --width: 60%;
   width: var(--width);
   height: 32vw;
+  margin-top: 32px;
+  border-radius: 12px;
 }

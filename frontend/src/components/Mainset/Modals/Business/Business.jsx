@@ -59,20 +59,22 @@ const BusinessModal = ({ onClose }) => {
 
   return (
     <Modal onClose={onClose}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={css.formMainSet}>
         <div className={css.formPartOne}>
-          <label>
+          <label className={css.labelMainSet}>
             Imię:
             <input
+              className={css.inputMainSet}
               type="text"
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
             />
           </label>
-          <label>
+          <label className={css.labelMainSet}>
             Nazwisko:
             <input
+              className={css.inputMainSet}
               type="text"
               name="lastName"
               value={formData.lastName}
@@ -83,15 +85,17 @@ const BusinessModal = ({ onClose }) => {
         <label className={css.formPartId}>
           NIP:
           <input
+            className={css.inputMainSet}
             type="text"
             name="nip"
             value={formData.nip}
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className={css.labelMainSet}>
           Adres:
           <input
+            className={css.inputMainSet}
             type="text"
             name="address.street"
             value={formData.address.street}
@@ -99,6 +103,7 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Ulica"
           />
           <input
+            className={css.inputMainSet}
             type="text"
             name="address.houseNumber"
             value={formData.address.houseNumber}
@@ -106,6 +111,7 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Nr Domu"
           />
           <input
+            className={css.inputMainSet}
             type="text"
             name="address.flatNumber"
             value={formData.address.flatNumber}
@@ -113,6 +119,7 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Nr Lokalu"
           />
           <input
+            className={css.inputMainSet}
             type="text"
             name="address.city"
             value={formData.address.city}
@@ -120,6 +127,7 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Miejscowość"
           />
           <input
+            className={css.inputMainSet}
             type="text"
             name="address.postalCode"
             value={formData.address.postalCode}
@@ -127,9 +135,10 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Kod Pocztowy"
           />
         </label>
-        <label>
+        <label className={css.labelMainSet}>
           Adres instalacji:
           <input
+            className={css.inputMainSet}
             type="text"
             name="installationAddress.street"
             value={formData.installationAddress.street}
@@ -137,6 +146,7 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Ulica"
           />
           <input
+            className={css.inputMainSet}
             type="text"
             name="installationAddress.houseNumber"
             value={formData.installationAddress.houseNumber}
@@ -144,6 +154,7 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Nr Domu"
           />
           <input
+            className={css.inputMainSet}
             type="text"
             name="installationAddress.flatNumber"
             value={formData.installationAddress.flatNumber}
@@ -151,6 +162,7 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Nr Lokalu"
           />
           <input
+            className={css.inputMainSet}
             type="text"
             name="installationAddress.city"
             value={formData.installationAddress.city}
@@ -158,6 +170,7 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Miejscowość"
           />
           <input
+            className={css.inputMainSet}
             type="text"
             name="installationAddress.postalCode"
             value={formData.installationAddress.postalCode}
@@ -165,25 +178,27 @@ const BusinessModal = ({ onClose }) => {
             placeholder="Kod Pocztowy"
           />
         </label>
-        <label>
+        <label className={css.labelMainSet}>
           Email:
           <input
+            className={css.inputMainSet}
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className={css.labelMainSet}>
           Telefon:
           <input
+            className={css.inputMainSet}
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className={css.labelMainSet}>
           Pakiety:
           <select
             name="packages"
@@ -196,8 +211,9 @@ const BusinessModal = ({ onClose }) => {
             <option value="premium">Premium</option>
           </select>
         </label>
-        <label>
+        <label className={css.labelMainSet}>
           <input
+            className={css.inputMainSet}
             type="checkbox"
             name="consent"
             checked={formData.consent}
