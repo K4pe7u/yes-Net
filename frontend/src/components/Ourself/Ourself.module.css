@@ -3,6 +3,9 @@
   justify-content: center;
   align-items: center;
   padding: 120px 0;
+  /* background-image: url(../../image/individual.png);
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .gridContainer {

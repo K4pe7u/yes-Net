@@ -1,81 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap");
+
 .menu {
+  position: fixed;
+  background: linear-gradient(
+    160deg,
+    rgba(1, 0, 48, 1) 8%,
+    rgba(38, 38, 57, 1) 45%,
+    rgba(51, 51, 51, 1) 63%,
+    rgba(79, 79, 79, 1) 97%
+  );
+  right: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  max-width: 400px;
   height: 100%;
-  width: 0;
-  background: #333;
-  overflow-x: hidden;
-  transition: 0.5s;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+  border-left: #808080 1px solid;
+  transition: transform 0.5s;
+  overflow-y: auto;
 }
 
-.menu.open {
-  width: 70%;
-  border: none;
-  border-radius: 8px;
-  background-color: transparent;
+.open {
+  transform: translateX(0);
+}
+
+.close {
+  transform: translateX(100%);
+}
+
+.menuHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.arrow_right {
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.companyInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logo_icon {
+  fill: transparent;
+  stroke: #808080;
+  stroke-width: 0.3;
+  width: 100%;
+}
+
+@keyframes colorLoop {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 135% 50%;
+  }
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  color: transparent;
+  text-align: center;
+  background: linear-gradient(-90deg, #007cf0, #008b87, #ff0080, #007cf0);
+  background-clip: text;
+  animation: colorLoop 5s infinite linear;
+  background-size: 400% 400%;
 }
 
 .menu ul {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  width: 100%;
   display: flex;
   align-items: center;
-  list-style: none;
-  padding: 8px 20px;
-  margin: 0;
-  gap: 12px;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .menu ul li {
-  padding: 4px 10px;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
-  color: rgb(255, 255, 255);
-  text-transform: uppercase;
-  border-radius: 8px;
-  border: none;
-  background: none;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.4s ease, color 0.4s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  position: relative;
-  overflow: hidden;
+  width: calc(100% - 30px);
+  border-bottom: #8080806b 2px solid;
+  padding-bottom: 15px;
 }
 
-.menu ul li:hover {
-  background-color: rgba(84, 84, 84, 0.6);
-  color: #fff;
+.menu ul li a {
+  color: unset;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.menu ul li::after {
-  content: "";
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px;
-  border-radius: 4px;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+@media screen and (min-width: 768px) {
+  .menu {
+    position: unset;
+    right: unset;
+    top: unset;
+    max-width: unset;
+    border-left: unset;
+    flex-direction: row;
+    gap: unset;
+    height: 100%;
+    width: 0;
+    background: #333;
+    overflow-x: hidden;
+    z-index: 1;
+    align-items: unset;
+    justify-content: space-between;
+  }
+
+  .menuHeader {
+    display: none;
+  }
+
+  .menu ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    padding: 8px 20px;
+    margin: 0;
+    gap: 12px;
+  }
 }
 
-.menu ul li:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
+@media screen and (min-width: 1200px) {
+  .menu {
+    position: unset;
+    right: unset;
+    top: unset;
+    max-width: unset;
+    border-left: unset;
+    flex-direction: row;
+    gap: unset;
+    height: 100%;
+    width: 0;
+    background: #333;
+    overflow-x: hidden;
+    z-index: 1;
+    align-items: unset;
+    justify-content: space-between;
+  }
 
-.tooltip {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  z-index: 2;
-}
-.tooltip span {
-  margin-left: 8px;
-  cursor: pointer;
+  .open {
+    opacity: 1;
+    width: 70%;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+  }
+
+  .menuHeader {
+    display: none;
+  }
+
+  .menu ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    padding: 8px 20px;
+    margin: 0;
+    gap: 12px;
+  }
+
+  .menu ul li {
+    padding: 4px 10px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    border-radius: 8px;
+    border: none;
+    background: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .menu ul li:hover {
+    background-color: rgba(84, 84, 84, 0.6);
+    color: #fff;
+  }
+
+  .menu ul li::after {
+    content: "";
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .menu ul li:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltip {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .tooltip span {
+    margin-left: 8px;
+    cursor: pointer;
+  }
 }

@@ -1,4 +1,4 @@
-form {
+.formMainSet {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,15 +6,14 @@ form {
   margin: 0 auto;
 }
 
-label {
+.labelMainSet {
   margin-bottom: 10px;
   color: white;
   display: flex;
   align-items: center;
 }
 
-input,
-select {
+.inputMainSet {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -22,7 +21,7 @@ select {
   box-sizing: border-box;
 }
 
-.formPartOne {
+/* .formPartOne {
   display: flex;
   flex-direction: row;
   gap: 42px;
@@ -30,4 +29,4 @@ select {
 .formPartId {
   max-width: 20%;
   align-items: flex-start;
-}
+} */

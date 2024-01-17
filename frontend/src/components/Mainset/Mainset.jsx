@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import IndividualModal from "./Modals/Individual/Individual";
 import BusinessModal from "./Modals/Business/Business";
 import css from "./Mainset.module.css";
-import jjj from "../../icons/jjj.svg";
+import logo from "../../image/logo.png";
 
 const Mainset = () => {
   const [currentModal, setCurrentModal] = useState(null);
@@ -24,7 +24,13 @@ const Mainset = () => {
         <div className={css.netContainer}>
           <h1 className={css.solution}>NET</h1>
         </div> */}
-        <img src={jjj} alt="chuj" width={1000} height={800} />
+        <img
+          src={logo}
+          alt="ggg"
+          width={1200}
+          height={1200}
+          className={css.logoImage}
+        />
       </div>
       <div className={css.joinContainer}>
         <div className={css.solutionSecondary}>Podłącz się do Świata!</div>
