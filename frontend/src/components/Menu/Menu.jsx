@@ -3,6 +3,20 @@ import css from "./Menu.module.css";
 import icon from "../../icons/icons.svg";
 
 const Menu = ({ open, onClose }) => {
+  React.useEffect(() => {
+    const body = document.body;
+    if (open) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "auto";
+    }
+
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      body.style.overflow = "auto";
+    };
+  }, [open]);
+
   return (
     <>
       {

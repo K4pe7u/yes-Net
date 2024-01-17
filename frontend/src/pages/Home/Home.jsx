@@ -25,7 +25,7 @@ function Home() {
           <Header />
         </div>
       </section>
-      {/* <section className={css.section}>
+      <section className={css.section}>
         <div className={css.container}>
           <Mainset />
         </div>
@@ -49,7 +49,7 @@ function Home() {
         <div className={css.container}>
           <Footer />
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
