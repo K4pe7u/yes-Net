@@ -69,7 +69,7 @@ function Promotion() {
   }
 
   useEffect(() => {
-    startCountDown();
+    // startCountDown();
   }, []);
   return (
     <>
