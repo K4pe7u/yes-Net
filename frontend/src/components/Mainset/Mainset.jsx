@@ -24,13 +24,13 @@ const Mainset = () => {
         <div className={css.netContainer}>
           <h1 className={css.solution}>NET</h1>
         </div> */}
-        <img
+        {/* <img
           src={logo}
           alt="ggg"
           width={1200}
           height={1200}
           className={css.logoImage}
-        />
+        /> */}
       </div>
       <div className={css.joinContainer}>
         <div className={css.solutionSecondary}>Podłącz się do Świata!</div>

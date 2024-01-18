@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap");
 
 .menu {
+  transform: translateX(100%);
   position: fixed;
   background: linear-gradient(
     160deg,
@@ -26,10 +27,6 @@
 
 .open {
   transform: translateX(0);
-}
-
-.close {
-  transform: translateX(100%);
 }
 
 .menuHeader {

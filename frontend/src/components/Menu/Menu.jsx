@@ -2,18 +2,31 @@ import React from "react";
 import css from "./Menu.module.css";
 import icon from "../../icons/icons.svg";
 
-const Menu = ({ open, onClose }) => {
+const Menu = ({ open, onClose, visibility }) => {
   React.useEffect(() => {
-    const body = document.body;
-    if (open) {
-      body.style.overflow = "hidden";
-    } else {
-      body.style.overflow = "auto";
-    }
+    const handleResize = () => {
+      const body = document.body;
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        if (open) {
+          body.style.overflow = "hidden";
+        } else {
+          body.style.overflow = "auto";
+        }
+      } else {
+        body.style.overflow = "auto";
+      }
+    };
+
+    // Add event listener on component mount
+    window.addEventListener("resize", handleResize);
+
+    // Call the handler initially to set the initial state
+    handleResize();
 
     // Cleanup the event listener when the component is unmounted
     return () => {
-      body.style.overflow = "auto";
+      window.removeEventListener("resize", handleResize);
+      document.body.style.overflow = "auto";
     };
   }, [open]);
 
