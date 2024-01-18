@@ -34,8 +34,8 @@ function Home() {
         <div className={css.container}>
           <Ourself />
         </div>
-      </section> */}
-      {/* <section className={css.section}>
+      </section>
+      <section className={css.section}>
         <div className={css.container}>
           <Promotion />
         </div>

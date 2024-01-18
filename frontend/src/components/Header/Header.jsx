@@ -32,10 +32,6 @@ const Header = () => {
     setMenuOpen(!isMenuOpen);
   };
 
-  const toggleMenuVisibility = () => {
-    setMenuVisible(!isMenuOpen);
-  };
-
   useEffect(() => {
     startUp();
   }, []);
@@ -44,11 +40,7 @@ const Header = () => {
       <svg className={`${css.logo_icon}`}>
         <use href={`${icon}#logo`}></use>
       </svg>
-      <Menu
-        open={isMenuOpen}
-        onClose={toggleMenu}
-        visibility={toggleMenuVisibility}
-      />
+      <Menu open={isMenuOpen} onClose={toggleMenu} />
       {isMenuVisible ? (
         <></>
       ) : (
