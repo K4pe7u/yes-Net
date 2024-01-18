@@ -1,160 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
 .sellContainer {
   display: flex;
-  justify-content: space-around;
-  padding: 0 48px;
+  flex-direction: column;
+  padding: 0 10px;
   background-color: rgba(90, 90, 90, 0.2);
+  overflow: -moz-hidden-unscrollable;
+  overflow: hidden;
 }
 .titleContainer {
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  height: 300px;
   position: relative;
 }
 
 .logoImage {
-  position: absolute;
-  left: -50%;
-}
-
-.solution {
-  font-size: 180px;
-  letter-spacing: 1.68px;
-  margin: 0px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-@keyframes moveAnimationYes {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(20px, -10px);
-  }
-  50% {
-    transform: translate(-15px, 15px);
-  }
-  75% {
-    transform: translate(10px, -5px);
-  }
-}
-
-@keyframes moveAnimationNet {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-10px, 15px);
-  }
-  50% {
-    transform: translate(20px, -10px);
-  }
-  75% {
-    transform: translate(-5px, 10px);
-  }
-}
-
-@keyframes glowAnimationYes {
-  0%,
-  100% {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-  }
-  25% {
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
-  }
-  50% {
-    text-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
-  }
-  75% {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-  }
-}
-
-@keyframes glowAnimationNet {
-  0%,
-  100% {
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
-  }
-  25% {
-    text-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-  }
-  75% {
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
-  }
-}
-
-.titleContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.yesContainer,
-.netContainer {
-  display: inline-block;
-  overflow: hidden;
-  position: relative;
-}
-
-.yesContainer::after,
-.netContainer::after {
-  content: "";
+  width: 100%;
+  height: auto;
+  min-width: 480px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  z-index: -1;
 }
 
-.yesContainer::after {
-  animation-name: glowAnimationYes;
-}
-
-.netContainer::after {
-  animation-name: glowAnimationNet;
-}
-
-.yesContainer {
-  animation: moveAnimationYes 4s infinite alternate;
-}
-
-.netContainer {
-  animation: moveAnimationNet 3s infinite alternate;
-}
-
-.yesCopy,
-.netCopy {
-}
 .joinContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 96px;
-  padding: 180px 0;
+  gap: 64px;
 }
 .solutionSecondary {
   text-align: center;
-  font-size: 48px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "dancing script", sans-serif;
 }
 
 .optionContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 96px;
-  max-width: 335px;
+  gap: 42px;
+  max-width: 240px;
+  margin-bottom: 64px;
 }
 
 .individualOption,
@@ -164,7 +54,7 @@
   border-radius: 8px;
   color: rgb(255, 255, 255);
   background: transparent;
-  padding: 32px 48px;
+  padding: 24px 32px;
   max-width: 100%;
   display: flex;
   justify-content: center;
@@ -172,7 +62,8 @@
   transition: 0.25s;
   font-weight: 500;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 12px;
+  white-space: nowrap;
 }
 .individualOption:hover,
 .companyOption:hover {
@@ -214,7 +105,7 @@
 
 .companyOption .buttonText,
 .individualOption .buttonText2 {
-  z-index: 99;
+  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;

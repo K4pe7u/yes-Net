@@ -6,10 +6,13 @@
   padding-bottom: 64px;
   background-color: rgba(90, 90, 90, 0.2);
 }
+.googleMap_title {
+  font-size: 16px;
+}
 .googleMap iframe {
-  --width: 60%;
+  --width: 80%;
   width: var(--width);
-  height: 32vw;
-  margin-top: 32px;
+  height: 42vw;
+  margin-top: px;
   border-radius: 12px;
 }

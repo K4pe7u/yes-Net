@@ -5,7 +5,7 @@ const Footnote = () => {
   return (
     <div className={css.footnote}>
       <div className={css.container}>
-        <p className={css.footnote_text}>copyright &copy; 2023 YesNET</p>
+        <p className={css.footnote_text}>copyright &copy; 2024 yesNET</p>
       </div>
     </div>
   );

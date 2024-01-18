@@ -18,19 +18,7 @@ const Mainset = () => {
   return (
     <div className={css.sellContainer}>
       <div className={css.titleContainer}>
-        {/* <div className={css.yesContainer}>
-          <h1 className={css.solution}>yes</h1>
-        </div>
-        <div className={css.netContainer}>
-          <h1 className={css.solution}>NET</h1>
-        </div> */}
-        {/* <img
-          src={logo}
-          alt="ggg"
-          width={1200}
-          height={1200}
-          className={css.logoImage}
-        /> */}
+        <img src={logo} alt="ggg" className={css.logoImage} />
       </div>
       <div className={css.joinContainer}>
         <div className={css.solutionSecondary}>Podłącz się do Świata!</div>

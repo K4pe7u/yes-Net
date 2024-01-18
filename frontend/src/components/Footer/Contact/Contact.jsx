@@ -106,10 +106,11 @@ const Contact = () => {
               placeholder="Krótki opis problemu"
             ></textarea>
           </div>
-
-          <button className={css.contactForm_button} type="submit">
-            <span className={css.contactForm_buttonContent}>Wyślij</span>
-          </button>
+          <label className={css.buttonContainer}>
+            <button className={css.contactForm_button} type="submit">
+              <span className={css.contactForm_buttonContent}>Wyślij</span>
+            </button>
+          </label>
         </form>
       </div>
     </div>
