@@ -4,46 +4,32 @@ import icon from "../../icons/icons.svg";
 import Menu from "../Menu/Menu";
 
 const Header = () => {
-  const [isMenuOpen, setMenuOpen] = useState(true);
-  const [isMenuVisible, setMenuVisible] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const responsiveMenuChange = (e) => {
-    if (!e.matches) {
-      setMenuVisible(true);
-      setMenuOpen(true);
-    } else {
-      setMenuVisible(false);
-      setMenuOpen(false);
-    }
-  };
-  const startUp = () => {
-    if (window.matchMedia("(max-width: 768px)").matches) {
-      console.log("potato ");
-      setMenuVisible(false);
-      setMenuOpen(false);
-    }
-  };
-
-  window
-    .matchMedia("(max-width: 768px)")
-    .addEventListener("change", responsiveMenuChange);
+  window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
+    if (!e.matches) return;
+    toggleMenu();
+  });
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
   useEffect(() => {
-    startUp();
-  }, []);
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isMenuOpen]);
+
   return (
     <div className={css.header}>
       <svg className={`${css.logo_icon}`}>
         <use href={`${icon}#logo`}></use>
       </svg>
       <Menu open={isMenuOpen} onClose={toggleMenu} />
-      {isMenuVisible ? (
-        <></>
-      ) : (
+      {
         <div className={css.menu} onClick={toggleMenu}>
           <div
             className={`${css.menu_icon} ${
@@ -61,7 +47,7 @@ const Header = () => {
             }`}
           ></div>
         </div>
-      )}
+      }
     </div>
   );
 };
