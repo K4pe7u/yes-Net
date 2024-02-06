@@ -63,41 +63,68 @@
 // };
 
 // export default News;
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import css from "./News.module.css";
 import newsData from "./newsData.json";
-import NewsModal from "./Modals/NewsModal";
 
 const News = () => {
-  const sortNews = newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sliderRef = useRef(null);
 
+  const sortNews = newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
   const latestNews = sortNews.slice(0, 8);
 
-  const [selectedNews, setSelectedNews] = useState(null);
+  useEffect(() => {
+    const slider = sliderRef.current;
+    const handleScroll = () => {
+      if (sliderRef.current) {
+        const itemWidth = sliderRef.current.offsetWidth + 10; // Szerokość elementu plus odstęp
+        const index = Math.round(sliderRef.current.scrollLeft / itemWidth);
+        setActiveIndex(index);
+      }
+    };
 
-  const openModal = (news) => {
-    setSelectedNews(news);
-  };
+    if (slider) {
+      slider.addEventListener("scroll", handleScroll);
+    }
 
-  const closeModal = () => {
-    setSelectedNews(null);
+    return () => {
+      if (slider) {
+        slider.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
+
+  const scrollToIndex = (index) => {
+    setActiveIndex(index);
+    sliderRef.current.scrollTo({
+      left: index * (sliderRef.current.offsetWidth + 10), // Szerokość elementu plus odstęp
+      behavior: "smooth",
+    });
   };
 
   return (
     <div className={css.news_container}>
-      <div className={css.news_slider}>
+      <h2 className={css.news_title}>informator sieci</h2>
+      <div ref={sliderRef} className={css.news_slider}>
         {latestNews.map((news) => (
-          <div
-            key={news.id}
-            className={css.news_item}
-            onClick={() => openModal(news)}
-          >
+          <div key={news.id} className={css.news_item}>
             <h3>{news.title}</h3>
-            <p className={css.date}>{news.date}</p>
+            <span className={css.date}>{news.date}</span>
+            <p className={css.content_text}>{news.content}</p>
+            <span className={css.team_solution}>Zespół yesNET</span>
           </div>
         ))}
       </div>
-      {selectedNews && <NewsModal news={selectedNews} onClose={closeModal} />}
+      <div className={css.news_indicator}>
+        {latestNews.map((news, index) => (
+          <div
+            key={news.id}
+            className={`${css.dot} ${index === activeIndex ? css.active : ""}`}
+            onClick={() => scrollToIndex(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
