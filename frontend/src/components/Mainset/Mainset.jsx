@@ -21,7 +21,9 @@ const Mainset = () => {
         <img src={logo} alt="ggg" className={css.logoImage} />
       </div>
       <div className={css.joinContainer}>
-        <div className={css.solutionSecondary}>Podłącz się do Świata!</div>
+        <div className={css.solutionSecondary}>
+          Skrój Pakiet Dla Swoich Potrzeb!
+        </div>
         <div className={css.optionContainer}>
           <button
             onClick={() => openModal("individual")}

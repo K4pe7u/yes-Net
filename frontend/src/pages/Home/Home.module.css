@@ -11,11 +11,11 @@ ul {
 .page {
   font-family: "Josefin Sans", sans-serif;
   color: #ffffff;
+  overflow: hidden;
 }
 
 .section {
   padding: 0px;
-  border-bottom: 1px solid grey;
 }
 
 .container {
