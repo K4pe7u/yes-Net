@@ -8,7 +8,7 @@ const Header = () => {
 
   window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
     if (!e.matches) return;
-    toggleMenu();
+    setMenuOpen(false);
   });
 
   const toggleMenu = () => {
