@@ -25,9 +25,17 @@ const Header = () => {
 
   return (
     <div className={css.header}>
-      <svg className={`${css.logo_icon}`}>
-        <use href={`${icon}#logo`}></use>
-      </svg>
+      <div className={css.logo_icon_container}>
+        <svg className={`${css.logo_icon}`}>
+          <use href={`${icon}#logo`}></use>
+        </svg>
+        <span className={css.title}>
+          Podłącz się
+          <br />
+          do świata!
+        </span>
+      </div>
+
       <Menu open={isMenuOpen} onClose={toggleMenu} />
       {
         <div className={css.menu} onClick={toggleMenu}>

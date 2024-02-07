@@ -30,7 +30,7 @@ const Menu = ({ open, onClose }) => {
 
             <ul>
               <li>
-                <a /*href="#" */>
+                <a>
                   <svg
                     className={`${css.house}`}
                     width="48px"
@@ -43,7 +43,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a /*href="#" */>
+                <a>
                   <svg
                     className={`${css.account}`}
                     width="48px"
@@ -56,7 +56,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a /*href="#" */>
+                <a>
                   <svg
                     className={`${css.groupPeople}`}
                     width="48px"
@@ -69,7 +69,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a /*href="#" */>
+                <a>
                   <svg
                     className={`${css.news}`}
                     width="48px"
@@ -82,7 +82,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a /*href="#" */>
+                <a>
                   <svg
                     className={`${css.map}`}
                     width="48px"
@@ -95,7 +95,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a /*href="#" */>
+                <a>
                   <svg
                     className={`${css.pen}`}
                     width="48px"
@@ -109,9 +109,19 @@ const Menu = ({ open, onClose }) => {
               </li>
             </ul>
             <div className={css.contact}>
-              <a>E-mail</a>
+              <a className={css.contact_email_display}>
+                <div className={css.contact_email_container}>
+                  <span>E-mail</span>
+                  <span>bok@yesnet.pl</span>
+                </div>
+              </a>
               <span>|</span>
-              <a>Telefon</a>
+              <a className={css.contact_phone_display}>
+                <div className={css.contact_phone_container}>
+                  <span>Telefon</span>
+                  <span>+48690860520</span>
+                </div>
+              </a>
             </div>
           </div>
         </>
