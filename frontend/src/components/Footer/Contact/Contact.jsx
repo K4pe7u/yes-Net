@@ -69,10 +69,8 @@ const Contact = () => {
                 <li onClick={() => handleOptionClick("Zgłoszenie Serwisowe")}>
                   Zgłoszenie Serwisowe
                 </li>
-                <li onClick={() => handleOptionClick("Zamówienie Usługi")}>
-                  Zamówienie Usługi
-                </li>
-                <li onClick={() => handleOptionClick("Inne")}>Inna sprawa</li>
+
+                <li onClick={() => handleOptionClick("Inne")}>Zapytanie</li>
               </ul>
             </div>
           </div>

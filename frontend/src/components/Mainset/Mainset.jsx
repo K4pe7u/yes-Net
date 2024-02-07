@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import IndividualModal from "./Modals/Individual/Individual";
 import BusinessModal from "./Modals/Business/Business";
 import css from "./Mainset.module.css";
-import logo from "../../image/logo.png";
+import mobilelogo from "../../image/logo320x460.png";
+import tabletlogo from "../../image/logo768x1104.png";
+import desktoplogo from "../../image/logo1440x2070.png";
 
 const Mainset = () => {
   const [currentModal, setCurrentModal] = useState(null);
@@ -18,7 +20,13 @@ const Mainset = () => {
   return (
     <div className={css.sellContainer}>
       <div className={css.titleContainer}>
-        <img src={logo} alt="ggg" className={css.logoImage} />
+        <picture className={css.logoImage}>
+          <source media="(min-width: 1280px)" srcSet={desktoplogo} />
+          <source media="(min-width: 768px)" srcSet={tabletlogo} />
+          <img src={mobilelogo} alt="ggg" />
+        </picture>
+        {/* <img src={tabletlogo} alt="ggg" className={css.logoImage} />
+        <img src={desktoplogo} alt="ggg" className={css.logoImage} /> */}
       </div>
       <div className={css.joinContainer}>
         <div className={css.solutionSecondary}>

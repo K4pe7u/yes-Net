@@ -46,47 +46,5 @@
     "title": "Konkurs fotograficzny",
     "content": "Nulla porttitor accumsan tincidunt.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
     "date": "2023-08-20"
-  },
-  {
-    "id": 9,
-    "title": "Zaproszenie na wystawę sztuki",
-    "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    "date": "2023-09-02"
-  },
-  {
-    "id": 10,
-    "title": "Warsztaty z programowania",
-    "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-    "date": "2023-10-10"
-  },
-  {
-    "id": 11,
-    "title": "Nowa trasa koncertowa",
-    "content": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
-    "date": "2023-11-18"
-  },
-  {
-    "id": 12,
-    "title": "Otwarcie nowego sklepu",
-    "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-    "date": "2023-12-05"
-  },
-  {
-    "id": 13,
-    "title": "Zniżki na produkty spożywcze",
-    "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
-    "date": "2023-13-12"
-  },
-  {
-    "id": 14,
-    "title": "Turniej sportowy",
-    "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
-    "date": "2023-14-01"
-  },
-  {
-    "id": 15,
-    "title": "Ogłoszenie o poszukiwaniu wolontariuszy",
-    "content": "Dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
-    "date": "2023-15-10"
   }
 ]

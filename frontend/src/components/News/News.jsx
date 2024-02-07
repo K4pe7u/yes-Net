@@ -109,10 +109,12 @@ const News = () => {
       <div ref={sliderRef} className={css.news_slider}>
         {latestNews.map((news) => (
           <div key={news.id} className={css.news_item}>
-            <h3>{news.title}</h3>
-            <span className={css.date}>{news.date}</span>
-            <p className={css.content_text}>{news.content}</p>
-            <span className={css.team_solution}>Zespół yesNET</span>
+            <h3 className={css.news_itemTitle}>{news.title}</h3>
+            <span className={css.date}>Opublikowano: {news.date}</span>
+            <div className={css.content_newsItem}>
+              <p className={css.content_text}>{news.content}</p>
+              <span className={css.team_solution}>Zespół yesNET</span>
+            </div>
           </div>
         ))}
       </div>

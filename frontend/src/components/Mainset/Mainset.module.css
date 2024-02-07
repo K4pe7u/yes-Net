@@ -3,17 +3,21 @@
 .sellContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 0 10px;
 }
+
 .titleContainer {
-  height: 360px;
+  height: 520px;
   position: relative;
+  width: 320px;
 }
+
 .logoImage {
   display: block;
   max-width: none;
-  width: 100%;
-  min-width: 480px;
+  width: 320px;
+  min-width: 520px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -131,5 +135,38 @@
 @keyframes background-anim-right {
   50% {
     background-position: -140% 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sellContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .titleContainer {
+    height: 1200px;
+    position: relative;
+  }
+  .logoImage {
+    display: block;
+    max-width: none;
+    width: 300px;
+    min-width: 1260px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    overflow-x: hidden;
+  }
+  .onlyTablet {
+    display: block;
+  }
+  .onlyMobile {
+    display: none;
+  }
+  .onlyDesktop {
+    display: none;
   }
 }

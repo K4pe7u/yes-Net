@@ -148,9 +148,7 @@
   font-size: 12px;
   cursor: pointer;
   font-weight: bold;
-  background-image: linear-gradient(-20deg, #007cf0, #008b87, #ff0080, #007cf0);
-  -webkit-background-clip: text;
-  color: transparent;
+  color: white;
   z-index: 1;
 }
 
@@ -167,7 +165,13 @@
   display: none;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background: linear-gradient(-20deg, #007cf0, #008b87, #ff0080, #007cf0);
+  background: linear-gradient(
+    220deg,
+    rgba(19, 19, 19, 1) 8%,
+    rgba(38, 38, 38, 1) 45%,
+    rgba(51, 51, 51, 1) 63%,
+    rgba(79, 79, 79, 1) 97%
+  );
   fill-opacity: 0.7;
   z-index: 2;
 }
