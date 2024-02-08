@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import css from "./Menu.module.css";
 import icon from "../../icons/icons.svg";
 
@@ -7,7 +7,11 @@ const Menu = ({ open, onClose }) => {
     <>
       {
         <>
-          <div className={`${css.menu} ${open ? css.open : css.close}`}>
+          <div
+            className={`${css.menu} ${open ? css.open : css.close} 
+
+            `}
+          >
             <div className={css.menuHeader}>
               <svg
                 className={`${css.arrow_right}`}
@@ -30,7 +34,7 @@ const Menu = ({ open, onClose }) => {
 
             <ul>
               <li>
-                <a>
+                <a href="#Header" onClick={onClose}>
                   <svg
                     className={`${css.house}`}
                     width="48px"
@@ -43,7 +47,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a>
+                <a onClick={onClose}>
                   <svg
                     className={`${css.account}`}
                     width="48px"
@@ -56,7 +60,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a>
+                <a onClick={onClose}>
                   <svg
                     className={`${css.groupPeople}`}
                     width="48px"
@@ -69,7 +73,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a>
+                <a href="#News" onClick={onClose}>
                   <svg
                     className={`${css.news}`}
                     width="48px"
@@ -82,7 +86,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a>
+                <a href="#Footer" onClick={onClose}>
                   <svg
                     className={`${css.map}`}
                     width="48px"
@@ -95,7 +99,7 @@ const Menu = ({ open, onClose }) => {
                 </a>
               </li>
               <li>
-                <a>
+                <a onClick={onClose}>
                   <svg
                     className={`${css.pen}`}
                     width="48px"

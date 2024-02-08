@@ -22,8 +22,8 @@
   gap: 30px;
   border-left: #808080 1px solid;
   overflow-y: auto;
-  transition: transform 0.5s;
   justify-content: space-between;
+  transition: transform 0.5s;
 }
 
 .open {
@@ -156,14 +156,15 @@
     min-width: auto;
     border-left: unset;
     flex-direction: row;
-    gap: unset;
+    gap: 15px;
     height: 100%;
     width: 100%;
     background: transparent;
     overflow-y: unset;
     z-index: 1;
     align-items: unset;
-    justify-content: space-between;
+    justify-content: center;
+    transition: transform 0s;
   }
 
   .open {
@@ -178,19 +179,6 @@
     display: none;
   }
 
-  .menu ul {
-    margin: 0;
-    padding: 0;
-    font-family: "Noto Sans", sans-serif;
-    font-size: 15px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    flex-direction: row;
-  }
-
   .house,
   .account,
   .groupPeople,
@@ -200,22 +188,48 @@
     display: none;
   }
 
+  .menu ul {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 15px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 8px; */
+    flex-direction: row;
+  }
+
   .menu ul li {
     width: auto;
     border: none;
     padding: 0;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .menu ul li a {
-    color: unset;
+    color: #ffffff7c;
     width: 100%;
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
+    transition: color 0.4s, background 0.4s;
+    padding: 4px;
+    cursor: pointer;
+  }
+
+  .menu ul li:hover a {
+    color: #ffffffd0;
+    background: #ffffff0e;
   }
 
   .contact {
+    font-family: "Noto Sans", sans-serif;
     font-size: 15px;
     font-weight: 400;
     width: auto;
@@ -223,8 +237,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 15px;
     white-space: nowrap;
+    /* margin-left: 30px; */
   }
 
   .contact_email_display,
@@ -233,6 +248,18 @@
     width: 100%;
     overflow-y: unset;
     height: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    color: #ffffff7c;
+    cursor: pointer;
+  }
+
+  .contact_email_display:hover,
+  .contact_phone_display:hover {
+    color: #ffffffd0;
+    background: #ffffff0e;
   }
 
   .contact_email_container,
@@ -256,5 +283,5 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
 }

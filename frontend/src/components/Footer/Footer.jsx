@@ -9,7 +9,7 @@ const Footer = () => {
       <div>
         <Contact />
       </div>
-      <div>
+      <div id="Footer">
         <GoogleMap />
       </div>
       <div>

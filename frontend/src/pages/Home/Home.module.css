@@ -18,6 +18,10 @@ ul {
   padding: 0px;
 }
 
+.section:nth-child(3) {
+  margin-top: 50px;
+}
+
 .container {
   max-width: 100%;
   margin: 0 auto;

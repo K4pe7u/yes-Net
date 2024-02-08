@@ -2,8 +2,10 @@ import React from "react";
 import css from "./Home.module.css";
 import Header from "../../components/Header/Header";
 import Mainset from "../../components/Mainset/Mainset";
+// eslint-disable-next-line
 import Ourself from "../../components/Ourself/Ourself";
 import Footer from "../../components/Footer/Footer";
+// eslint-disable-next-line
 import Promotion from "../../components/Promotion/Promotion";
 import News from "../../components/News/News";
 
@@ -20,12 +22,12 @@ function Home() {
           ></div>
         </div>
       </div>
-      <section className={css.section}>
+      <section className={css.section} id="Header">
         <div className={css.container}>
           <Header />
         </div>
       </section>
-      <section className={css.section}>
+      <section className={css.section} id="Mainset">
         <div className={css.container}>
           <Mainset />
         </div>
@@ -40,7 +42,7 @@ function Home() {
           <Promotion />
         </div>
       </section> */}
-      <section className={css.section}>
+      <section className={css.section} id="News">
         <div className={css.container}>
           <News />
         </div>
