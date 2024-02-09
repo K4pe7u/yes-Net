@@ -8,6 +8,7 @@ import Footer from "../../components/Footer/Footer";
 // eslint-disable-next-line
 import Promotion from "../../components/Promotion/Promotion";
 import News from "../../components/News/News";
+import MiniFAQ from "../../components/MiniFAQ/MiniFAQ";
 
 function Home() {
   return (
@@ -42,9 +43,15 @@ function Home() {
           <Promotion />
         </div>
       </section> */}
+
       <section className={css.section} id="News">
         <div className={css.container}>
           <News />
+        </div>
+      </section>
+      <section className={css.section} id="MiniFAQ">
+        <div className={css.container}>
+          <MiniFAQ />
         </div>
       </section>
       <section className={css.section}>
