@@ -2,16 +2,33 @@ import React, { useState } from "react";
 import css from "./Contact.module.css";
 
 const Contact = () => {
-  const [isOptionsVisible, setOptionsVisible] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
+  const [isPrimaryOptionsVisible, setPrimaryOptionsVisible] = useState(false);
+  const [selectedPrimaryValue, setSelectedPrimaryValue] = useState("");
+  const [isAdditionalOptionsVisible, setAdditionalOptionsVisible] =
+    useState(false);
+  const [selectedAdditionalValue, setSelectedAdditionalValue] = useState("");
 
-  const toggleOptions = () => {
-    setOptionsVisible(!isOptionsVisible);
+  const togglePrimaryOptions = () => {
+    setPrimaryOptionsVisible(!isPrimaryOptionsVisible);
   };
 
-  const handleOptionClick = (value) => {
-    setSelectedValue(value);
-    setOptionsVisible(false);
+  const toggleAdditionalOptions = () => {
+    setAdditionalOptionsVisible(!isAdditionalOptionsVisible);
+  };
+
+  const handlePrimaryOptionClick = (value) => {
+    setSelectedPrimaryValue(value);
+    setPrimaryOptionsVisible(false);
+    if (value === "Zgłoszenie Serwisowe") {
+      setAdditionalOptionsVisible(true);
+    } else {
+      setAdditionalOptionsVisible(false);
+    }
+  };
+
+  const handleAdditionalOptionClick = (value) => {
+    setSelectedAdditionalValue(value);
+    setAdditionalOptionsVisible(false);
   };
 
   return (
@@ -51,29 +68,89 @@ const Contact = () => {
           <div className={css.contactForm_item}>
             <label htmlFor="category">Wybierz kategorię:</label>
             <div className={css.customSelectWrapper}>
-              <div className={css.customSelectValue} onClick={toggleOptions}>
-                {selectedValue || "-"}
+              <div
+                className={css.customSelectValue}
+                onClick={togglePrimaryOptions}
+              >
+                {selectedPrimaryValue || "-"}
                 <span
                   className={`${css.arrow} ${
-                    isOptionsVisible ? css.arrow_left : css.arrow_down
-                  } ${isOptionsVisible ? "arrow-down" : ""}`}
+                    isPrimaryOptionsVisible ? css.arrow_left : css.arrow_down
+                  } ${isPrimaryOptionsVisible ? "arrow-down" : ""}`}
                 >
                   &#9660;
                 </span>
               </div>
               <ul
                 className={`${css.customSelectOptions} ${
-                  isOptionsVisible ? css.show : ""
+                  isPrimaryOptionsVisible ? css.show : ""
                 }`}
               >
-                <li onClick={() => handleOptionClick("Zgłoszenie Serwisowe")}>
+                <li
+                  onClick={() =>
+                    handlePrimaryOptionClick("Zgłoszenie Serwisowe")
+                  }
+                >
                   Zgłoszenie Serwisowe
                 </li>
-
-                <li onClick={() => handleOptionClick("Inne")}>Zapytanie</li>
+                <li onClick={() => handlePrimaryOptionClick("Zapytanie")}>
+                  Zapytanie
+                </li>
               </ul>
             </div>
           </div>
+          {isAdditionalOptionsVisible && (
+            <div className={css.contactForm_item}>
+              <label htmlFor="additionalCategory">Wskaż przejaw awarii:</label>
+              <div className={css.customSelectWrapper}>
+                <div
+                  className={css.customSelectValue}
+                  onClick={toggleAdditionalOptions}
+                >
+                  {selectedAdditionalValue || "-"}
+                  <span
+                    className={`${css.arrow} ${
+                      isAdditionalOptionsVisible
+                        ? css.arrow_left
+                        : css.arrow_down
+                    } ${isAdditionalOptionsVisible ? "arrow-down" : ""}`}
+                  >
+                    &#9660;
+                  </span>
+                </div>
+                <ul
+                  className={`${css.customSelectOptions} ${
+                    isAdditionalOptionsVisible ? css.show : ""
+                  }`}
+                >
+                  <li
+                    onClick={() =>
+                      handleAdditionalOptionClick("Całkowity Zanik Łącza")
+                    }
+                  >
+                    Całkowity Zanik Łącza
+                  </li>
+                  <li
+                    onClick={() =>
+                      handleAdditionalOptionClick("Niestabilna Praca Łącza")
+                    }
+                  >
+                    Niestabilna Praca Łącza
+                  </li>
+                  <li
+                    onClick={() =>
+                      handleAdditionalOptionClick("Problem z Zasięgiem WiFi")
+                    }
+                  >
+                    Problem z Zasięgiem WiFi
+                  </li>
+                  <li onClick={() => handleAdditionalOptionClick("Inne")}>
+                    Inne
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
           <div className={css.contactForm_item}>
             <label htmlFor="name">Imię i Nazwisko:</label>
             <input
