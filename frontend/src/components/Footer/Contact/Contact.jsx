@@ -66,6 +66,26 @@ const Contact = () => {
         <h2 className={css.contactForm_title}>Formularz kontaktowy</h2>
         <form action="#" method="post" className={css.contactForm_list}>
           <div className={css.contactForm_item}>
+            <label htmlFor="name">Imię i Nazwisko:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autoComplete="off"
+            />
+          </div>
+          <div className={css.contactForm_item}>
+            <label htmlFor="email">E-mail:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autoComplete="off"
+            />
+          </div>
+          <div className={css.contactForm_item}>
             <label htmlFor="category">Wybierz kategorię:</label>
             <div className={css.customSelectWrapper}>
               <div
@@ -151,26 +171,7 @@ const Contact = () => {
               </div>
             </div>
           )}
-          <div className={css.contactForm_item}>
-            <label htmlFor="name">Imię i Nazwisko:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              autoComplete="off"
-            />
-          </div>
-          <div className={css.contactForm_item}>
-            <label htmlFor="email">E-mail:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              autoComplete="off"
-            />
-          </div>
+
           <div className={css.contactForm_item}>
             <label htmlFor="message">Wiadomość:</label>
             <textarea
