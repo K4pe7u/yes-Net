@@ -2,10 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 120px 0;
-  /* background-image: url(../../image/individual.png);
-  background-repeat: no-repeat;
-  background-size: cover; */
+  margin-top: 160px;
 }
 
 .gridContainer {
@@ -18,36 +15,46 @@
 }
 
 .singleBlock {
-  width: 100%;
-  background-color: #464753;
-  margin-top: 80px;
-  height: 300px;
-  border-radius: 25px;
+  margin: 0 auto;
+  width: 80%;
+  height: 200px;
+  border-radius: 8px;
   position: relative;
-  box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .iconBlock {
-  width: 90px;
-  height: 90px;
-  background-color: #b1b1b1;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(-45deg, #007cf0, #008b87, #ff0080, #007cf0);
+  background-size: 400% 100%;
   position: absolute;
   transform: translateX(-50%);
-  top: -20%;
+  top: -10%;
   left: 50%;
-  border-radius: 10px;
-  border: 4px solid #4e4e4e;
-  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  box-shadow: 0px 0px 60px rgba(255, 255, 255, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: background-anim 6s ease-in-out infinite;
+}
+@keyframes background-anim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .iconBlock svg {
-  fill: #fff;
+  width: 80%;
 }
 
 .infoBlock {
@@ -58,9 +65,10 @@
 }
 
 .info {
-  font-size: 24px;
+  font-size: 14px;
   text-align: center;
   font-family: "poppins";
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.7);
 }
 
 @media screen and (min-width: 768px) {

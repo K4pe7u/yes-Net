@@ -21,12 +21,9 @@ const Mainset = () => {
     <div className={css.sellContainer}>
       <div className={css.titleContainer}>
         <picture className={css.logoImage}>
-          <source media="(min-width: 1280px)" srcSet={desktoplogo} />
-          <source media="(min-width: 768px)" srcSet={tabletlogo} />
+          <source media="(min-width: 1280px)" srcSet={tabletlogo} />
           <img src={mobilelogo} alt="ggg" />
         </picture>
-        {/* <img src={tabletlogo} alt="ggg" className={css.logoImage} />
-        <img src={desktoplogo} alt="ggg" className={css.logoImage} /> */}
       </div>
       <div className={css.joinContainer}>
         <div className={css.solutionSecondary}>

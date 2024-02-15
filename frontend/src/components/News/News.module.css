@@ -3,7 +3,6 @@
   src: url("../../fonts/Blanka-Regular.otf") format("opentype");
 }
 .news_container {
-  margin-top: 60px;
   padding: 20px;
 }
 .news_title {

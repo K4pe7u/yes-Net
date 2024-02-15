@@ -33,12 +33,12 @@ function Home() {
           <Mainset />
         </div>
       </section>
-      {/* <section className={css.section}>
+      <section className={css.section}>
         <div className={css.container}>
           <Ourself />
         </div>
       </section>
-      <section className={css.section}>
+      {/*<section className={css.section}>
         <div className={css.container}>
           <Promotion />
         </div>
