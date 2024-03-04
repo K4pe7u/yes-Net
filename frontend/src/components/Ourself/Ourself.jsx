@@ -7,7 +7,7 @@ function Ourself() {
       <div className={css.gridContainer}>
         <section className={css.singleBlock}>
           <div className={css.iconBlock}>
-            <svg width="90%" height="90%">
+            <svg>
               <use href={`${icons}#Hands`}></use>
             </svg>
           </div>
@@ -21,7 +21,7 @@ function Ourself() {
         </section>
         <section className={css.singleBlock}>
           <div className={css.iconBlock}>
-            <svg width="90%" height="90%">
+            <svg>
               <use href={`${icons}#Lock`}></use>
             </svg>
           </div>
@@ -35,7 +35,7 @@ function Ourself() {
         </section>
         <section className={css.singleBlock}>
           <div className={css.iconBlock}>
-            <svg width="90%" height="90%">
+            <svg>
               <use href={`${icons}#Planet`}></use>
             </svg>
           </div>
@@ -49,7 +49,7 @@ function Ourself() {
         </section>
         <section className={css.singleBlock}>
           <div className={css.iconBlock}>
-            <svg width="90%" height="90%">
+            <svg>
               <use href={`${icons}#People`}></use>
             </svg>
           </div>
@@ -63,7 +63,7 @@ function Ourself() {
         </section>
         <section className={css.singleBlock}>
           <div className={css.iconBlock}>
-            <svg width="90%" height="90%">
+            <svg>
               <use href={`${icons}#Cloud`}></use>
             </svg>
           </div>
@@ -77,7 +77,7 @@ function Ourself() {
         </section>
         <section className={css.singleBlock}>
           <div className={css.iconBlock}>
-            <svg width="90%" height="90%">
+            <svg>
               <use href={`${icons}#Eye`}></use>
             </svg>
           </div>

@@ -28,8 +28,6 @@
 .iconBlock {
   width: 60px;
   height: 60px;
-  background: linear-gradient(-45deg, #007cf0, #008b87, #ff0080, #007cf0);
-  background-size: 400% 100%;
   position: absolute;
   transform: translateX(-50%);
   top: -10%;
@@ -54,7 +52,8 @@
 }
 
 .iconBlock svg {
-  width: 80%;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .infoBlock {
