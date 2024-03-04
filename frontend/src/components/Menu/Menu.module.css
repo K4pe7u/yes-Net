@@ -163,7 +163,7 @@
     overflow-y: unset;
     z-index: 1;
     align-items: unset;
-    justify-content: center;
+    justify-content: flex-start;
     transition: transform 0s;
   }
 
@@ -219,7 +219,7 @@
     align-items: center;
     justify-content: center;
     transition: color 0.4s, background 0.4s;
-    padding: 4px;
+
     cursor: pointer;
   }
 

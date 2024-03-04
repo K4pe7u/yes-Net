@@ -60,6 +60,7 @@
     align-items: center;
     gap: 30px;
     padding: 12px 36px;
+    width: calc(100% - 72px);
   }
 
   @keyframes colorLoop {

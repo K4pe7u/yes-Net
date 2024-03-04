@@ -13,7 +13,7 @@ const Header = () => {
   });
 
   const toggleMenu = () => {
-    setMenuOpen(false);
+    setMenuOpen(!isMenuOpen);
   };
 
   useEffect(() => {

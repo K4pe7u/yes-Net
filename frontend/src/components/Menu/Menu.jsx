@@ -115,14 +115,14 @@ const Menu = ({ open, onClose }) => {
             <div className={css.contact}>
               <a className={css.contact_email_display}>
                 <div className={css.contact_email_container}>
-                  <span>E-mail</span>
+                  <span style={{ userSelect: "none" }}>E-mail</span>
                   <span>bok@yesnet.pl</span>
                 </div>
               </a>
               <span>|</span>
               <a className={css.contact_phone_display}>
                 <div className={css.contact_phone_container}>
-                  <span>Telefon</span>
+                  <span style={{ userSelect: "none" }}>Telefon</span>
                   <span>+48690860520</span>
                 </div>
               </a>
