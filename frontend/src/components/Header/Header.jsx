@@ -47,11 +47,6 @@ const Header = () => {
         <svg className={`${css.logo_icon}`}>
           <use href={`${icon}#logo`}></use>
         </svg>
-        <span className={css.title}>
-          Podłącz się
-          <br />
-          do świata!
-        </span>
       </div>
 
       <Menu open={isMenuOpen} onClose={toggleMenu} />

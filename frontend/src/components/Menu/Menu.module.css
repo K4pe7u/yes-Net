@@ -88,7 +88,7 @@
   background-size: 400% 400%;
 }
 
-.menu ul {
+.navigation {
   margin: 0;
   padding: 0;
   font-family: "Noto Sans", sans-serif;
@@ -100,13 +100,13 @@
   gap: 15px;
 }
 
-.menu ul li {
+.navigation_item {
   width: calc(100% - 30px);
   border-bottom: #8080806b 2px solid;
   padding-bottom: 15px;
 }
 
-.menu ul li a {
+.navigation_item a {
   color: unset;
   width: 100%;
   display: flex;
@@ -188,11 +188,11 @@
     display: none;
   }
 
-  .menu ul {
+  .navigation {
     margin: 0;
     padding: 0;
     font-family: "Noto Sans", sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     width: auto;
     display: flex;
     align-items: center;
@@ -201,7 +201,7 @@
     flex-direction: row;
   }
 
-  .menu ul li {
+  .navigation_item {
     width: auto;
     border: none;
     padding: 0;
@@ -211,7 +211,7 @@
     justify-content: center;
   }
 
-  .menu ul li a {
+  .navigation_item a {
     color: #ffffff7c;
     width: 100%;
     display: flex;
@@ -219,16 +219,57 @@
     align-items: center;
     justify-content: center;
     transition: color 0.4s, background 0.4s;
-
     cursor: pointer;
   }
 
-  .menu ul li:hover a {
+  .navigation_item:hover a {
     color: #ffffffd0;
     background: #ffffff0e;
   }
 
-  .contact {
+  .company_container,
+  .support_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+
+  .company_title,
+  .support_title {
+    color: #ffffff7c;
+  }
+
+  .company_navigation,
+  .support_navigation {
+    position: absolute;
+    transform: translate(-50%, -8%);
+    left: 50%;
+    top: calc(50% + 40px);
+    width: 270px;
+    height: 170px;
+    background-color: #3a3a3ae5;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 5;
+  }
+
+  .company_open_btn,
+  .support_open_btn {
+    transition: transform 0.4s;
+    color: #ffffff7c;
+  }
+
+  .company_open,
+  .support_open {
+    transform: rotate(90deg);
+  }
+
+  /* .contact {
     font-family: "Noto Sans", sans-serif;
     font-size: 15px;
     font-weight: 400;
@@ -239,7 +280,6 @@
     align-items: center;
     gap: 15px;
     white-space: nowrap;
-    /* margin-left: 30px; */
   }
 
   .contact_email_display,
@@ -280,7 +320,7 @@
   .contact span:nth-child(3),
   .contact span:nth-child(5) {
     display: none;
-  }
+  } */
 }
 
 @media screen and (min-width: 1280px) {
