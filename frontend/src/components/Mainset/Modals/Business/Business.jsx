@@ -3,225 +3,170 @@ import Modal from "../Modal";
 import css from "./Business.module.css";
 
 const BusinessModal = ({ onClose }) => {
+  const [showInstallAddressInput, setShowInstallAddressInput] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    nip: "",
-    address: {
-      street: "",
-      houseNumber: "",
-      flatNumber: "",
-      city: "",
-      postalCode: "",
-    },
+    company: "",
+    NIP: "",
+    street: "",
+    city: "",
+    postalCode: "",
+    installStreet: "",
+    installCity: "",
+    installPostalCode: "",
+    contactFirstName: "",
+    contactLastName: "",
     email: "",
     phone: "",
-    packages: "",
-    installationAddress: {
-      street: "",
-      houseNumber: "",
-      flatNumber: "",
-      city: "",
-      postalCode: "",
-    },
-    consent: false,
   });
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
-    if (
-      name.startsWith("address.") ||
-      name.startsWith("installationAddress.")
-    ) {
-      const [addressType, field] = name.split(".");
-      setFormData((prevData) => ({
-        ...prevData,
-        [addressType]: {
-          ...prevData[addressType],
-          [field]: value,
-        },
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: type === "checkbox" ? checked : value,
-      }));
-    }
+    const val = type === "checkbox" ? checked : value;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: val,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log("Form Data:", formData);
-    onClose();
+    console.log(formData);
   };
 
   return (
     <Modal onClose={onClose}>
+      <span className={css.modalTitle}>Podłącz się do świata!</span>
       <form onSubmit={handleSubmit} className={css.formMainSet}>
-        <div className={css.formPartOne}>
-          <label className={css.labelMainSet}>
-            Imię:
-            <input
-              className={css.inputMainSet}
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-            />
-          </label>
-          <label className={css.labelMainSet}>
-            Nazwisko:
-            <input
-              className={css.inputMainSet}
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-        <label className={css.formPartId}>
-          NIP:
+        <label className={css.formItem}>
+          <span>Firma:</span>
           <input
-            className={css.inputMainSet}
+            className=""
             type="text"
-            name="nip"
-            value={formData.nip}
+            name="company"
+            value={formData.company}
             onChange={handleChange}
           />
         </label>
-        <label className={css.labelMainSet}>
-          Adres:
+        <label className={css.formItem}>
+          <span>NIP:</span>
           <input
-            className={css.inputMainSet}
             type="text"
-            name="address.street"
-            value={formData.address.street}
+            name="NIP"
+            value={formData.NIP}
             onChange={handleChange}
+          />
+        </label>
+        <label className={css.formItem}>
+          <span>Adres:</span>
+          <input
+            type="text"
+            name="street"
             placeholder="Ulica"
+            value={formData.street}
+            onChange={handleChange}
           />
           <input
-            className={css.inputMainSet}
             type="text"
-            name="address.houseNumber"
-            value={formData.address.houseNumber}
-            onChange={handleChange}
-            placeholder="Nr Domu"
-          />
-          <input
-            className={css.inputMainSet}
-            type="text"
-            name="address.flatNumber"
-            value={formData.address.flatNumber}
-            onChange={handleChange}
-            placeholder="Nr Lokalu"
-          />
-          <input
-            className={css.inputMainSet}
-            type="text"
-            name="address.city"
-            value={formData.address.city}
-            onChange={handleChange}
+            name="city"
             placeholder="Miejscowość"
+            value={formData.city}
+            onChange={handleChange}
           />
           <input
-            className={css.inputMainSet}
             type="text"
-            name="address.postalCode"
-            value={formData.address.postalCode}
+            name="postalCode"
+            placeholder="Kod pocztowy"
+            value={formData.postalCode}
             onChange={handleChange}
-            placeholder="Kod Pocztowy"
           />
         </label>
-        <label className={css.labelMainSet}>
-          Adres instalacji:
+        {formData.street !== formData.installStreet &&
+          !showInstallAddressInput && (
+            <button
+              className={css.formItem_buttonAdditional}
+              type="button"
+              onClick={() => setShowInstallAddressInput(true)}
+            >
+              Inny adres instalacji
+            </button>
+          )}
+        {showInstallAddressInput && (
+          <>
+            <label className={css.formItem}>
+              <span>Adres instalacji:</span>
+              <input
+                type="text"
+                name="installStreet"
+                placeholder="Ulica "
+                value={formData.installStreet}
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                name="installCity"
+                placeholder="Miejscowość"
+                value={formData.installCity}
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                name="installPostalCode"
+                placeholder="Kod pocztowy "
+                value={formData.installPostalCode}
+                onChange={handleChange}
+              />
+            </label>
+          </>
+        )}
+        <label className={css.formItem}>
+          <span>Osoba kontaktowa:</span>
           <input
-            className={css.inputMainSet}
             type="text"
-            name="installationAddress.street"
-            value={formData.installationAddress.street}
+            name="contactFirstName"
+            placeholder="Imię"
+            value={formData.contactFirstName}
             onChange={handleChange}
-            placeholder="Ulica"
           />
           <input
-            className={css.inputMainSet}
             type="text"
-            name="installationAddress.houseNumber"
-            value={formData.installationAddress.houseNumber}
+            name="contactLastName"
+            placeholder="Nazwisko"
+            value={formData.contactLastName}
             onChange={handleChange}
-            placeholder="Nr Domu"
-          />
-          <input
-            className={css.inputMainSet}
-            type="text"
-            name="installationAddress.flatNumber"
-            value={formData.installationAddress.flatNumber}
-            onChange={handleChange}
-            placeholder="Nr Lokalu"
-          />
-          <input
-            className={css.inputMainSet}
-            type="text"
-            name="installationAddress.city"
-            value={formData.installationAddress.city}
-            onChange={handleChange}
-            placeholder="Miejscowość"
-          />
-          <input
-            className={css.inputMainSet}
-            type="text"
-            name="installationAddress.postalCode"
-            value={formData.installationAddress.postalCode}
-            onChange={handleChange}
-            placeholder="Kod Pocztowy"
           />
         </label>
-        <label className={css.labelMainSet}>
-          Email:
+        <label className={css.formItem}>
+          <span>Email:</span>
           <input
-            className={css.inputMainSet}
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
           />
         </label>
-        <label className={css.labelMainSet}>
-          Telefon:
+        <label className={css.formItem}>
+          <span>telefon:</span>
           <input
-            className={css.inputMainSet}
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
           />
         </label>
-        <label className={css.labelMainSet}>
-          Pakiety:
-          <select
-            name="packages"
-            value={formData.packages}
-            onChange={handleChange}
-          >
-            <option value="">Wybierz pakiet</option>
-            <option value="basic">Podstawowy</option>
-            <option value="standard">Standardowy</option>
-            <option value="premium">Premium</option>
-          </select>
-        </label>
-        <label className={css.labelMainSet}>
+        <label>
           <input
-            className={css.inputMainSet}
             type="checkbox"
-            name="consent"
-            checked={formData.consent}
+            name="privatePolicy"
+            checked={formData.privatePolicy}
             onChange={handleChange}
           />
-          Wyrażam zgodę na przetwarzanie danych osobowych.
+          Oświadczam, że zapoznałem się i akceptuję{" "}
+          <a href="/regulamin">regulamin</a> oraz{" "}
+          <a href="/polityka-prywatnosci">Polityką Prywatności</a>
         </label>
-        <button type="submit">Wyślij</button>
+        <button className={css.formItem_button} type="submit">
+          Wyślij
+        </button>
       </form>
     </Modal>
   );

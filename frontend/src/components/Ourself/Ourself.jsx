@@ -4,6 +4,7 @@ import icons from "./assets/icons.svg";
 function Ourself() {
   return (
     <div className={css.container}>
+      <h2 className={css.ourselfTitle}>Poznaj nas</h2>
       <div className={css.gridContainer}>
         <section className={css.singleBlock}>
           <div className={css.iconBlock}>

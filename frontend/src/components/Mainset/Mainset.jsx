@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import IndividualModal from "./Modals/Individual/Individual";
 import BusinessModal from "./Modals/Business/Business";
 import css from "./Mainset.module.css";
 import mobilelogo from "../../image/logo320x460.png";
 import tabletlogo from "../../image/logo768x1104.png";
+// eslint-disable-next-line
 import desktoplogo from "../../image/logo1440x2070.png";
 
 const Mainset = () => {
@@ -16,6 +17,13 @@ const Mainset = () => {
   const closeModal = () => {
     setCurrentModal(null);
   };
+  useEffect(() => {
+    if (currentModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [currentModal]);
 
   return (
     <div className={css.sellContainer}>
@@ -44,7 +52,7 @@ const Mainset = () => {
             className={css.companyOption}
           >
             <span className={css.highlight}></span>
-            <span className={css.buttonText}>Rozwiązania dla firmy</span>
+            <span className={css.buttonText}>Rozwiązania biznesowe</span>
           </button>
         </div>
 

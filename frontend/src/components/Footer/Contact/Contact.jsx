@@ -7,13 +7,15 @@ const Contact = () => {
   const [isAdditionalOptionsVisible, setAdditionalOptionsVisible] =
     useState(false);
   const [selectedAdditionalValue, setSelectedAdditionalValue] = useState("");
+  const [isAdditionalListOptionsVisible, setAdditionalListOptionsVisible] =
+    useState(false);
 
   const togglePrimaryOptions = () => {
     setPrimaryOptionsVisible(!isPrimaryOptionsVisible);
   };
 
   const toggleAdditionalOptions = () => {
-    setAdditionalOptionsVisible(!isAdditionalOptionsVisible);
+    setAdditionalListOptionsVisible(!isAdditionalListOptionsVisible);
   };
 
   const handlePrimaryOptionClick = (value) => {
@@ -27,8 +29,10 @@ const Contact = () => {
   };
 
   const handleAdditionalOptionClick = (value) => {
+    console.log("potato");
     setSelectedAdditionalValue(value);
-    setAdditionalOptionsVisible(false);
+    setAdditionalListOptionsVisible(false);
+    console.log("tomato");
   };
 
   return (
@@ -130,17 +134,17 @@ const Contact = () => {
                   {selectedAdditionalValue || "-"}
                   <span
                     className={`${css.arrow} ${
-                      isAdditionalOptionsVisible
+                      isAdditionalListOptionsVisible
                         ? css.arrow_left
                         : css.arrow_down
-                    } ${isAdditionalOptionsVisible ? "arrow-down" : ""}`}
+                    } ${isAdditionalListOptionsVisible ? "arrow-down" : ""}`}
                   >
                     &#9660;
                   </span>
                 </div>
                 <ul
                   className={`${css.customSelectOptions} ${
-                    isAdditionalOptionsVisible ? css.show : ""
+                    isAdditionalListOptionsVisible ? css.show : ""
                   }`}
                 >
                   <li

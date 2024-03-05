@@ -14,10 +14,10 @@
   font-size: 32px;
   text-transform: uppercase;
   margin: 90px 0px 60px;
+  text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
 }
 .faq_text {
   font-size: 12px;
-  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.7);
 }
 
 .faq_list {

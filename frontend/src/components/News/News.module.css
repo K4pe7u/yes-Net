@@ -11,6 +11,7 @@
   font-size: 32px;
   text-transform: uppercase;
   margin-bottom: 60px;
+  text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
 }
 
 .news_slider {

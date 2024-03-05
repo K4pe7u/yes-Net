@@ -23,9 +23,10 @@
 .solutionSecondary {
   max-width: 70%;
   text-align: center;
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 700;
   font-family: "dancing script", sans-serif;
+  text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
 }
 
 .optionContainer {
