@@ -48,7 +48,11 @@ const Menu = ({ open, onClose }) => {
             <ul className={css.navigation}>
               <li className={css.navigation_item}>
                 {/* eslint-disable-next-line */}
-                <a href="#Header" onClick={onClose}>
+                <a
+                  href="#Header"
+                  onClick={onClose}
+                  className={css.navigation_link}
+                >
                   <svg
                     className={`${css.house}`}
                     width="48px"
@@ -62,7 +66,7 @@ const Menu = ({ open, onClose }) => {
               </li>
               <li className={css.navigation_item}>
                 {/* eslint-disable-next-line */}
-                <a onClick={onClose}>
+                <a onClick={onClose} className={css.navigation_link}>
                   <svg
                     className={`${css.account}`}
                     width="48px"
@@ -84,22 +88,25 @@ const Menu = ({ open, onClose }) => {
                   >
                     &#9660;
                   </span>
-                  {isCompanyOpen && (
-                    <ul className={css.company_navigation}>
-                      <li className={css.company_navigation_item}>
-                        <ul>
-                          <li></li>
-                          <li></li>
-                        </ul>
-                      </li>
-                      <li className={css.company_navigation_item}>
-                        <ul className={css.contact}>
-                          <li></li>
-                          <li></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  )}
+
+                  <ul
+                    className={`${css.company_navigation} ${
+                      isCompanyOpen ? css.company_navigation_open : ""
+                    }`}
+                  >
+                    <li className={css.company_navigation_item}>
+                      <ul>
+                        <li></li>
+                        <li></li>
+                      </ul>
+                    </li>
+                    <li className={css.company_navigation_item}>
+                      <ul className={css.contact}>
+                        <li></li>
+                        <li></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </li>
               <li className={css.navigation_item}>
@@ -112,13 +119,63 @@ const Menu = ({ open, onClose }) => {
                   >
                     &#9660;
                   </span>
-                  {isSupportOpen && (
-                    <ul className={css.support_navigation}>
-                      <li>Newsy</li>
-                      <li>Zgłoszenia</li>
-                      <li>FAQ</li>
-                    </ul>
-                  )}
+
+                  <ul
+                    className={`${css.support_navigation} ${
+                      isSupportOpen ? css.suppport_navigation_open : ""
+                    }`}
+                  >
+                    <li>
+                      <a href="#News" onClick={onClose}>
+                        <svg
+                          className={`${css.news}`}
+                          width="20%"
+                          height="50%"
+                          fill="white"
+                        >
+                          <use href={`${icon}#news`}></use>
+                        </svg>
+                        <div>
+                          <h4>Aktualności</h4>
+                          <span>Co nowego!</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      {/* eslint-disable-next-line */}
+                      <a onClick={onClose}>
+                        <svg
+                          className={`${css.pen}`}
+                          width="20%"
+                          height="50%"
+                          fill="white"
+                        >
+                          <use href={`${icon}#pen`}></use>
+                        </svg>
+                        <div>
+                          <h4>Zgłoszenia</h4>
+                          <span>W czym problem?</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      {/* eslint-disable-next-line */}
+                      <a onClick={onClose}>
+                        <svg
+                          className={`${css.faq}`}
+                          width="20%"
+                          height="50%"
+                          fill="white"
+                        >
+                          <use href={`${icon}#faq`}></use>
+                        </svg>
+                        <div>
+                          <h4>FAQ</h4>
+                          <span>Znajdź rozwiązanie</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </li>
             </ul>
