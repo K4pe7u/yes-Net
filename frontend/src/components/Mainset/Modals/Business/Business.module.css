@@ -79,6 +79,11 @@
     background-position: 0% 50%;
   }
 }
+.privateCheck {
+  margin-top: 23px;
+  margin-bottom: 24px;
+  font-size: 12px;
+}
 .formItem_button:hover {
   cursor: pointer;
   filter: brightness(1.6);

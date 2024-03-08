@@ -153,13 +153,13 @@ const BusinessModal = ({ onClose }) => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className={css.privateCheck}>
           <input
             type="checkbox"
             name="privatePolicy"
             checked={formData.privatePolicy}
             onChange={handleChange}
-          />
+          />{" "}
           Oświadczam, że zapoznałem się i akceptuję{" "}
           <a href="/regulamin">regulamin</a> oraz{" "}
           <a href="/polityka-prywatnosci">Polityką Prywatności</a>
