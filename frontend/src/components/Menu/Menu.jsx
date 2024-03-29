@@ -80,7 +80,13 @@ const Menu = ({ open, onClose }) => {
               </li>
               <li className={css.navigation_item} onClick={toggleCompany}>
                 <div className={css.company_container}>
-                  <span className={css.company_title}>Company</span>
+                  <span
+                    className={`${css.company_title} ${
+                      isCompanyOpen ? css.company_title_open : ""
+                    }`}
+                  >
+                    Company
+                  </span>
                   <span
                     className={`${css.company_open_btn} ${
                       isCompanyOpen ? css.company_open : ""
@@ -94,24 +100,70 @@ const Menu = ({ open, onClose }) => {
                       isCompanyOpen ? css.company_navigation_open : ""
                     }`}
                   >
-                    <li className={css.company_navigation_item}>
-                      <ul>
-                        <li></li>
-                        <li></li>
-                      </ul>
+                    <li className={css.company_navigation_main_section}>
+                      <a href="#News" onClick={onClose}>
+                        <svg className={`${css.groupPeople}`} fill="white">
+                          <use href={`${icon}#groupPeople`}></use>
+                        </svg>
+                        <div>
+                          <h4>O nas</h4>
+                          <span>Dowiedz się więcej!</span>
+                        </div>
+                      </a>
+                      {/* eslint-disable-next-line */}
+                      <a onClick={onClose}>
+                        <svg className={`${css.news}`} fill="white">
+                          <use href={`${icon}#news`}></use>
+                        </svg>
+                        <div>
+                          <h4>Newsy</h4>
+                          <span>Wiadomości z sieci</span>
+                        </div>
+                      </a>
+                      {/* eslint-disable-next-line */}
+                      <a onClick={onClose}>
+                        <svg className={`${css.map}`} fill="white">
+                          <use href={`${icon}#map`}></use>
+                        </svg>
+                        <div>
+                          <h4>Lokalizacja</h4>
+                          <span>Gdzie jesteśmy?</span>
+                        </div>
+                      </a>
                     </li>
-                    <li className={css.company_navigation_item}>
-                      <ul className={css.contact}>
-                        <li></li>
-                        <li></li>
-                      </ul>
+                    <li className={css.company_navigation_section_break}></li>
+                    <li className={css.company_navigation_aside_section}>
+                      {/* eslint-disable-next-line */}
+                      <a onClick={onClose} href="tel:+48690860520">
+                        <svg className={`${css.phone}`} fill="white">
+                          <use href={`${icon}#phone`}></use>
+                        </svg>
+                        <div>
+                          <h4>+48690860520</h4>
+                        </div>
+                      </a>
+                      {/* eslint-disable-next-line */}
+                      <a onClick={onClose} href="mailto:bok@yesnet.pl">
+                        <svg className={`${css.envelop}`} fill="white">
+                          <use href={`${icon}#envelop`}></use>
+                        </svg>
+                        <div>
+                          <h4>bok@yesnet.pl</h4>
+                        </div>
+                      </a>
                     </li>
                   </ul>
                 </div>
               </li>
               <li className={css.navigation_item}>
                 <div className={css.support_container} onClick={toggleSupport}>
-                  <span className={css.support_title}>Support</span>
+                  <span
+                    className={`${css.support_title} ${
+                      isSupportOpen ? css.support_title_open : ""
+                    }`}
+                  >
+                    Support
+                  </span>
                   <span
                     className={`${css.support_open_btn} ${
                       isSupportOpen ? css.support_open : ""
