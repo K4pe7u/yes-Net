@@ -106,7 +106,9 @@ const Menu = ({ open, onClose }) => {
                           <use href={`${icon}#groupPeople`}></use>
                         </svg>
                         <div>
-                          <h4>O nas</h4>
+                          <h4 className={css.company_navigation_item_title}>
+                            O nas
+                          </h4>
                           <span>Dowiedz się więcej!</span>
                         </div>
                       </a>
@@ -116,7 +118,9 @@ const Menu = ({ open, onClose }) => {
                           <use href={`${icon}#news`}></use>
                         </svg>
                         <div>
-                          <h4>Newsy</h4>
+                          <h4 className={css.company_navigation_item_title}>
+                            Newsy
+                          </h4>
                           <span>Wiadomości z sieci</span>
                         </div>
                       </a>
@@ -126,7 +130,9 @@ const Menu = ({ open, onClose }) => {
                           <use href={`${icon}#map`}></use>
                         </svg>
                         <div>
-                          <h4>Lokalizacja</h4>
+                          <h4 className={css.company_navigation_item_title}>
+                            Lokalizacja
+                          </h4>
                           <span>Gdzie jesteśmy?</span>
                         </div>
                       </a>
@@ -188,7 +194,9 @@ const Menu = ({ open, onClose }) => {
                           <use href={`${icon}#news`}></use>
                         </svg>
                         <div>
-                          <h4>Aktualności</h4>
+                          <h4 className={css.company_navigation_item_title}>
+                            Aktualności
+                          </h4>
                           <span>Co nowego!</span>
                         </div>
                       </a>
@@ -205,7 +213,9 @@ const Menu = ({ open, onClose }) => {
                           <use href={`${icon}#pen`}></use>
                         </svg>
                         <div>
-                          <h4>Zgłoszenia</h4>
+                          <h4 className={css.company_navigation_item_title}>
+                            Zgłoszenia
+                          </h4>
                           <span>W czym problem?</span>
                         </div>
                       </a>
@@ -222,7 +232,9 @@ const Menu = ({ open, onClose }) => {
                           <use href={`${icon}#faq`}></use>
                         </svg>
                         <div>
-                          <h4>FAQ</h4>
+                          <h4 className={css.company_navigation_item_title}>
+                            FAQ
+                          </h4>
                           <span>Znajdź rozwiązanie</span>
                         </div>
                       </a>
@@ -231,6 +243,25 @@ const Menu = ({ open, onClose }) => {
                 </div>
               </li>
             </ul>
+            <div className={css.mobile_menu_contact_section}>
+              <a onClick={onClose} href="tel:+48690860520">
+                <svg className={`${css.phone}`} fill="white">
+                  <use href={`${icon}#phone`}></use>
+                </svg>
+                <div>
+                  <h4 className={css.contact_context}>+48690860520</h4>
+                </div>
+              </a>
+              <div className={css.contact_break}></div>
+              <a onClick={onClose} href="mailto:bok@yesnet.pl">
+                <svg className={`${css.envelop}`} fill="white">
+                  <use href={`${icon}#envelop`}></use>
+                </svg>
+                <div>
+                  <h4 className={css.contact_context}>bok@yesnet.pl</h4>
+                </div>
+              </a>
+            </div>
           </div>
         </>
       }
