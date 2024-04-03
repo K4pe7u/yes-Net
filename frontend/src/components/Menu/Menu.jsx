@@ -114,18 +114,6 @@ const Menu = ({ open, onClose }) => {
                       </a>
                       {/* eslint-disable-next-line */}
                       <a onClick={onClose}>
-                        <svg className={`${css.news}`} fill="white">
-                          <use href={`${icon}#news`}></use>
-                        </svg>
-                        <div>
-                          <h4 className={css.company_navigation_item_title}>
-                            Newsy
-                          </h4>
-                          <span>Wiadomości z sieci</span>
-                        </div>
-                      </a>
-                      {/* eslint-disable-next-line */}
-                      <a onClick={onClose}>
                         <svg className={`${css.map}`} fill="white">
                           <use href={`${icon}#map`}></use>
                         </svg>

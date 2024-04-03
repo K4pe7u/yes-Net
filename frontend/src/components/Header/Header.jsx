@@ -13,7 +13,8 @@ const Header = () => {
   });
 
   const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
+    if (!window.matchMedia("(min-width: 768px)").matches)
+      setMenuOpen(!isMenuOpen);
   };
 
   useEffect(() => {
