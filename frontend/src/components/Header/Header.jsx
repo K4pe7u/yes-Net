@@ -8,11 +8,21 @@ const Header = () => {
   const [scroll, setScroll] = useState(false);
 
   window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
-    if (!e.matches) return;
+    console.log(isMenuOpen);
+    if (!e.matches) {
+      return;
+    }
     setMenuOpen(false);
   });
 
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "Control") {
+      console.log(isMenuOpen);
+    }
+  });
+
   const toggleMenu = () => {
+    console.log("potato");
     if (!window.matchMedia("(min-width: 768px)").matches)
       setMenuOpen(!isMenuOpen);
   };
