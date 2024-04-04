@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
 import css from "./Business.module.css";
+import axios from "axios";
 
 const BusinessModal = ({ onClose }) => {
   const [showInstallAddressInput, setShowInstallAddressInput] = useState(false);
   const [formData, setFormData] = useState({
     company: "",
-    NIP: "",
+    nip: "",
     street: "",
     city: "",
     postalCode: "",
@@ -17,6 +18,7 @@ const BusinessModal = ({ onClose }) => {
     contactLastName: "",
     email: "",
     phone: "",
+    privatePolicy: false, // Dodajemy pole privatePolicy
   });
 
   const handleChange = (e) => {
@@ -28,9 +30,38 @@ const BusinessModal = ({ onClose }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      // Tworzenie deala
+      const dealResponse = await axios.post(
+        "https://yesnet.bitrix24.pl/rest/1/9vs8d4rnp1puavoz/crm.deal.add",
+        {
+          fields: {
+            TITLE: formData.company,
+            ASSIGNED_BY_ID: 49,
+            OBSERVER: "Jonasz Janicki",
+            TYPE_ID: "SALE",
+            BEGINDATE: new Date(),
+            IS_NEW: "Y",
+            UF_CRM_1685603922041: [
+              `${formData.street}, ${formData.city}, ${formData.postalCode}`,
+            ],
+            UF_CRM_1712223907808: formData.company,
+            UF_CRM_1712223928807: formData.nip,
+            UF_CRM_1712224125272: `${formData.contactFirstName} ${formData.contactLastName}`,
+            UF_CRM_1712224166026: formData.email,
+            UF_CRM_1712224179064: formData.phone,
+            UF_CRM_1712227602563: `${formData.installStreet} ${formData.installCity} ${formData.installPostalCode}`,
+          },
+          params: { REGISTER_SONET_EVENT: "Y" },
+        }
+      );
+
+      console.log("Deal Response:", dealResponse.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -51,8 +82,8 @@ const BusinessModal = ({ onClose }) => {
           <span>NIP:</span>
           <input
             type="text"
-            name="NIP"
-            value={formData.NIP}
+            name="nip"
+            value={formData.nip}
             onChange={handleChange}
           />
         </label>
