@@ -11,7 +11,7 @@ function Promotion() {
   const secondsRef = useRef(null);
 
   const startDate = new Date();
-  const endDate = new Date(2024, 1, 1);
+  const endDate = new Date(2024, 5, 31);
 
   let timeLeft = endDate - startDate;
 
@@ -69,80 +69,51 @@ function Promotion() {
   }
 
   useEffect(() => {
-    // startCountDown();
+    startCountDown();
   }, []);
   return (
     <>
       <section className={css.allIn}>
-        <div className={css.bGcontainer}>
-          <div className={css.streetLamps}>
-            <div className={css.streetLamp}></div>
-            <div className={css.streetLamp}></div>
-            <div className={css.streetLamp}></div>
-            <div className={css.streetLamp}></div>
-            <div className={css.streetLamp}></div>
-          </div>
-
-          <div className={css.carsIncoming}>
-            <div className={css.car}></div>
-            <div className={css.car}></div>
-            <div className={css.car}></div>
-            <span className={css.reflect}></span>
-            <span className={css.reflect}></span>
-            <span className={css.reflect}></span>
-          </div>
-
-          <div className={css.carsGoing}>
-            <div className={css.car}></div>
-            <span className={css.reflect}></span>
-          </div>
-
-          <div className={css.carsGoingFlash}>
-            <div className={css.car}></div>
-            <span className={css.reflect}></span>
-          </div>
-
-          <div className={css.cityLights}>
-            <div className={css.light}></div>
-            <div className={css.light}></div>
-            <div className={css.light}></div>
-            <div className={css.light}></div>
-            <div className={css.light}></div>
-          </div>
-        </div>
         <div className={css.container}>
+          <h2 className={css.promotionTitle}>Ekspozycja Eventowa</h2>
           <div className={css.rectangleTimer}>
             <div className={css.field}>
-              <span className={css.value} ref={daysRef}>
+              <span className={css.valueTime} ref={daysRef}>
                 00
               </span>
-              <span className={css.label}>D</span>
+              <span className={css.labelTime}>days</span>
             </div>
             <div className={css.field}>
-              <span className={css.value} ref={hoursRef}>
+              <span className={css.valueTime} ref={hoursRef}>
                 00
               </span>
-              <span className={css.label}>H</span>
+              <span className={css.labelTime}>hours</span>
             </div>
             <div className={css.field}>
-              <span className={css.value} ref={minutesRef}>
+              <span className={css.valueTime} ref={minutesRef}>
                 00
               </span>
-              <span className={css.label}>M</span>
+              <span className={css.labelTime}>mins</span>
             </div>
             <div className={css.field}>
-              <span className={css.value} ref={secondsRef}>
+              <span className={css.valueTime} ref={secondsRef}>
                 00
               </span>
-              <span className={css.label}>S</span>
+              <span className={css.labelTime}>secs</span>
             </div>
           </div>
-          <button className={css.promotionBtn} onClick={changeStateOfWindow}>
-            More
-          </button>
+          <div className={css.infoBtn}>
+            <span className={css.descriptionBtn}>
+              Niech kieruje Tobą ciekawość
+            </span>
+
+            <button className={css.promotionBtn} onClick={changeStateOfWindow}>
+              Zajrzyj tutaj
+            </button>
+          </div>
         </div>
       </section>
-      <DialogWindow isOpen={isMoreOpen} closeFunc={handleClose}></DialogWindow>
+      {/* <DialogWindow isOpen={isMoreOpen} closeFunc={handleClose}></DialogWindow> */}
     </>
   );
 }

@@ -38,11 +38,11 @@ function Home() {
           <Ourself />
         </div>
       </section>
-      {/*<section className={css.section}>
+      <section className={css.section}>
         <div className={css.container}>
           <Promotion />
         </div>
-      </section> */}
+      </section>
 
       <section className={css.section} id="News">
         <div className={css.container}>
