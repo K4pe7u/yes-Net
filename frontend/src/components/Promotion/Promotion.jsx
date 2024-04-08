@@ -39,10 +39,14 @@ function Promotion() {
   function startCountDown() {
     let value = convertMs(timeLeft);
 
-    daysRef.current.textContent = addLeadingZero(value.days);
-    hoursRef.current.textContent = addLeadingZero(value.hours);
-    minutesRef.current.textContent = addLeadingZero(value.minutes);
-    secondsRef.current.textContent = addLeadingZero(value.seconds);
+    if (daysRef.current)
+      daysRef.current.textContent = addLeadingZero(value.days);
+    if (hoursRef.current)
+      hoursRef.current.textContent = addLeadingZero(value.hours);
+    if (minutesRef.current)
+      minutesRef.current.textContent = addLeadingZero(value.minutes);
+    if (secondsRef.current)
+      secondsRef.current.textContent = addLeadingZero(value.seconds);
 
     let counter = setInterval(() => {
       timeLeft = timeLeft - 1000;
@@ -53,10 +57,14 @@ function Promotion() {
         return clearInterval(counter);
       }
 
-      daysRef.current.textContent = addLeadingZero(value.days);
-      hoursRef.current.textContent = addLeadingZero(value.hours);
-      minutesRef.current.textContent = addLeadingZero(value.minutes);
-      secondsRef.current.textContent = addLeadingZero(value.seconds);
+      if (daysRef.current)
+        daysRef.current.textContent = addLeadingZero(value.days);
+      if (hoursRef.current)
+        hoursRef.current.textContent = addLeadingZero(value.hours);
+      if (minutesRef.current)
+        minutesRef.current.textContent = addLeadingZero(value.minutes);
+      if (secondsRef.current)
+        secondsRef.current.textContent = addLeadingZero(value.seconds);
     }, 1000);
   }
 

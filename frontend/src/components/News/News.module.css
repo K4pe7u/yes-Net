@@ -3,7 +3,8 @@
   src: url("../../fonts/Blanka-Regular.otf") format("opentype");
 }
 .news_container {
-  padding: 20px;
+  padding: 0px 16px;
+  margin-bottom: 130px;
 }
 .news_title {
   font-family: Blanka;

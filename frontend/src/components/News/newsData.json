@@ -1,50 +1,8 @@
 [
   {
     "id": 1,
-    "title": "Nowa aktualizacja oprogramowania",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elitPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "date": "2023-01-15"
-  },
-  {
-    "id": 2,
-    "title": "Nowa oferta pracy",
-    "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "date": "2023-02-20"
-  },
-  {
-    "id": 3,
-    "title": "Wydarzenie społecznościowe",
-    "content": "Fusce vitae elit in libero ultrices congue.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "date": "2023-03-05"
-  },
-  {
-    "id": 4,
-    "title": "Sprzedaż promocyjna",
-    "content": "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "date": "2023-04-10"
-  },
-  {
-    "id": 5,
-    "title": "Nowy produkt na rynku",
-    "content": "Sed porttitor lectus nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "date": "2023-05-18"
-  },
-  {
-    "id": 6,
-    "title": "Zaproszenie na konferencję",
-    "content": "Vivamus suscipit tortor eget felis porttitor volutpat.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "date": "2023-06-03"
-  },
-  {
-    "id": 7,
-    "title": "Nowa kolekcja w sklepie",
-    "content": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "date": "2023-07-12"
-  },
-  {
-    "id": 8,
-    "title": "Konkurs fotograficzny",
-    "content": "Nulla porttitor accumsan tincidunt.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "date": "2023-08-20"
+    "title": "Optymalizacja Sieci",
+    "content": "W celu optymalizacji wydajności sieci, w nocy dokonano zmiany ustawień routerów brzegowych na połączenia dynamiczne. Niestety, po tej zmianie konfiguracji okazało się, że koncentrator na Borku nie był w stanie otworzyć niektórych stron internetowych. W rezultacie, konieczne było przywrócenie ustawień statycznych wymiany ruchu, to związane było z porannymi przerwami w dostępie do internetu. Inwestujemy w rozwój oraz pracujemy nad rozbudową infrastruktury usługi internetowej. W najbliższym czasie planowane są kolejne istotne zmiany w szkielecie sieci. Więc w godzinach nocnych między 3 a 6, możliwe, że wystąpią przerwy w dostępie do internetu. Dziękujemy za wyrozumiałość i cierpliwość.",
+    "date": "2024-02-22"
   }
 ]
