@@ -8,7 +8,6 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 0px 16px;
-
   margin-bottom: 144px;
   gap: 42px;
 }
@@ -146,6 +145,7 @@
 }
 .importantInformation {
   font-weight: bold;
+  background-clip: unset;
   background-image: linear-gradient(-20deg, #007cf0, #008b87, #ff0080, #007cf0);
   -webkit-background-clip: text;
   color: transparent;

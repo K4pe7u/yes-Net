@@ -8,7 +8,7 @@ import Footer from "../../components/Footer/Footer";
 // eslint-disable-next-line
 import Promotion from "../../components/Promotion/Promotion";
 import News from "../../components/News/News";
-import MiniFaq from "../../components/MiniFaq/MiniFaq";
+import MiniFaq from "../../components/MiniFAQ/MiniFAQ";
 
 function Home() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import css from "./MiniFaq.module.css";
+import css from "./MiniFAQ.module.css";
 
 const MiniFAQ = () => {
   return (
