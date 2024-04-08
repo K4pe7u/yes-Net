@@ -1,8 +1,10 @@
 import css from "./Menu.module.css";
 import icon from "../../icons/icons.svg";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
-const Menu = ({ open, onClose }) => {
+const Menu = ({ open, onClose, outsideClick }) => {
+  const menuRef = useRef(null);
+
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
 
@@ -16,14 +18,32 @@ const Menu = ({ open, onClose }) => {
     setIsCompanyOpen(false);
   };
 
+  const hideMenuWindows = () => {
+    setIsCompanyOpen(false);
+    setIsSupportOpen(false);
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        outsideClick();
+        hideMenuWindows();
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [outsideClick]);
+
   return (
     <>
       {
         <>
           <div
-            className={`${css.menu} ${open ? css.open : css.close} 
-
-            `}
+            className={`${css.menu} ${open ? css.open : css.close}`}
+            ref={open ? menuRef : null}
           >
             <div className={css.menuHeader}>
               <svg
@@ -50,7 +70,7 @@ const Menu = ({ open, onClose }) => {
                 {/* eslint-disable-next-line */}
                 <a
                   href="#Header"
-                  onClick={onClose}
+                  onClick={outsideClick}
                   className={css.navigation_link}
                 >
                   <svg
@@ -66,7 +86,7 @@ const Menu = ({ open, onClose }) => {
               </li>
               <li className={css.navigation_item}>
                 {/* eslint-disable-next-line */}
-                <a onClick={onClose} className={css.navigation_link}>
+                <a onClick={outsideClick} className={css.navigation_link}>
                   <svg
                     className={`${css.account}`}
                     width="48px"
@@ -99,9 +119,18 @@ const Menu = ({ open, onClose }) => {
                     className={`${css.company_navigation} ${
                       isCompanyOpen ? css.company_navigation_open : ""
                     }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                   >
                     <li className={css.company_navigation_main_section}>
-                      <a href="#News" onClick={onClose}>
+                      <a
+                        href="#News"
+                        onClick={() => {
+                          toggleCompany();
+                          outsideClick();
+                        }}
+                      >
                         <svg className={`${css.groupPeople}`} fill="white">
                           <use href={`${icon}#groupPeople`}></use>
                         </svg>
@@ -113,7 +142,12 @@ const Menu = ({ open, onClose }) => {
                         </div>
                       </a>
                       {/* eslint-disable-next-line */}
-                      <a onClick={onClose}>
+                      <a
+                        onClick={() => {
+                          toggleCompany();
+                          outsideClick();
+                        }}
+                      >
                         <svg className={`${css.map}`} fill="white">
                           <use href={`${icon}#map`}></use>
                         </svg>
@@ -128,7 +162,13 @@ const Menu = ({ open, onClose }) => {
                     <li className={css.company_navigation_section_break}></li>
                     <li className={css.company_navigation_aside_section}>
                       {/* eslint-disable-next-line */}
-                      <a onClick={onClose} href="tel:+48690860520">
+                      <a
+                        onClick={() => {
+                          toggleCompany();
+                          outsideClick();
+                        }}
+                        href="tel:+48690860520"
+                      >
                         <svg className={`${css.phone}`} fill="white">
                           <use href={`${icon}#phone`}></use>
                         </svg>
@@ -137,7 +177,13 @@ const Menu = ({ open, onClose }) => {
                         </div>
                       </a>
                       {/* eslint-disable-next-line */}
-                      <a onClick={onClose} href="mailto:bok@yesnet.pl">
+                      <a
+                        onClick={() => {
+                          toggleCompany();
+                          outsideClick();
+                        }}
+                        href="mailto:bok@yesnet.pl"
+                      >
                         <svg className={`${css.envelop}`} fill="white">
                           <use href={`${icon}#envelop`}></use>
                         </svg>
@@ -170,9 +216,18 @@ const Menu = ({ open, onClose }) => {
                     className={`${css.support_navigation} ${
                       isSupportOpen ? css.suppport_navigation_open : ""
                     }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                   >
                     <li>
-                      <a href="#News" onClick={onClose}>
+                      <a
+                        href="#News"
+                        onClick={() => {
+                          toggleSupport();
+                          outsideClick();
+                        }}
+                      >
                         <svg
                           className={`${css.news}`}
                           width="20%"
@@ -191,7 +246,12 @@ const Menu = ({ open, onClose }) => {
                     </li>
                     <li>
                       {/* eslint-disable-next-line */}
-                      <a onClick={onClose}>
+                      <a
+                        onClick={() => {
+                          toggleSupport();
+                          outsideClick();
+                        }}
+                      >
                         <svg
                           className={`${css.pen}`}
                           width="20%"
@@ -210,7 +270,12 @@ const Menu = ({ open, onClose }) => {
                     </li>
                     <li>
                       {/* eslint-disable-next-line */}
-                      <a onClick={onClose}>
+                      <a
+                        onClick={() => {
+                          toggleSupport();
+                          outsideClick();
+                        }}
+                      >
                         <svg
                           className={`${css.faq}`}
                           width="20%"

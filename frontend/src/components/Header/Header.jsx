@@ -15,16 +15,15 @@ const Header = () => {
     setMenuOpen(false);
   });
 
-  window.addEventListener("keyup", (e) => {
-    if (e.key === "Control") {
-      console.log(isMenuOpen);
-    }
-  });
+  const hideMenu = () => {
+    setMenuOpen(false);
+  };
 
-  const toggleMenu = () => {
-    console.log("potato");
-    if (!window.matchMedia("(min-width: 768px)").matches)
+  const toggleMenu = (e) => {
+    e.stopPropagation();
+    if (!window.matchMedia("(min-width: 768px)").matches) {
       setMenuOpen(!isMenuOpen);
+    }
   };
 
   useEffect(() => {
@@ -60,7 +59,7 @@ const Header = () => {
         </svg>
       </div>
 
-      <Menu open={isMenuOpen} onClose={toggleMenu} />
+      <Menu open={isMenuOpen} onClose={toggleMenu} outsideClick={hideMenu} />
       {
         <div className={css.menu} onClick={toggleMenu}>
           <div
