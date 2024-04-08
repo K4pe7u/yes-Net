@@ -9,7 +9,7 @@ function Promotion() {
   const secondsRef = useRef(null);
 
   const startDate = new Date();
-  const endDate = new Date(2024, 5, 31);
+  const endDate = new Date(2024, 4, 12);
 
   let timeLeft = endDate - startDate;
 

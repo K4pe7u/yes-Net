@@ -83,6 +83,7 @@
   font-size: 56px;
   font-family: Blanka;
   font-weight: bold;
+  background-clip: unset;
   background: linear-gradient(45deg, #007cf0, #008b87, #ff0080, #007cf0);
   -webkit-background-clip: text;
   color: transparent;
