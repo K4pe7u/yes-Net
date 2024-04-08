@@ -33,4 +33,10 @@
   border: 1px solid #666;
   border-radius: 8px;
   margin-top: 32px;
+  transition: box-shadow, filter 0.2s ease, 0.2s ease;
+}
+.faqLink:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 60px rgba(255, 255, 255, 0.7);
+  filter: brightness(1.6);
 }

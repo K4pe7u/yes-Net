@@ -1,10 +1,8 @@
 import css from "./Promotion.module.css";
-import { useEffect, useState, useRef } from "react";
-import DialogWindow from "./assets/DialogWindow";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 function Promotion() {
-  const [isMoreOpen, setIsMoreOpen] = useState(false);
-
   const daysRef = useRef(null);
   const hoursRef = useRef(null);
   const minutesRef = useRef(null);
@@ -36,6 +34,7 @@ function Promotion() {
     return value;
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function startCountDown() {
     let value = convertMs(timeLeft);
 
@@ -68,17 +67,10 @@ function Promotion() {
     }, 1000);
   }
 
-  function changeStateOfWindow() {
-    setIsMoreOpen(!isMoreOpen);
-  }
-
-  function handleClose() {
-    setIsMoreOpen(!isMoreOpen);
-  }
-
   useEffect(() => {
     startCountDown();
-  }, []);
+  }, [startCountDown]);
+
   return (
     <>
       <section className={css.allIn}>
@@ -115,9 +107,9 @@ function Promotion() {
               Niech kieruje Tobą ciekawość
             </span>
 
-            <button className={css.promotionBtn} onClick={changeStateOfWindow}>
+            <Link to="/promotion" className={css.promotionBtn}>
               Zajrzyj tutaj
-            </button>
+            </Link>
           </div>
         </div>
       </section>
