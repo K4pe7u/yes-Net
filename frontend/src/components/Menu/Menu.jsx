@@ -4,16 +4,19 @@ import { useState, useRef, useEffect } from "react";
 
 const Menu = ({ open, onClose, outsideClick }) => {
   const menuRef = useRef(null);
+  const dialogWindowRef = useRef(null);
 
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
 
-  const toggleCompany = () => {
+  const toggleCompany = (e) => {
+    e.stopPropagation();
     setIsCompanyOpen(!isCompanyOpen);
     setIsSupportOpen(false);
   };
 
-  const toggleSupport = () => {
+  const toggleSupport = (e) => {
+    e.stopPropagation();
     setIsSupportOpen(!isSupportOpen);
     setIsCompanyOpen(false);
   };
@@ -25,7 +28,11 @@ const Menu = ({ open, onClose, outsideClick }) => {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (
+        (menuRef.current && !menuRef.current.contains(event.target)) ||
+        (dialogWindowRef.current &&
+          !dialogWindowRef.current.contains(event.target))
+      ) {
         outsideClick();
         hideMenuWindows();
       }
@@ -119,6 +126,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                     className={`${css.company_navigation} ${
                       isCompanyOpen ? css.company_navigation_open : ""
                     }`}
+                    ref={isCompanyOpen ? dialogWindowRef : null}
                     onClick={(e) => {
                       e.stopPropagation();
                     }}
@@ -127,7 +135,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       <a
                         href="#News"
                         onClick={() => {
-                          toggleCompany();
+                          hideMenuWindows();
                           outsideClick();
                         }}
                       >
@@ -144,7 +152,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          toggleCompany();
+                          hideMenuWindows();
                           outsideClick();
                         }}
                       >
@@ -164,7 +172,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          toggleCompany();
+                          hideMenuWindows();
                           outsideClick();
                         }}
                         href="tel:+48690860520"
@@ -179,7 +187,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          toggleCompany();
+                          hideMenuWindows();
                           outsideClick();
                         }}
                         href="mailto:bok@yesnet.pl"
@@ -216,6 +224,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                     className={`${css.support_navigation} ${
                       isSupportOpen ? css.suppport_navigation_open : ""
                     }`}
+                    ref={isSupportOpen ? dialogWindowRef : null}
                     onClick={(e) => {
                       e.stopPropagation();
                     }}
@@ -224,7 +233,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       <a
                         href="#News"
                         onClick={() => {
-                          toggleSupport();
+                          hideMenuWindows();
                           outsideClick();
                         }}
                       >
@@ -248,7 +257,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          toggleSupport();
+                          hideMenuWindows();
                           outsideClick();
                         }}
                       >
@@ -272,7 +281,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          toggleSupport();
+                          hideMenuWindows();
                           outsideClick();
                         }}
                       >
