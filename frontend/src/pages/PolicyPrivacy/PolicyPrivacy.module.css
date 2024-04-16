@@ -10,7 +10,7 @@ ul {
 }
 
 .policyPrivacy {
-  width: calc(100% - 200px);
+  width: calc(100% - 20px);
   background: linear-gradient(
     135deg,
     hsla(240, 12%, 11%, 1) 16%,
@@ -20,7 +20,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 100px;
+  padding: 20px 10px;
   position: relative;
 }
 
@@ -36,7 +36,6 @@ ul {
   position: fixed;
   left: 0;
   top: 0;
-  animation: pulseEffect2 5s ease-in-out infinite;
 }
 
 .animatedBorder {
@@ -45,6 +44,7 @@ ul {
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 400px;
 }
 
 .animatedBorder::before {
@@ -58,35 +58,9 @@ ul {
   animation: pulseEffect 3s ease-in-out infinite;
 }
 
-@keyframes pulseEffect {
-  0% {
-    transform: scale(0.97);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(0.98);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0.97);
-    opacity: 0.8;
-  }
-}
-
-@keyframes pulseEffect2 {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.04);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .mainTitle {
   margin: 50px 0 30px 0;
+  font-size: 25px;
 }
 
 .container {
@@ -107,13 +81,14 @@ ul {
   border: 1px solid #b7b7bd;
   border-radius: 90%;
   background-color: #b7b7bd;
-  margin: 80px 0;
+  margin: 40px 0;
 }
 
 .description {
   text-align: center;
   display: flex;
-  width: 950px;
+  max-width: 300px;
+  font-size: 14px;
 }
 
 .segment {
@@ -123,6 +98,7 @@ ul {
   align-items: center;
   gap: 10px;
   margin-bottom: 50px;
+  font-size: 14px;
 }
 
 .segment span {
@@ -151,4 +127,74 @@ ul {
 
 .listOfData {
   text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  .policyPrivacy {
+    width: calc(100% - 60px);
+    padding: 30px 30px;
+  }
+
+  .animatedBorder {
+    max-width: 768px;
+  }
+
+  .mainTitle {
+    font-size: 30px;
+  }
+
+  .breakPoint {
+    margin: 80px 0;
+  }
+
+  .description {
+    max-width: 950px;
+  }
+
+  .segment {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .policyPrivacy {
+    width: calc(100% - 200px);
+    padding: 30px 100px;
+  }
+
+  .animatedBorder {
+    max-width: 1280px;
+  }
+
+  .mainTitle {
+    font-size: 32px;
+  }
+
+  .breakPoint {
+    margin: 80px 0;
+  }
+
+  .description {
+    max-width: 950px;
+    font-size: 16px;
+  }
+
+  .segment {
+    font-size: 18px;
+  }
+}
+
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.01);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
 }

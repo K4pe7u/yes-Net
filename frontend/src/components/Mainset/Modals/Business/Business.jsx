@@ -39,8 +39,6 @@ const BusinessModal = ({ onClose }) => {
         {
           fields: {
             TITLE: formData.company,
-            ASSIGNED_BY_ID: 49,
-            OBSERVER: "Jonasz Janicki",
             TYPE_ID: "SALE",
             BEGINDATE: new Date(),
             IS_NEW: "Y",

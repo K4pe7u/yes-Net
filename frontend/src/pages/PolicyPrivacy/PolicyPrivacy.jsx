@@ -1,6 +1,15 @@
 import css from "./PolicyPrivacy.module.css";
+import { useEffect } from "react";
 
 const PolicyPrivacy = () => {
+  const init = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  };
+
+  useEffect(() => {
+    init();
+  }, []);
+
   return (
     <>
       <section className={css.policyPrivacy}>

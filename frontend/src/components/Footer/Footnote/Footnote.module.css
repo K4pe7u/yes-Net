@@ -4,3 +4,17 @@
   margin: 6px 0px;
   font-size: 12px;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.policyPrivacy {
+  color: gray;
+}
+
+.policyPrivacy:hover {
+  color: rgb(165, 165, 165);
+}
