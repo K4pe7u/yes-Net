@@ -9,6 +9,12 @@ const Menu = ({ open, onClose, outsideClick }) => {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
 
+  const scrollToSection = (section, offset) => {
+    const sectionToScrollTo = document.getElementById(`${section}`);
+    console.log(section, sectionToScrollTo)
+    window.scrollTo({top: sectionToScrollTo.offsetTop - offset, left: 0, behavior: "smooth"})
+  }
+
   const toggleCompany = (e) => {
     e.stopPropagation();
     setIsCompanyOpen(!isCompanyOpen);
@@ -133,10 +139,10 @@ const Menu = ({ open, onClose, outsideClick }) => {
                   >
                     <li className={css.company_navigation_main_section}>
                       <a
-                        href="#News"
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
+                          scrollToSection("Ourself", 120)
                         }}
                       >
                         <svg className={`${css.groupPeople}`} fill="white">

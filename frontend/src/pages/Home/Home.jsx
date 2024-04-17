@@ -33,17 +33,16 @@ function Home() {
           <Mainset />
         </div>
       </section>
-      <section className={css.section}>
+      <section className={css.section} id="Ourself">
         <div className={css.container}>
           <Ourself />
         </div>
       </section>
-      <section className={css.section}>
+      <section className={css.section} id="Promotion">
         <div className={css.container}>
           <Promotion />
         </div>
       </section>
-
       <section className={css.section} id="News">
         <div className={css.container}>
           <News />
@@ -54,7 +53,7 @@ function Home() {
           <MiniFaq />
         </div>
       </section>
-      <section className={css.section}>
+      <section className={css.section} id="Footer">
         <div className={css.container}>
           <Footer />
         </div>

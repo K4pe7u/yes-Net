@@ -8,12 +8,15 @@ const Header = () => {
   const [scroll, setScroll] = useState(false);
 
   window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
-    console.log(isMenuOpen);
     if (!e.matches) {
       return;
     }
     setMenuOpen(false);
   });
+
+  const toTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }
 
   const hideMenu = () => {
     setMenuOpen(false);
@@ -54,7 +57,8 @@ const Header = () => {
   return (
     <div className={`${css.header} ${scroll ? css.scroll : ""}`}>
       <div className={css.logo_icon_container}>
-        <svg className={`${css.logo_icon}`}>
+        <svg className={`${css.logo_icon}`}
+         onClick={toTop}>
           <use href={`${icon}#logo`}></use>
         </svg>
       </div>
