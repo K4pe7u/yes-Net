@@ -11,8 +11,22 @@ const Menu = ({ open, onClose, outsideClick }) => {
 
   const scrollToSection = (section, offset) => {
     const sectionToScrollTo = document.getElementById(`${section}`);
-    console.log(section, sectionToScrollTo)
-    window.scrollTo({top: sectionToScrollTo.offsetTop - offset, left: 0, behavior: "smooth"})
+
+    // console.log(window.matchMedia("(min-width: 320px)").matches && window.matchMedia("(max-width: 767px)").matches);
+    // console.log(window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1279px)").matches);
+    // console.log(window.matchMedia("(min-width: 1280px)").matches)
+
+    if (window.matchMedia("(min-width: 320px)").matches && window.matchMedia("(max-width: 767px)").matches) {
+      window.scrollTo({top: sectionToScrollTo.offsetTop - offset[0], left: 0, behavior: "smooth"});
+    } else if(window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1279px)").matches)  {
+      console.log(sectionToScrollTo.offsetTop, offset[1]);
+      window.scrollTo({top: sectionToScrollTo.offsetTop - offset[1], left: 0, behavior: "smooth"});
+    } else if(window.matchMedia("(min-width: 1280px)").matches) {
+      console.log(sectionToScrollTo.offsetTop, offset[2]);
+      window.scrollTo({top: sectionToScrollTo.offsetTop - offset[2], left: 0, behavior: "smooth"});
+    }
+    
+    
   }
 
   const toggleCompany = (e) => {
@@ -138,11 +152,12 @@ const Menu = ({ open, onClose, outsideClick }) => {
                     }}
                   >
                     <li className={css.company_navigation_main_section}>
+                      {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
-                          scrollToSection("Ourself", 120)
+                          scrollToSection("Ourself", [60, 80,180])
                         }}
                       >
                         <svg className={`${css.groupPeople}`} fill="white">
@@ -160,6 +175,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
+                          scrollToSection("Footer", [-940, -1030, -1230])
                         }}
                       >
                         <svg className={`${css.map}`} fill="white">
@@ -236,11 +252,12 @@ const Menu = ({ open, onClose, outsideClick }) => {
                     }}
                   >
                     <li>
+                      {/* eslint-disable-next-line */}
                       <a
-                        href="#News"
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
+                          scrollToSection("News", [80, 100, 180])
                         }}
                       >
                         <svg
@@ -265,6 +282,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
+                          scrollToSection("Footer", [-530, -500, -440])
                         }}
                       >
                         <svg
@@ -289,6 +307,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
+                          scrollToSection("MiniFaq", [80, 80, 140])
                         }}
                       >
                         <svg

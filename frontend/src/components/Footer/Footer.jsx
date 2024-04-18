@@ -7,13 +7,13 @@ const Footer = () => {
   return (
     <div>
       <div>
-        <Contact />
+        <Contact/>
       </div>
-      <div id="Footer">
-        <GoogleMap />
+      <div >
+        <GoogleMap/>
       </div>
       <div>
-        <Footnote />
+        <Footnote/>
       </div>
     </div>
   );

@@ -2,10 +2,8 @@ import React from "react";
 import css from "./Home.module.css";
 import Header from "../../components/Header/Header";
 import Mainset from "../../components/Mainset/Mainset";
-// eslint-disable-next-line
 import Ourself from "../../components/Ourself/Ourself";
 import Footer from "../../components/Footer/Footer";
-// eslint-disable-next-line
 import Promotion from "../../components/Promotion/Promotion";
 import News from "../../components/News/News";
 import MiniFaq from "../../components/MiniFAQ/MiniFAQ";

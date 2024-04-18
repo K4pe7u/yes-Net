@@ -228,3 +228,9 @@
 .customSelectValue .arrow.arrow-left.arrow-down {
   transform: translateY(-50%) rotate(45deg);
 }
+
+@media screen and (min-width: 768px) {
+  .contactContainer {
+    margin-bottom: 80px
+  }
+}
