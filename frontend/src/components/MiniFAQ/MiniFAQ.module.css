@@ -57,7 +57,7 @@
   left:0;
   top: 0;
   z-index: 5;
-  animation: circleAround1 12s linear infinite;
+  animation: circleAround1 13s linear infinite;
 }
 
 .faqLink::before {
@@ -87,12 +87,12 @@
 
 @keyframes circleAround2 {
   0% {
-    transform: translate(-100%, 0%);
+    transform: translate(-170%, 0%);
   }
   50% {
     transform: translate(110%, 50%);
   }
   100% {
-    transform: translate(-100%, 0%);
+    transform: translate(-170%, 0%);
   }
 }
