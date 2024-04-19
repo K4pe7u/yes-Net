@@ -22,21 +22,77 @@
   text-align: center;
 }
 
+
+.faqLink_content {
+  position: sticky;
+  z-index: 6;
+  margin-bottom: 10px;
+}
+
 .faqLink {
-  color: #666;
-  background: transparent;
-  font-size: 16px;
+  color: #fff;
+  background: #000;
+  font-size: 24px;
   font-weight: 700;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 8px 12px;
+  font-family: "blanka", sans-serif;
+  padding: 20px 30px;
   width: unset;
-  border: 1px solid #666;
   border-radius: 8px;
   margin-top: 32px;
-  transition: box-shadow, filter 0.2s ease, 0.2s ease;
+  /* border: 1px solid #666; */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.faqLink:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 60px rgba(255, 255, 255, 0.7);
-  filter: brightness(1.6);
+
+.faqLink::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #007cf0;
+  left:0;
+  top: 0;
+  z-index: 5;
+  animation: circleAround1 12s linear infinite;
+}
+
+.faqLink::before {
+  content: "";
+  position: absolute;
+  width:100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ff0080;
+  right:0;
+  bottom: 0;
+  z-index: 4;
+  animation: circleAround2 12s linear infinite;
+}
+
+@keyframes circleAround1 {
+  0% {
+    transform: translate(190%, 0%);
+  }
+  50% {
+    transform: translate(-110%, -50%);
+  }
+  100% {
+    transform: translate(190%, 0%);
+  }
+}
+
+@keyframes circleAround2 {
+  0% {
+    transform: translate(-100%, 0%);
+  }
+  50% {
+    transform: translate(110%, 50%);
+  }
+  100% {
+    transform: translate(-100%, 0%);
+  }
 }
