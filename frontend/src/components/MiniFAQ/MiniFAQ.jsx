@@ -10,7 +10,7 @@ const MiniFAQ = () => {
         Rozwiej wszelkie wątpliwości i znajdź odpowiedzi na swoje pytania!
       </span>
       <Link to="/faq" className={css.faqLink}>
-        FAQ
+        <span className={css.faqLink_content}>Read Me</span>
       </Link>
     </div>
   );
