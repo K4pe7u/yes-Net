@@ -19,8 +19,9 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
-  overflow-x: auto;
+  overflow: auto;
   scroll-snap-type: x mandatory;
+  /* justify-content: center; */
 }
 .news_slider::-webkit-scrollbar {
   opacity: 0;
@@ -30,38 +31,25 @@
   scroll-snap-align: start;
   font-size: 12px;
   box-sizing: border-box;
-  padding: 20px 20px;
   flex-shrink: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-}
-.news_item:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.05);
-  animation: pulseEffect 2s ease-in-out infinite;
-  filter: brightness(1);
-  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.7);
+  align-items: center;
 }
 
 @keyframes pulseEffect {
   0% {
-    transform: scale(0.95);
+    transform: translate(-50%, -50%) scale(.96);
     opacity: 0.8;
   }
   50% {
-    transform: scale(0.98);
+    transform: translate(-50%, -50%) scale(.98);
     opacity: 1;
   }
   100% {
-    transform: scale(0.95);
+    transform: translate(-50%, -50%) scale(.96);
     opacity: 0.8;
   }
 }
@@ -69,26 +57,31 @@
 .news_itemTitle {
   font-size: 20px;
   text-align: center;
-  margin-top: 0px;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 
 .date {
   color: #bababa;
   font-size: 12px;
+  width: 90%;
 }
 .content_text {
-  font-size: 13px;
+  font-size: 16px;
+
 }
 .content_newsItem {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  width: 90%;
+  font-family: "poppins", sans-serif;
+  font-weight: 300;
 }
 
 .team_solution {
-  font-size: 9px;
+  font-size: 14px;
   text-align: end;
 }
 
@@ -110,4 +103,45 @@
   background: #008b87;
   filter: brightness(1.9);
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+}
+
+.new_item_container {
+  box-sizing: border-box;
+  padding: 20px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.new_item_container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  height: 99%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  animation: pulseEffect 3s ease-in-out infinite;
+  filter: brightness(1);
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (min-width: 768px) {
+
+  .new_item_container {
+    max-width: 736px;
+  }
+  
+}
+
+@media screen and (min-width: 1280px) {
+
+  .new_item_container {
+    max-width: 1200px;
+  }
+  
 }

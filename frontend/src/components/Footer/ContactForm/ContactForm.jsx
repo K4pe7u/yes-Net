@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import css from "./Contact.module.css";
+import css from "./ContactForm.module.css";
 
-const Contact = () => {
+const ContactForm = () => {
   const [isPrimaryOptionsVisible, setPrimaryOptionsVisible] = useState(false);
   const [selectedPrimaryValue, setSelectedPrimaryValue] = useState("");
   const [isAdditionalOptionsVisible, setAdditionalOptionsVisible] =
@@ -29,43 +29,12 @@ const Contact = () => {
   };
 
   const handleAdditionalOptionClick = (value) => {
-    console.log("potato");
     setSelectedAdditionalValue(value);
     setAdditionalListOptionsVisible(false);
-    console.log("tomato");
   };
 
   return (
     <div className={css.contactContainer}>
-      <div className={css.contactInfo}>
-        <h2 className={css.contactTitle}>Dane kontaktowe</h2>
-        <ul className={css.contactList}>
-          <li className={css.contactItem}>
-            <h3 className={css.contactItem_title}>Biuro Obsługi Klienta</h3>
-            <span>ul. Towarowa 1, Wronki</span>
-            <span>Czynne: poniedziałek - piątek w godz. 8-16</span>
-            <span className={css.importantInformation}>
-              tel.: +48 690 860 520
-            </span>
-            <span className={css.importantInformation}>
-              e-mail: BOK@yesnet.pl
-            </span>
-          </li>
-          <li className={css.contactItem}>
-            <h3 className={css.contactItem_title}>Punkt Obsługi Abonenta</h3>
-            <span>os. Młodych 8, Krzyż Wlkp</span>
-            <span>Czynne: wtorki i czwartki w godz. 10-15</span>
-          </li>
-          <li className={css.contactItem}>
-            <h3 className={css.contactItem_title}>Pogotowie Sieci yesNET</h3>
-            <span>Czynne: 24/7</span>
-            <span className={css.importantInformation}>
-              tel.: + 48 660 480 036
-            </span>
-            <span>(telefon obsługuje wyłącznie sms)</span>
-          </li>
-        </ul>
-      </div>
       <div className={css.contactForm}>
         <h2 className={css.contactForm_title}>Formularz kontaktowy</h2>
         <form action="#" method="post" className={css.contactForm_list}>
@@ -181,7 +150,7 @@ const Contact = () => {
             <textarea
               id="message"
               name="message"
-              rows="1"
+              rows="6"
               required
               placeholder="Krótki opis problemu"
             ></textarea>
@@ -197,4 +166,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactForm;

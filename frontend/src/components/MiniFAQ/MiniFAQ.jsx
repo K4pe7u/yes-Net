@@ -9,9 +9,11 @@ const MiniFAQ = () => {
       <span className={css.faqDescription}>
         Rozwiej wszelkie wątpliwości i znajdź odpowiedzi na swoje pytania!
       </span>
-      <Link to="/faq" className={css.faqLink}>
-        <span className={css.faqLink_content}>Read Me</span>
-      </Link>
+      <div className={css.faqLink_container}>
+        <Link to="/faq" className={css.faqLink}>
+          <span className={css.faqLink_content}>Read Me</span>
+        </Link>
+      </div>
     </div>
   );
 };

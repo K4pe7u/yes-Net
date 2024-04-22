@@ -38,7 +38,6 @@
   padding: 20px 30px;
   width: unset;
   border-radius: 8px;
-  margin-top: 32px;
   /* border: 1px solid #666; */
   position: relative;
   overflow: hidden;
@@ -58,6 +57,7 @@
   top: 0;
   z-index: 5;
   animation: circleAround1 13s linear infinite;
+  transition: opacity 0.5s;
 }
 
 .faqLink::before {
@@ -71,6 +71,7 @@
   bottom: 0;
   z-index: 4;
   animation: circleAround2 12s linear infinite;
+  transition: opacity 0.5s;
 }
 
 @keyframes circleAround1 {
@@ -96,3 +97,52 @@
     transform: translate(-170%, 0%);
   }
 }
+
+@keyframes rotation {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0turn);
+  }
+  /* 33% {
+    transform: translate(-50%, -50%) rotateZ(.33turn);
+  }
+  66% {
+
+    transform: translate(-50%, -50%) rotateZ(.66turn);
+  } */
+  100% {
+    transform: translate(-50%, -50%) rotateZ(1turn);
+  }
+}
+
+.faqLink_container {
+  margin-top: 48px;
+  padding: 6px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.faqLink_container::before {
+  content: "";
+  position: absolute;
+  background: conic-gradient(transparent 270deg, white, transparent);
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 150%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: rotation 3s linear infinite;
+}
+
+.faqLink_container:hover::before {
+  opacity: 1;
+}
+
+.faqLink_container:hover .faqLink::before,
+.faqLink_container:hover .faqLink::after {
+  opacity: 0;
+}
+

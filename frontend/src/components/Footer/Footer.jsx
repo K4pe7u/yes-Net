@@ -1,21 +1,19 @@
 import React from "react";
-import Contact from "./Contact/Contact";
+import ContactInfo from "./ContactInfo/ContactInfo";
+import ContactForm from "./ContactForm/ContactForm";
 import GoogleMap from "./GoogleMap/GoogleMap";
 import Footnote from "./Footnote/Footnote";
 
 const Footer = () => {
   return (
-    <div>
-      <div>
-        <Contact/>
-      </div>
-      <div >
-        <GoogleMap/>
-      </div>
-      <div>
-        <Footnote/>
-      </div>
-    </div>
+    <>
+      <ContactInfo/>
+      <ContactForm/>
+      <GoogleMap/>
+      <Footnote/>
+    </>
+
+
   );
 };
 
