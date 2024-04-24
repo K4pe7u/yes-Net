@@ -26,13 +26,12 @@ const Mainset = () => {
 
   return (
     <div className={css.sellContainer}>
-      <div className={css.titleContainer}>
-        {/* <picture className={css.logoImage}>
-          <source media="(min-width: 1280px)" srcSet={tabletlogo} />
-          <img src={mobilelogo} alt="ggg" />
-        </picture> */}
-        <img src={desktoplogo} className={css.logoImage} alt="Desktop"/>
+      <div className={css.corectionBox}>
+        <div className={css.titleContainer}>
+          <img src={desktoplogo} className={css.logoImage} alt="Desktop"/>
+        </div>
       </div>
+      
       <div className={css.joinContainer}>
         <div className={css.solutionSecondary}>
           Skrój Pakiet Dla Swoich Potrzeb!
