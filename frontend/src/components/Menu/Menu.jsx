@@ -175,7 +175,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
-                          scrollToSection("Footer", [-940, -1030, -1230])
+                          scrollToSection("Footer", [-1430, -1230, -1450])
                         }}
                       >
                         <svg className={`${css.map}`} fill="white">
@@ -257,7 +257,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
-                          scrollToSection("News", [80, 100, 180])
+                          scrollToSection("News", [110, 150, 220])
                         }}
                       >
                         <svg
@@ -282,7 +282,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
-                          scrollToSection("Footer", [-530, -500, -440])
+                          scrollToSection("Footer", [-730, -600, -540])
                         }}
                       >
                         <svg
@@ -339,7 +339,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                   <h4 className={css.contact_context}>+48690860520</h4>
                 </div>
               </a>
-              <div className={css.contact_break}></div>
+
               <a onClick={onClose} href="mailto:bok@yesnet.pl">
                 <svg className={`${css.envelop}`} fill="white">
                   <use href={`${icon}#envelop`}></use>

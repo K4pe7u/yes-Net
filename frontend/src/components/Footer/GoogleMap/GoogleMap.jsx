@@ -30,7 +30,7 @@ const GoogleMap = () => {
 
   return (
     <div className={css.googleMap}>
-      <h2 className={css.googleMap_title}>Lokalizacja biura we Wronkach</h2>
+      <h2 className={css.googleMap_title}>Lokalizacja punktów obsługi YesNet</h2>
       <iframe
         title="Google Map - Lokalizacja biura w Wronkach"
         className={css.mapIframe}

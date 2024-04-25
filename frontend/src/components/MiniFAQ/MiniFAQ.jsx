@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import css from "./MiniFAQ.module.css";
-import faqImg from "../../image/FAQ-Grafika.png"
-import faqImg02 from "../../image/FAQ-Grafika02.png"
-import faqImg03 from "../../image/FAQ-Grafika03.png"
+// import faqImg from "../../image/FAQ-Grafika.png"
+// import faqImg02 from "../../image/FAQ-Grafika02.png"
+// import faqImg03 from "../../image/FAQ-Grafika03.png"
 import faqImg04 from "../../image/FAQ-Grafika04.png"
 
 const MiniFAQ = () => {
@@ -20,7 +20,7 @@ const MiniFAQ = () => {
           </Link>
         </div>
       </div>
-      <img className={css.faqImage} src={faqImg04}></img>
+      <img className={css.faqImage} src={faqImg04} alt=""></img>
     </div>
   );
 };

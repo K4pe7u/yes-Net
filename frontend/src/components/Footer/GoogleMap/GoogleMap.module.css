@@ -2,15 +2,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 64px;
+  margin-bottom: 120px;
+  gap: 20px
 }
 .googleMap_title {
   font-size: 16px;
 }
 .googleMap iframe {
-  --width: 80%;
+  --width: 90%;
   width: var(--width);
-  height: 42vw;
-  margin-top: px;
+  height: 64vw;
   border-radius: 12px;
+}
+
+@media screen and (min-width: 768px){
+  .googleMap iframe {
+    --width: 80%;
+    height: 42vw;
+  }
+}
+
+@media screen and (min-width: 1280px){
 }

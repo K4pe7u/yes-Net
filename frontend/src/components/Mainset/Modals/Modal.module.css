@@ -15,16 +15,10 @@
 .modal {
   position: relative;
   z-index: 1001;
-  padding: 20px;
-  background: linear-gradient(
-    220deg,
-    rgba(19, 19, 19, 1) 8%,
-    rgba(38, 38, 38, 1) 45%,
-    rgba(51, 51, 51, 1) 63%,
-    rgba(79, 79, 79, 1) 97%
-  );
+  padding: 20px 40px;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   border-radius: 8px;
-  width: calc(90% - 40px);
+box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .closeButton {
@@ -35,10 +29,14 @@
   cursor: pointer;
   background: none;
   border: none;
-  border-radius: 32px;
+  /* transition: color 0.5s; */
   color: white;
 }
 
+.closeButton:hover {
+  color: rgb(170, 170, 170);
+}
+
 .modalContent {
-  padding: 24px 0px;
+  padding: 24px 0px 12px 0;
 }

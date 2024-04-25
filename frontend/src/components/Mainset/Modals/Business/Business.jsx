@@ -188,10 +188,12 @@ const BusinessModal = ({ onClose }) => {
             name="privatePolicy"
             checked={formData.privatePolicy}
             onChange={handleChange}
-          />{" "}
-          Oświadczam, że zapoznałem się i akceptuję{" "}
-          <a href="/regulamin">regulamin</a> oraz{" "}
-          <a href="/polityka-prywatnosci">Polityką Prywatności</a>
+          />
+          <p>
+            Oświadczam, że zapoznałem się i akceptuję 
+            <a href="/regulamin"> regulamin</a> oraz
+            <a href="/polityka-prywatnosci"> Polityką Prywatności</a>
+          </p>
         </label>
         <button className={css.formItem_button} type="submit">
           Wyślij

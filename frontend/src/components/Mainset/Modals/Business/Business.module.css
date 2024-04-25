@@ -9,7 +9,7 @@
 .modalTitle {
   display: block;
   font-family: "Poppins", sans-serif;
-  font-size: 18px;
+  font-size: 22px;
   color: transparent;
   text-align: center;
   background: linear-gradient(-90deg, #007cf0, #008b87, #ff0080, #007cf0);
@@ -34,12 +34,15 @@
   margin-bottom: 12px;
   width: 100%;
 }
+
 .formItem span {
   text-transform: uppercase;
   color: #fff;
   font-weight: bold;
-  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
 }
+
 .formItem input {
   appearance: none;
   color: #fff;
@@ -47,26 +50,29 @@
   outline: none;
   border: none;
   border-bottom: 1px solid #666;
-  padding: 4px 0px;
-  font-size: 10px;
+  padding: 4px 0 1px 0;
+  font-size: 13px;
 }
+
+.formItem input::placeholder {
+  color: #b4b4b4 ;
+  padding-left: 2px;
+}
+
 .formItem_button {
   position: relative;
-  color: rgb(255, 254, 254);
+  color: rgb(214, 214, 214);
   font-weight: 700;
   font-size: 12px;
   text-transform: uppercase;
   padding: 12px 24px;
-  width: unset;
   border-radius: 8px;
   border: none;
-  background: linear-gradient(-20deg, #007cf0, #008b87, #ff0080, #007cf0);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: all 0.4s ease, color 0.4s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  animation: background-anim 6s ease-in-out infinite;
+  margin-top: 18px;
+  background-color:rgba(7, 15, 43, 0.3);
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.8);
   background-size: 400% 100%;
+  transition: background-color 0.2s;
 }
 @keyframes background-anim {
   0% {
@@ -80,14 +86,32 @@
   }
 }
 .privateCheck {
+  font-family: "poppins", sans-serif;
   margin-top: 23px;
-  margin-bottom: 24px;
+  margin-bottom: 6px;
   font-size: 12px;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  max-width: 90%;
 }
+
+.privateCheck input {
+  height: 13px;
+}
+
+.privateCheck a {
+  color: gray;
+}
+
+.privateCheck p {
+  margin: 0;
+}
+
 .formItem_button:hover {
   cursor: pointer;
-  filter: brightness(1.6);
-  box-shadow: 0px 0px 120px rgba(255, 255, 255, 0.7);
+  /* background-color: #0c1846; */
+  background-color:rgba(7, 15, 43, 0.6);
 }
 .formItem_buttonAdditional {
   padding: 8px 12px;
