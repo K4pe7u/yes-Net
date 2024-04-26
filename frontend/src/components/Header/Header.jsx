@@ -45,7 +45,7 @@ const Header = () => {
         setScroll(false);
       }
     };
-
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     // Cleanup function to remove the event listener when component unmounts
@@ -53,6 +53,8 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+
 
   return (
     <div className={`${css.header} ${scroll ? css.scroll : ""}`}>
