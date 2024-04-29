@@ -489,6 +489,8 @@
     transition: color 0.2s, transform 0.4s;
     color: #ffffff;
     font-size: 13px;
+    user-select: none;
+    cursor: pointer;
   }
 
   .company_open,

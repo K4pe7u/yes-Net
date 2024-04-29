@@ -1,29 +1,10 @@
-import React, { useState, useEffect } from "react";
-import IndividualModal from "./Modals/Individual/Individual";
-import BusinessModal from "./Modals/Business/Business";
+import React from "react";
 import css from "./Mainset.module.css";
 
 // eslint-disable-next-line
 import desktoplogo from "../../image/logo1440x2070.png";
 
-const Mainset = () => {
-  const [currentModal, setCurrentModal] = useState(null);
-
-  const openModal = (modalType) => {
-    setCurrentModal(modalType);
-  };
-
-  const closeModal = () => {
-    setCurrentModal(null);
-  };
-  useEffect(() => {
-    if (currentModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [currentModal]);
-
+const Mainset = ({open}) => {
   return (
     <div className={css.sellContainer}>
       <div className={css.corectionBox}>
@@ -38,7 +19,7 @@ const Mainset = () => {
         </div>
         <div className={css.optionContainer}>
           <button
-            onClick={() => openModal("individual")}
+            onClick={() => open("individual")}
             type="button"
             className={css.individualOption}
           >
@@ -46,7 +27,7 @@ const Mainset = () => {
             <span className={css.buttonText2}>Rozwiązania indywidualne</span>
           </button>
           <button
-            onClick={() => openModal("business")}
+            onClick={() => open("business")}
             type="button"
             className={css.companyOption}
           >
@@ -54,12 +35,6 @@ const Mainset = () => {
             <span className={css.buttonText}>Rozwiązania biznesowe</span>
           </button>
         </div>
-
-        {currentModal === "individual" && (
-          <IndividualModal onClose={closeModal} />
-        )}
-
-        {currentModal === "business" && <BusinessModal onClose={closeModal} />}
       </div>
     </div>
   );
