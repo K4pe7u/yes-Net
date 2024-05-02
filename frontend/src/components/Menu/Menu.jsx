@@ -175,7 +175,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
-                          scrollToSection("Footer", [-1430, -1230, -1450])
+                          scrollToSection("Footer", [-1430, -1230, -1550])
                         }}
                       >
                         <svg className={`${css.map}`} fill="white">
@@ -282,7 +282,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
                         onClick={() => {
                           hideMenuWindows();
                           outsideClick();
-                          scrollToSection("Footer", [-730, -600, -540])
+                          scrollToSection("Footer", [-730, -600, -610])
                         }}
                       >
                         <svg

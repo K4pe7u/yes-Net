@@ -191,8 +191,8 @@ const BusinessModal = ({ onClose }) => {
           />
           <p>
             Oświadczam, że zapoznałem się i akceptuję 
-            <a href="/regulamin"> regulamin</a> oraz
-            <a href="/polityka-prywatnosci"> Polityką Prywatności</a>
+            <a href="/statute"> regulamin</a> oraz
+            <a href="/policy-privacy"> Polityką Prywatności</a>
           </p>
         </label>
         <button className={css.formItem_button} type="submit">
