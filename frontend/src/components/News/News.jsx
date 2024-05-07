@@ -5,6 +5,7 @@ import icons from '../../icons/icons.svg'
 
 const News = () => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [arrowsDissapear, setArrowsDissapear] = useState(false)
   const sliderRef = useRef(null)
 
   const sortNews = newsData.sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -32,7 +33,6 @@ const News = () => {
   }, [])
 
   const scrollToIndex = (index) => {
-    setActiveIndex(index)
     sliderRef.current.scrollTo({
       left: index * (sliderRef.current.offsetWidth + 10), // Szerokość elementu plus odstęp
       behavior: 'smooth'
@@ -43,10 +43,16 @@ const News = () => {
     <div className={css.news_container}>
       <h2 className={css.news_title}>informator sieci</h2>
       <div ref={sliderRef} className={css.news_slider}>
-        {latestNews.map((news) => (
+        {latestNews.map((news, index) => (
           <div key={news.id} className={css.news_item}>
             {news.id !== 1 ? (
-              <div className={css.btnLeft}>
+              <div
+                className={css.btnLeft}
+                onClick={() => scrollToIndex(index - 1)}
+              >
+                <svg width='75px' height='75px'>
+                  <use href={`${icons}#left-news`}></use>
+                </svg>
                 <svg width='75px' height='75px'>
                   <use href={`${icons}#left-news`}></use>
                 </svg>
@@ -62,11 +68,23 @@ const News = () => {
                 <span className={css.team_solution}>Zespół yesNET</span>
               </div>
             </div>
-            <div className={css.btnRight}>
-              <svg width='75px' height='75px'>
-                <use href={`${icons}#right-news`}></use>
-              </svg>
-            </div>
+            {news.id !== latestNews.length ? (
+              <div
+                className={css.btnRight}
+                onClick={() => {
+                  scrollToIndex(index + 1)
+                }}
+              >
+                <svg width='75px' height='75px'>
+                  <use href={`${icons}#right-news`}></use>
+                </svg>
+                <svg width='75px' height='75px'>
+                  <use href={`${icons}#right-news`}></use>
+                </svg>
+              </div>
+            ) : (
+              <div className={css.emptySpace}></div>
+            )}
           </div>
         ))}
       </div>
