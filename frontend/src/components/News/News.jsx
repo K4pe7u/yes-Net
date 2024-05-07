@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import css from './News.module.css'
 import newsData from './newsData.json'
+import icons from '../../icons/icons.svg'
 
 const News = () => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -44,6 +45,15 @@ const News = () => {
       <div ref={sliderRef} className={css.news_slider}>
         {latestNews.map((news) => (
           <div key={news.id} className={css.news_item}>
+            {news.id !== 1 ? (
+              <div className={css.btnLeft}>
+                <svg width='75px' height='75px'>
+                  <use href={`${icons}#left-news`}></use>
+                </svg>
+              </div>
+            ) : (
+              <div className={css.emptySpace}></div>
+            )}
             <div className={css.new_item_container}>
               <h3 className={css.news_itemTitle}>{news.title}</h3>
               <span className={css.date}>Opublikowano: {news.date}</span>
@@ -51,6 +61,11 @@ const News = () => {
                 <p className={css.content_text}>{news.content}</p>
                 <span className={css.team_solution}>Zespół yesNET</span>
               </div>
+            </div>
+            <div className={css.btnRight}>
+              <svg width='75px' height='75px'>
+                <use href={`${icons}#right-news`}></use>
+              </svg>
             </div>
           </div>
         ))}
