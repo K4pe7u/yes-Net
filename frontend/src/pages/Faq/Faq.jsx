@@ -64,7 +64,7 @@ const Faq = () => {
             </li>
             {openElement && (
               <div>
-                <p>
+                <p className={css.faqQuestion}>
                   Czy Twój internet działa nie wystarczająco do twoich potrzeb?
                   Sprawdź zastosować kilka porad:
                 </p>
