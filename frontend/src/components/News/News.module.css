@@ -105,6 +105,7 @@
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   padding: 10px 0 20px 0;
+  margin: 0 10px;
 }
 
 .emptySpace {
@@ -128,10 +129,15 @@
 
   .new_item_container {
     max-width: 736px;
+    margin: 0;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .news_slider {
+    overflow: hidden;
+  }
+
   .new_item_container {
     max-width: 1200px;
   }
@@ -147,7 +153,7 @@
     box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.7);
     cursor: pointer;
     opacity: 1;
-    /* transition: opacity 0.2s; */
+    transition: opacity 0.2s;
     margin: 10px;
   }
 
@@ -179,6 +185,7 @@
     display: block;
     width: 90px;
     aspect-ratio: 1;
+    flex-shrink: 0;
   }
 
   .disappear {

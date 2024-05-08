@@ -40,7 +40,7 @@ const News = () => {
   }
 
   const scrollToIndex = (index) => {
-    disappear(700)
+    disappear(600)
     sliderRef.current.scrollTo({
       left: index * (sliderRef.current.offsetWidth + 10), // Szerokość elementu plus odstęp
       behavior: 'smooth'

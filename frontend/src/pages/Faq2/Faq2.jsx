@@ -1,18 +1,18 @@
-import React from 'react';
-import css from './Faq2.module.css';
-import data from './data.json';
-import { useState } from 'react';
+import React from 'react'
+import css from './Faq2.module.css'
+import data from './data.json'
+import { useState } from 'react'
 
 const Faq2 = () => {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(null)
 
   const toggle = (index) => {
     if (selected === index) {
-      return setSelected(null);
+      return setSelected(null)
     }
 
-    setSelected(index);
-  };
+    setSelected(index)
+  }
 
   return (
     <>
@@ -26,7 +26,7 @@ const Faq2 = () => {
               </div>
 
               <div
-                className={`${css.content}${
+                className={`${css.content} ${
                   selected === index ? css.show : ''
                 }`}
               ></div>
@@ -35,7 +35,7 @@ const Faq2 = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Faq2;
+export default Faq2
