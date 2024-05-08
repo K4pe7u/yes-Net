@@ -5,7 +5,7 @@ import icons from '../../icons/icons.svg'
 
 const News = () => {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [arrowsDissapear, setArrowsDissapear] = useState(false)
+  const [arrowsDisappear, setArrowsDisappear] = useState(false)
   const sliderRef = useRef(null)
 
   const sortNews = newsData.sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -32,7 +32,15 @@ const News = () => {
     }
   }, [])
 
+  const disappear = (countdown) => {
+    setArrowsDisappear(true)
+    setTimeout(() => {
+      setArrowsDisappear(false)
+    }, countdown)
+  }
+
   const scrollToIndex = (index) => {
+    disappear(700)
     sliderRef.current.scrollTo({
       left: index * (sliderRef.current.offsetWidth + 10), // Szerokość elementu plus odstęp
       behavior: 'smooth'
@@ -47,13 +55,15 @@ const News = () => {
           <div key={news.id} className={css.news_item}>
             {news.id !== 1 ? (
               <div
-                className={css.btnLeft}
+                className={`${css.btnLeft} ${
+                  arrowsDisappear ? css.disappear : ''
+                }`}
                 onClick={() => scrollToIndex(index - 1)}
               >
-                <svg width='75px' height='75px'>
+                <svg width='50px' height='50px'>
                   <use href={`${icons}#left-news`}></use>
                 </svg>
-                <svg width='75px' height='75px'>
+                <svg width='50px' height='50px'>
                   <use href={`${icons}#left-news`}></use>
                 </svg>
               </div>
@@ -70,15 +80,17 @@ const News = () => {
             </div>
             {news.id !== latestNews.length ? (
               <div
-                className={css.btnRight}
+                className={`${css.btnRight} ${
+                  arrowsDisappear ? css.disappear : ''
+                }`}
                 onClick={() => {
                   scrollToIndex(index + 1)
                 }}
               >
-                <svg width='75px' height='75px'>
+                <svg width='50px' height='50px'>
                   <use href={`${icons}#right-news`}></use>
                 </svg>
-                <svg width='75px' height='75px'>
+                <svg width='50px' height='50px'>
                   <use href={`${icons}#right-news`}></use>
                 </svg>
               </div>
