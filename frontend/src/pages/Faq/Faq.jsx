@@ -12,7 +12,9 @@ const Faq = () => {
         <h2 className={css.title}>FAQ</h2>
         <FaqDescription />
         <FaqNavigation />
-        <FaqTips />
+        <div>
+          <FaqTips />
+        </div>
       </div>
     </>
   );

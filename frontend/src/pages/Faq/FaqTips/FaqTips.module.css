@@ -4,6 +4,8 @@
   width: 100vw;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 60px;
 }
 .accordion {
   width: 500px;
@@ -19,12 +21,10 @@
   cursor: pointer;
 }
 .content {
-  max-height: 0;
+  height: 0;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+  transition: height 0.5s;
 }
 .show {
-  height: auto;
-  max-height: 9999px;
-  transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
+  height: 90px;
 }

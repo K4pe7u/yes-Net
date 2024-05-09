@@ -3,9 +3,17 @@ import css from "./FaqNavigation.module.css";
 
 const FaqNavigation = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [selectedMenu, setSelectedMenu] = useState(null);
 
   const handleClick = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
+  };
+  const handleClickMenu = (index) => {
+    if (selectedMenu === index) {
+      return setSelectedMenu(null);
+    }
+    setSelectedMenu(index);
+    console.log("Potato");
   };
 
   return (
@@ -14,7 +22,10 @@ const FaqNavigation = () => {
         <ul className={css.navigation}>
           <li
             className={`${css.item} ${activeIndex === 0 ? css.active : ""}`}
-            onClick={() => handleClick(0)}
+            onClick={() => {
+              handleClick(0);
+              handleClickMenu(0);
+            }}
           >
             Pomoc Techniczna
           </li>
