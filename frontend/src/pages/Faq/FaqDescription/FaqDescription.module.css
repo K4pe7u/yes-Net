@@ -1,17 +1,50 @@
 .wrapper {
   display: flex;
-  width: 100vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1500px;
 }
 .item {
-  background-color: antiquewhite;
-  margin-bottom: 5px;
-  padding: 10px 20px;
+  font-size: large;
+  position: relative;
+  margin: 0 auto;
+  padding: 16px 32px;
+  width: 75%;
 }
 
 @media screen and (min-width: 768px) {
 }
 @media screen and (min-width: 1280px) {
+  .item {
+    font-size: large;
+  }
+  .item::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 32px;
+    border: 1px solid rgba(155, 155, 155, 0.3);
+    transform: skewX(20deg);
+  }
+  .item:nth-child(odd)::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 32px;
+    border: 1px solid rgba(155, 155, 155, 0.3);
+    transform: skewX(-20deg);
+  }
 }

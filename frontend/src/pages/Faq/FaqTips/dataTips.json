@@ -1,19 +1,19 @@
 [
   {
-    "step": "Step 1",
-    "tip": "Sprawdź, czy masz aktualne oprogramowanie i sterownikisieciowe na swoim urządzeniu."
+    "step": "Oprogramowanie lub Sterowniki",
+    "tip": "Sprawdź, czy masz aktualne oprogramowanie i sterowniki karty sieciowej na używanych przez siebie urządzeniach."
   },
   {
-    "step": "Step 2",
-    "tip": "Wyłącz i ponownie włącz urządzenia sieciowe, takie jak router, antena, komputer."
+    "step": "Reset Urządzeń",
+    "tip": "Wyłącz, odczekaj 3-5min i ponownie włącz urządzenia sieciowe: router, antena, komputer lub inne."
   },
   {
-    "step": "Step 3",
+    "step": "Problemy z Wi-Fi",
     "tip": "Podłącz komputer bezpośrednio do routera za pomocą kabla Ethernet, aby wykluczyć problemy z Wi-Fi."
   },
   {
-    "step": "Step 4",
-    "tip": "Wyłącz wszystkie programy działające w tle, które mogą korzystać z internetu."
+    "step": "Programy w Tle",
+    "tip": "Sprawdź i wyłącz wszystkie programy działające w tle, które mogłyby korzystać z internetu."
   },
   {
     "step": "Step 5",

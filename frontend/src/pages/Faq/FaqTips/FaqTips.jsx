@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import css from './FaqTips.module.css';
-import data from './data.json';
+import React, { useState } from "react";
+import css from "./FaqTips.module.css";
+import dataTips from "./dataTips.json";
 
 const FaqTips = () => {
   const [selected, setSelected] = useState(null);
@@ -20,19 +20,19 @@ const FaqTips = () => {
           zastosować kilka porad:
         </div>
         <div className={css.accordion}>
-          {data.map((item, index) => (
+          {dataTips.map((item, index) => (
             <div key={index} className={css.item}>
               <div className={css.title} onClick={() => toggle(index)}>
-                <h2>{item.question}</h2>
-                <span>{selected === index ? '-' : '+'}</span>
+                <h2>{item.step}</h2>
+                <span>{selected === index ? "-" : "+"}</span>
               </div>
-              {item.answer && (
+              {item.tip && (
                 <div
                   className={`${css.content} ${
-                    selected === index ? css.show : ''
+                    selected === index ? css.show : ""
                   }`}
                 >
-                  {item.answer}
+                  {item.tip}
                 </div>
               )}
             </div>
