@@ -1,0 +1,42 @@
+[
+  {
+    "step": "Step 1",
+    "tip": "Sprawdź, czy masz aktualne oprogramowanie i sterownikisieciowe na swoim urządzeniu."
+  },
+  {
+    "step": "Step 2",
+    "tip": "Wyłącz i ponownie włącz urządzenia sieciowe, takie jak router, antena, komputer."
+  },
+  {
+    "step": "Step 3",
+    "tip": "Podłącz komputer bezpośrednio do routera za pomocą kabla Ethernet, aby wykluczyć problemy z Wi-Fi."
+  },
+  {
+    "step": "Step 4",
+    "tip": "Wyłącz wszystkie programy działające w tle, które mogą korzystać z internetu."
+  },
+  {
+    "step": "Step 5",
+    "tip": "Wyłącz zapory ogniowe i programy antywirusowe na chwilę, aby sprawdzić, czy nie blokują one połączenia."
+  },
+  {
+    "step": "Step 6",
+    "tip": "Sprawdź, czy w pomieszczeniu gdzie jest router Wi-Fi sygnał jest odpowiedni."
+  },
+  {
+    "step": "Step 7",
+    "tip": " Sprawdź, czy masz wystarczającą przepustowość internetową dla swoich potrzeb przełączając się na inną przeglądarkę internetową lub inny komputer, urządzenie jak tablet, telefon."
+  },
+  {
+    "step": "Step 8",
+    "tip": "Sprawdź, czy nie ma problemów z przewodami lub gniazdami sieciowymi. Upewnij się, że kable są dobrze podłączone i nie uszkodzone."
+  },
+  {
+    "step": "Step 9",
+    "tip": "Wyłącz wszystkie urządzenia, które korzystają z internetu, oprócz tego, na którym przeprowadzasz test prędkości. Inne urządzenia mogą zużywać część przepustowości, co wpływa na prędkość internetu."
+  },
+  {
+    "step": "Step 10",
+    "tip": "Sprawdź, czy dostawca usług internetowych nie ma żadnych planowanych prac konserwacyjnych lub problemów technicznych, które mogą wpływać na prędkość łącza."
+  }
+]
