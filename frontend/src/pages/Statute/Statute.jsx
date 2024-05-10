@@ -1,8 +1,18 @@
+import { useEffect } from 'react'
 import css from './Statute.module.css'
 
 const Statute = () => {
+  const init = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }
+
+  useEffect(() => {
+    init()
+  }, [])
+
   return (
     <>
+      <div className={css.wrapper}></div>
       <section className={css.statute}>
         <div className={css.animatedBorder}>
           <div className={css.container}>

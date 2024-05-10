@@ -1,17 +1,18 @@
-import css from "./PolicyPrivacy.module.css";
-import { useEffect } from "react";
+import css from './PolicyPrivacy.module.css'
+import { useEffect } from 'react'
 
 const PolicyPrivacy = () => {
   const init = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  };
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }
 
   useEffect(() => {
-    init();
-  }, []);
+    init()
+  }, [])
 
   return (
     <>
+      <div className={css.wrapper}></div>
       <section className={css.policyPrivacy}>
         <div className={css.animatedBorder}>
           <div className={css.container}>
@@ -147,9 +148,9 @@ const PolicyPrivacy = () => {
                   <p>
                     W razie pytań lub wątpliwości dotyczących naszej Polityki
                     Prywatności, prosimy o kontakt z nami pod adresem&nbsp;
-                    <a href="mailto:bok@yesnet.pl">bok@yesnet.pl</a> lub
+                    <a href='mailto:bok@yesnet.pl'>bok@yesnet.pl</a> lub
                     telefonicznie pod numerem&nbsp;
-                    <a href="tel:+48690860520">+48690860520</a>.
+                    <a href='tel:+48690860520'>+48690860520</a>.
                   </p>
                 </article>
               </li>
@@ -158,6 +159,6 @@ const PolicyPrivacy = () => {
         </div>
       </section>
     </>
-  );
-};
-export default PolicyPrivacy;
+  )
+}
+export default PolicyPrivacy

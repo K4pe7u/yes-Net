@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dhurjati&family=Roboto+Condensed:wght@900&family=Roboto+Slab:wght@300&family=Roboto:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dhurjati&family=Roboto+Condensed:wght@900&family=Roboto+Slab:wght@300&family=Roboto:wght@500&display=swap');
 @font-face {
   font-family: Blanka;
-  src: url("../../fonts/Blanka-Regular.otf") format("opentype");
+  src: url('../../fonts/Blanka-Regular.otf') format('opentype');
 }
 
 ul {
@@ -10,34 +10,21 @@ ul {
   padding: 0;
 }
 
+.wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
 .policyPrivacy {
   width: calc(100% - 20px);
-  background: linear-gradient(
-    135deg,
-    hsla(240, 12%, 11%, 1) 16%,
-    hsla(244, 100%, 8%, 1) 70%,
-    hsla(244, 52%, 6%, 1) 100%
-  );
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px 10px;
   position: relative;
-}
-
-.policyPrivacy::before {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  content: "";
-  background-image: url("../../image/nebula-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.1;
-  position: fixed;
-  left: 0;
-  top: 0;
-  filter: blur(8px);
 }
 
 .animatedBorder {
@@ -63,7 +50,7 @@ ul {
   flex-direction: column;
   z-index: 2;
   color: #fff;
-  font-family: "poppins", sans-serif;
+  font-family: 'poppins', sans-serif;
 }
 
 .breakPoint {
