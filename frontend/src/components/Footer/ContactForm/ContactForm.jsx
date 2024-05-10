@@ -73,6 +73,60 @@ const ContactForm = () => {
                 </ul>
               </div>
             </div>
+            {isAdditionalOptionsVisible && (
+              <div className={css.contactForm_item}>
+                <label htmlFor='additionalCategory'>
+                  Wskaż przejaw awarii:
+                </label>
+                <div className={css.customSelectWrapper}>
+                  <div
+                    className={css.customSelectValue}
+                    onClick={toggleAdditionalOptions}
+                  >
+                    {selectedAdditionalValue || '-'}
+                    <span
+                      className={`${css.arrow} ${
+                        isAdditionalListOptionsVisible
+                          ? css.arrow_left
+                          : css.arrow_down
+                      } ${isAdditionalListOptionsVisible ? 'arrow-down' : ''}`}
+                    >
+                      &#9660;
+                    </span>
+                  </div>
+                  <ul
+                    className={`${css.customSelectOptions} ${
+                      isAdditionalListOptionsVisible ? css.show : ''
+                    }`}
+                  >
+                    <li
+                      onClick={() =>
+                        handleAdditionalOptionClick('Całkowity Zanik Łącza')
+                      }
+                    >
+                      Całkowity Zanik Łącza
+                    </li>
+                    <li
+                      onClick={() =>
+                        handleAdditionalOptionClick('Niestabilna Praca Łącza')
+                      }
+                    >
+                      Niestabilna Praca Łącza
+                    </li>
+                    <li
+                      onClick={() =>
+                        handleAdditionalOptionClick('Problem z Zasięgiem WiFi')
+                      }
+                    >
+                      Problem z Zasięgiem WiFi
+                    </li>
+                    <li onClick={() => handleAdditionalOptionClick('Inne')}>
+                      Inne
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            )}
             <div className={css.contactForm_item}>
               <label htmlFor='name'>Imię i Nazwisko:</label>
               <input
@@ -94,59 +148,6 @@ const ContactForm = () => {
               />
             </div>
           </div>
-          {isAdditionalOptionsVisible && (
-            <div className={css.contactForm_item}>
-              <label htmlFor='additionalCategory'>Wskaż przejaw awarii:</label>
-              <div className={css.customSelectWrapper}>
-                <div
-                  className={css.customSelectValue}
-                  onClick={toggleAdditionalOptions}
-                >
-                  {selectedAdditionalValue || '-'}
-                  <span
-                    className={`${css.arrow} ${
-                      isAdditionalListOptionsVisible
-                        ? css.arrow_left
-                        : css.arrow_down
-                    } ${isAdditionalListOptionsVisible ? 'arrow-down' : ''}`}
-                  >
-                    &#9660;
-                  </span>
-                </div>
-                <ul
-                  className={`${css.customSelectOptions} ${
-                    isAdditionalListOptionsVisible ? css.show : ''
-                  }`}
-                >
-                  <li
-                    onClick={() =>
-                      handleAdditionalOptionClick('Całkowity Zanik Łącza')
-                    }
-                  >
-                    Całkowity Zanik Łącza
-                  </li>
-                  <li
-                    onClick={() =>
-                      handleAdditionalOptionClick('Niestabilna Praca Łącza')
-                    }
-                  >
-                    Niestabilna Praca Łącza
-                  </li>
-                  <li
-                    onClick={() =>
-                      handleAdditionalOptionClick('Problem z Zasięgiem WiFi')
-                    }
-                  >
-                    Problem z Zasięgiem WiFi
-                  </li>
-                  <li onClick={() => handleAdditionalOptionClick('Inne')}>
-                    Inne
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )}
-
           <div className={css.contactForm_item}>
             <div className={css.contactForm_item}>
               <label htmlFor='message'>Wiadomość:</label>
