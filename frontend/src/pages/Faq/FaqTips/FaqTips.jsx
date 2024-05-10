@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import css from './FaqTips.module.css';
-import dataTips from './dataTips.json';
+import React, { useState } from 'react'
+import css from './FaqTips.module.css'
+import dataTips from './dataTips.json'
+import { useNavigate } from 'react-router-dom'
 
 const FaqTips = () => {
-  const [selected, setSelected] = useState(null);
+  const navigate = useNavigate()
+  const [selected, setSelected] = useState(null)
 
   const toggle = (index) => {
     if (selected === index) {
-      return setSelected(null);
+      return setSelected(null)
     }
 
-    setSelected(index);
-  };
+    setSelected(index)
+  }
+
   return (
     <>
       <div className={css.wrapper}>
@@ -59,8 +62,18 @@ const FaqTips = () => {
           </p>
 
           <p>
-            Masz również możliwość, skorzystać z <a>formularza</a> na stronie
-            głównej, wpisując dane zgodne z polami i opisując problem pisemnie.
+            Masz również możliwość, skorzystać z
+            <a
+              onClick={() => {
+                navigate('/', {
+                  state: { target: ['Footer', [-730, -600, -610]] }
+                })
+              }}
+            >
+              &nbsp;Formularza&nbsp;
+            </a>
+            na stronie głównej, wpisując dane zgodne z polami i opisując problem
+            pisemnie.
           </p>
 
           <p>
@@ -70,7 +83,7 @@ const FaqTips = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default FaqTips;
+export default FaqTips
