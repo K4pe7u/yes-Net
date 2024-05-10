@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dhurjati&family=Roboto+Condensed:wght@900&family=Roboto+Slab:wght@300&family=Roboto:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dhurjati&family=Roboto+Condensed:wght@900&family=Roboto+Slab:wght@300&family=Roboto:wght@500&display=swap');
 @font-face {
   font-family: Blanka;
-  src: url("../../fonts/Blanka-Regular.otf") format("opentype");
+  src: url('../../fonts/Blanka-Regular.otf') format('opentype');
 }
 .gradientBackground {
   position: fixed;
@@ -19,7 +19,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px;
   color: #ffffff;
   font-family: Poppins;
   width: 100%;

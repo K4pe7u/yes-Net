@@ -1,8 +1,9 @@
-import React from "react";
-import css from "./Faq.module.css";
-import FaqDescription from "./FaqDescription/FaqDescription";
-import FaqNavigation from "./FaqNavigation/FaqNavigation";
-import FaqTips from "./FaqTips/FaqTips";
+import React from 'react';
+import css from './Faq.module.css';
+import FaqDescription from './FaqDescription/FaqDescription';
+import FaqNavigation from './FaqNavigation/FaqNavigation';
+import FaqTips from './FaqTips/FaqTips';
+import FootNote from '../../components/Footer/Footnote/Footnote';
 
 const Faq = () => {
   return (
@@ -15,6 +16,7 @@ const Faq = () => {
         <div>
           <FaqTips />
         </div>
+        <FootNote />
       </div>
     </>
   );

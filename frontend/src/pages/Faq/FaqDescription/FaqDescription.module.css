@@ -22,7 +22,7 @@
     font-size: large;
   }
   .item::before {
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
     left: 0;
@@ -30,12 +30,12 @@
     top: 0;
     bottom: 0;
     background-color: transparent;
-    border-radius: 32px;
+    border-radius: 50px;
     border: 1px solid rgba(155, 155, 155, 0.3);
     transform: skewX(20deg);
   }
   .item:nth-child(odd)::before {
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
     left: 0;
