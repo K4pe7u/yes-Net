@@ -13,9 +13,8 @@ const Faq = () => {
         <h2 className={css.title}>FAQ</h2>
         <FaqDescription />
         <FaqNavigation />
-        <div>
-          <FaqTips />
-        </div>
+      </div>
+      <div>
         <FootNote />
       </div>
     </>
