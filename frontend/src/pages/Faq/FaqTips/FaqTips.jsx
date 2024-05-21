@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import css from './FaqTips.module.css'
-import dataTips from './dataTips.json'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import css from "./FaqTips.module.css";
+import dataTips from "./dataTips.json";
+import { useNavigate } from "react-router-dom";
 
 const FaqTips = () => {
-  const navigate = useNavigate()
-  const [selected, setSelected] = useState(null)
+  const navigate = useNavigate();
+  const [selected, setSelected] = useState(null);
 
   const toggle = (index) => {
     if (selected === index) {
-      return setSelected(null)
+      return setSelected(null);
     }
 
-    setSelected(index)
-  }
+    setSelected(index);
+  };
 
   return (
     <>
@@ -27,12 +27,12 @@ const FaqTips = () => {
             <div key={index} className={css.item}>
               <div className={css.title} onClick={() => toggle(index)}>
                 <h2>{item.step}</h2>
-                <span>{selected === index ? '-' : '+'}</span>
+                <span>{selected === index ? "-" : "+"}</span>
               </div>
               {item.tip && (
                 <div
                   className={`${css.content} ${
-                    selected === index ? css.show : ''
+                    selected === index ? css.show : ""
                   }`}
                 >
                   {item.tip}
@@ -62,18 +62,19 @@ const FaqTips = () => {
           </p>
 
           <p>
-            Masz również możliwość, skorzystać z
+            Masz również możliwość, skorzystać z&nbsp;
             <a
+              className={css.formAnchor}
               onClick={() => {
-                navigate('/', {
-                  state: { target: ['Footer', [-730, -600, -610]] }
-                })
+                navigate("/", {
+                  state: { target: ["Footer", [-730, -600, -610]] },
+                });
               }}
             >
-              &nbsp;Formularza&nbsp;
+              Formularza
             </a>
-            na stronie głównej, wpisując dane zgodne z polami i opisując problem
-            pisemnie.
+            &nbsp; na stronie głównej, wpisując dane zgodne z polami i opisując
+            problem pisemnie.
           </p>
 
           <p>
@@ -83,7 +84,7 @@ const FaqTips = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FaqTips
+export default FaqTips;
