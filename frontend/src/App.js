@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
 import "./App.css";
 import husky from "./icons/giphy.gif";
@@ -9,8 +9,6 @@ const Promotion = lazy(() => import("./pages/Promotion/Promotion"));
 const PolicyPrivacy = lazy(() => import("./pages/PolicyPrivacy/PolicyPrivacy"));
 const Statute = lazy(() => import("./pages/Statute/Statute"));
 const NotFound = () => {
-  // const navigate = useNavigate();
-  // navigate("/");
   return (
     <>
       <div>Page Not Found</div>
