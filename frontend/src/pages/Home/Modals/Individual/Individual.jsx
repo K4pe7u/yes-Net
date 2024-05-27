@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import Modal from "../Modal";
-import css from "./Individual.module.css";
-import ReCAPTCHA from "react-google-recaptcha";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import React, { useState } from 'react';
+import Modal from '../Modal';
+import css from './Individual.module.css';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
 
 const IndividualModal = ({ onClose }) => {
   const [showInstallAddressInput, setShowInstallAddressInput] = useState(false);
@@ -14,91 +15,91 @@ const IndividualModal = ({ onClose }) => {
   };
 
   const validationSchema = Yup.object({
-    pesel: Yup.string().required("Pesel jest wymagany"),
-    street: Yup.string().required("Ulica jest wymagana"),
-    city: Yup.string().required("Miasto jest wymagane"),
-    postalCode: Yup.string().required("Kod pocztowy jest wymagany"),
-    contactFirstName: Yup.string().required("Imię jest wymagane"),
-    contactLastName: Yup.string().required("Nazwisko jest wymagane"),
+    street: Yup.string().required('Ulica jest wymagana'),
+    city: Yup.string().required('Miasto jest wymagane'),
+    postalCode: Yup.string().required('Kod pocztowy jest wymagany'),
+    contactFirstName: Yup.string().required('Imię jest wymagane'),
+    contactLastName: Yup.string().required('Nazwisko jest wymagane'),
     email: Yup.string()
-      .email("Nieprawidłowy email")
-      .required("Email jest wymagany"),
-    phone: Yup.string().required("Telefon jest wymagany"),
+      .email('Nieprawidłowy email')
+      .required('Email jest wymagany'),
+    phone: Yup.string().required('Telefon jest wymagany'),
     privatePolicy: Yup.boolean().oneOf(
       [true],
-      "Musisz zaakceptować regulamin i politykę prywatności"
+      'Musisz zaakceptować regulamin i politykę prywatności'
     ),
   });
 
   const formik = useFormik({
     initialValues: {
-      pesel: "",
-      street: "",
-      city: "",
-      postalCode: "",
-      contactFirstName: "",
-      contactLastName: "",
-      email: "",
-      phone: "",
-      installStreet: "",
-      installCity: "",
-      installPostalCode: "",
+      contactFirstName: '',
+      contactLastName: '',
+      street: '',
+      city: '',
+      postalCode: '',
+      email: '',
+      phone: '',
+      installStreet: '',
+      installCity: '',
+      installPostalCode: '',
       privatePolicy: false,
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
       if (!captchaToken) {
-        alert("Proszę ukończyć weryfikację reCAPTCHA");
+        alert('Proszę ukończyć weryfikację reCAPTCHA');
         return;
       }
-      const config = {
-        SecureToken: process.env.REACT_APP_EMAIL_SECURE_TOKEN,
-        To: "alt.nm-3o59rh7i@yopmail.com",
-        From: "juliusz@yesnet.pl",
-        Subject: "Zamówienie Indywidualne yesnet.pl",
-        Body: `Pojawiło się nowe Zamówienie Indywidualne - Skontaktuj się z potencjalnym klientem. 
-        Dane Klienta: 
-        Imię: ${values.contactFirstName}
-        Nazwisko: ${values.contactLastName}
-        Pesel: ${values.pesel}
-        Ulica: ${values.street}
-        Miasto: ${values.city}
-        Kod pocztowy: ${values.postalCode}
-        Email: ${values.email}
-        Telefon: ${values.phone}
-        Adres Instalacji:
-        Ulica: ${values.installStreet}
-        Miasto: ${values.installCity}
-        Kod pocztowy: ${values.installPostalCode}
-        `,
-      };
+
       try {
-        await window.Email.send(config);
-        alert("Formularz został wysłany pomyślnie!");
+        const response = await axios.post(
+          'http://localhost:5000/api/send-individual',
+          {
+            ...values,
+            captchaToken,
+          }
+        );
+
+        if (response.status === 200) {
+          alert('Formularz został wysłany pomyślnie!');
+        } else {
+          throw new Error('Błąd podczas wysyłania formularza');
+        }
       } catch (error) {
-        console.error("Error:", error);
-        alert("Wystąpił błąd podczas wysyłania formularza.");
+        console.error('Error:', error);
+        alert('Wystąpił błąd podczas wysyłania formularza.');
       } finally {
         setSubmitting(false);
       }
     },
   });
-
   return (
     <Modal onClose={onClose}>
       <span className={css.modalTitle}>Podłącz się do świata!</span>
       <form onSubmit={formik.handleSubmit} className={css.formMainSet}>
         <label className={css.formItem}>
-          <span>Pesel:</span>
+          <span>Osoba kontaktowa:</span>
           <input
             type="text"
-            name="pesel"
-            value={formik.values.pesel}
+            name="contactFirstName"
+            placeholder="Imię"
+            value={formik.values.contactFirstName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.pesel && formik.errors.pesel ? (
-            <div>{formik.errors.pesel}</div>
+          {formik.touched.contactFirstName && formik.errors.contactFirstName ? (
+            <div>{formik.errors.contactFirstName}</div>
+          ) : null}
+          <input
+            type="text"
+            name="contactLastName"
+            placeholder="Nazwisko"
+            value={formik.values.contactLastName}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.contactLastName && formik.errors.contactLastName ? (
+            <div>{formik.errors.contactLastName}</div>
           ) : null}
         </label>
         <label className={css.formItem}>
@@ -188,31 +189,7 @@ const IndividualModal = ({ onClose }) => {
             </label>
           </>
         )}
-        <label className={css.formItem}>
-          <span>Osoba kontaktowa:</span>
-          <input
-            type="text"
-            name="contactFirstName"
-            placeholder="Imię"
-            value={formik.values.contactFirstName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.contactFirstName && formik.errors.contactFirstName ? (
-            <div>{formik.errors.contactFirstName}</div>
-          ) : null}
-          <input
-            type="text"
-            name="contactLastName"
-            placeholder="Nazwisko"
-            value={formik.values.contactLastName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.contactLastName && formik.errors.contactLastName ? (
-            <div>{formik.errors.contactLastName}</div>
-          ) : null}
-        </label>
+
         <label className={css.formItem}>
           <span>Email:</span>
           <input

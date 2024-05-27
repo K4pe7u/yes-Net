@@ -1,89 +1,95 @@
-import React, { useState } from "react";
-import Modal from "../Modal";
-import css from "./Business.module.css";
-import axios from "axios";
+import React, { useState } from 'react';
+import Modal from '../Modal';
+import css from './Business.module.css';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
 
 const BusinessModal = ({ onClose }) => {
   const [showInstallAddressInput, setShowInstallAddressInput] = useState(false);
-  const [formData, setFormData] = useState({
-    company: "",
-    nip: "",
-    street: "",
-    city: "",
-    postalCode: "",
-    installStreet: "",
-    installCity: "",
-    installPostalCode: "",
-    contactFirstName: "",
-    contactLastName: "",
-    email: "",
-    phone: "",
-    privatePolicy: false, // Dodajemy pole privatePolicy
+  const [captchaToken, setCaptchaToken] = useState(null);
+
+  const handleCaptcha = (token) => {
+    setCaptchaToken(token);
+  };
+
+  const validationSchema = Yup.object({
+    company: Yup.string().required('Nazwa firmy jest wymagany'),
+    contactFirstName: Yup.string().required('Imię jest wymagane'),
+    contactLastName: Yup.string().required('Nazwisko jest wymagane'),
+    street: Yup.string().required('Ulica jest wymagana'),
+    city: Yup.string().required('Miasto jest wymagane'),
+    postalCode: Yup.string().required('Kod pocztowy jest wymagany'),
+    email: Yup.string()
+      .email('Nieprawidłowy email')
+      .required('Email jest wymagany'),
+    phone: Yup.string().required('Telefon jest wymagany'),
+    privatePolicy: Yup.boolean().oneOf(
+      [true],
+      'Musisz zaakceptować regulamin i politykę prywatności'
+    ),
   });
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const val = type === "checkbox" ? checked : value;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: val,
-    }));
-  };
+  const formik = useFormik({
+    initialValues: {
+      company: '',
+      contactFirstName: '',
+      contactLastName: '',
+      email: '',
+      phone: '',
+      street: '',
+      city: '',
+      postalCode: '',
+      privatePolicy: false,
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values, { setSubmitting }) => {
+      if (!captchaToken) {
+        alert('Proszę ukończyć weryfikację reCAPTCHA');
+        return;
+      }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Tworzenie deala
-      const dealResponse = await axios.post(
-        "https://yesnet.bitrix24.pl/rest/1/9vs8d4rnp1puavoz/crm.deal.add",
-        {
-          fields: {
-            TITLE: formData.company,
-            TYPE_ID: "SALE",
-            BEGINDATE: new Date(),
-            IS_NEW: "Y",
-            UF_CRM_1685603922041: [
-              `${formData.street}, ${formData.city}, ${formData.postalCode}`,
-            ],
-            UF_CRM_1712223907808: formData.company,
-            UF_CRM_1712223928807: formData.nip,
-            UF_CRM_1712224125272: `${formData.contactFirstName} ${formData.contactLastName}`,
-            UF_CRM_1712224166026: formData.email,
-            UF_CRM_1712224179064: formData.phone,
-            UF_CRM_1712227602563: `${formData.installStreet} ${formData.installCity} ${formData.installPostalCode}`,
-          },
-          params: { REGISTER_SONET_EVENT: "Y" },
+      try {
+        const response = await axios.post(
+          'http://localhost:5000/api/send-business',
+          {
+            ...values,
+            captchaToken,
+          }
+        );
+
+        if (response.status === 200) {
+          alert('Formularz został wysłany pomyślnie!');
+        } else {
+          throw new Error('Błąd podczas wysyłania formularza');
         }
-      );
-
-      console.log("Deal Response:", dealResponse.data);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Wystąpił błąd podczas wysyłania formularza.');
+      } finally {
+        setSubmitting(false);
+      }
+    },
+  });
 
   return (
     <Modal onClose={onClose}>
       <span className={css.modalTitle}>Podłącz się do świata!</span>
-      <form onSubmit={handleSubmit} className={css.formMainSet}>
+      <form onSubmit={formik.handleSubmit} className={css.formMainSet}>
         <label className={css.formItem}>
           <span>Firma:</span>
           <input
             className=""
             type="text"
             name="company"
-            value={formData.company}
-            onChange={handleChange}
+            value={formik.company}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
-        </label>
-        <label className={css.formItem}>
-          <span>NIP:</span>
-          <input
-            type="text"
-            name="nip"
-            value={formData.nip}
-            onChange={handleChange}
-          />
+          {formik.touched.company && formik.errors.company ? (
+            <div>{formik.errors.company}</div>
+          ) : null}
         </label>
         <label className={css.formItem}>
           <span>Adres:</span>
@@ -91,25 +97,37 @@ const BusinessModal = ({ onClose }) => {
             type="text"
             name="street"
             placeholder="Ulica"
-            value={formData.street}
-            onChange={handleChange}
+            value={formik.street}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.street && formik.errors.street ? (
+            <div>{formik.errors.street}</div>
+          ) : null}
           <input
             type="text"
             name="city"
             placeholder="Miejscowość"
-            value={formData.city}
-            onChange={handleChange}
+            value={formik.values.city}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.city && formik.errors.city ? (
+            <div>{formik.errors.city}</div>
+          ) : null}
           <input
             type="text"
             name="postalCode"
             placeholder="Kod pocztowy"
-            value={formData.postalCode}
-            onChange={handleChange}
+            value={formik.values.postalCode}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.postalCode && formik.errors.postalCode ? (
+            <div>{formik.errors.postalCode}</div>
+          ) : null}
         </label>
-        {formData.street !== formData.installStreet &&
+        {formik.values.street !== formik.values.installStreet &&
           !showInstallAddressInput && (
             <button
               className={css.formItem_buttonAdditional}
@@ -127,23 +145,36 @@ const BusinessModal = ({ onClose }) => {
                 type="text"
                 name="installStreet"
                 placeholder="Ulica "
-                value={formData.installStreet}
-                onChange={handleChange}
-              />
+                value={formik.values.installStreet}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />{' '}
+              {formik.touched.installStreet && formik.errors.installStreet ? (
+                <div>{formik.errors.installStreet}</div>
+              ) : null}
               <input
                 type="text"
                 name="installCity"
                 placeholder="Miejscowość"
-                value={formData.installCity}
-                onChange={handleChange}
+                value={formik.values.installCity}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
+              {formik.touched.installCity && formik.errors.installCity ? (
+                <div>{formik.errors.installCity}</div>
+              ) : null}
               <input
                 type="text"
                 name="installPostalCode"
                 placeholder="Kod pocztowy "
-                value={formData.installPostalCode}
-                onChange={handleChange}
-              />
+                value={formik.values.installPostalCode}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />{' '}
+              {formik.touched.installPostalCode &&
+              formik.errors.installPostalCode ? (
+                <div>{formik.errors.installPostalCode}</div>
+              ) : null}
             </label>
           </>
         )}
@@ -153,44 +184,68 @@ const BusinessModal = ({ onClose }) => {
             type="text"
             name="contactFirstName"
             placeholder="Imię"
-            value={formData.contactFirstName}
-            onChange={handleChange}
+            value={formik.values.contactFirstName}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.contactFirstName && formik.errors.contactFirstName ? (
+            <div>{formik.errors.contactFirstName}</div>
+          ) : null}
           <input
             type="text"
             name="contactLastName"
             placeholder="Nazwisko"
-            value={formData.contactLastName}
-            onChange={handleChange}
+            value={formik.values.contactSecondName}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.contactLastName && formik.errors.contactLastName ? (
+            <div>{formik.errors.contactLastName}</div>
+          ) : null}
         </label>
         <label className={css.formItem}>
           <span>Email:</span>
           <input
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.email && formik.errors.email ? (
+            <div>{formik.errors.email}</div>
+          ) : null}
         </label>
         <label className={css.formItem}>
           <span>telefon:</span>
           <input
             type="tel"
             name="phone"
-            value={formData.phone}
-            onChange={handleChange}
+            value={formik.values.phone}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.phone && formik.errors.phone ? (
+            <div>{formik.errors.phone}</div>
+          ) : null}
         </label>
+        <ReCAPTCHA
+          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+          onChange={handleCaptcha}
+        />
         <label className={css.privateCheck}>
           <input
             type="checkbox"
             name="privatePolicy"
-            checked={formData.privatePolicy}
-            onChange={handleChange}
+            checked={formik.values.privatePolicy}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.privatePolicy && formik.errors.privatePolicy ? (
+            <div>{formik.errors.privatePolicy}</div>
+          ) : null}
           <p>
-            Oświadczam, że zapoznałem się i akceptuję 
+            Oświadczam, że zapoznałem się i akceptuję
             <a href="/statute"> regulamin</a> oraz
             <a href="/policy-privacy"> Polityką Prywatności</a>
           </p>
