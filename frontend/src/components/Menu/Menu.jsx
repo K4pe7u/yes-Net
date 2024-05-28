@@ -80,12 +80,10 @@ const Menu = ({ open, onClose, outsideClick }) => {
   }, [outsideClick])
 
   useEffect(() => {
-    console.log(target)
     if (target) {
       scrollToSection(target[0], target[1])
       window.history.replaceState({}, '')
     } else {
-      console.log('potato ')
       window.scrollTo(0, 0)
     }
   }, [target])

@@ -1,16 +1,16 @@
-import React from "react";
-import css from "./Promotion.module.css";
-import hasky from "../../icons/giphy.gif";
+import React from 'react'
+import css from './Promotion.module.css'
+import husky from '../../icons/giphy.gif'
 
 const Promotion = () => {
   return (
     <div className={css.page}>
       <div className={css.gradientBackground}></div>
       <div className={css.wrapper}>
-        <div className={css.title}>Poznaj naszego kumpla ProgHausky :P</div>
-        <img src={hasky} alt="hasky" />
+        <div className={css.title}>Poznaj naszego kumpla ProgHusky :P</div>
+        <img src={husky} alt='husky' />
       </div>
     </div>
-  );
-};
-export default Promotion;
+  )
+}
+export default Promotion
