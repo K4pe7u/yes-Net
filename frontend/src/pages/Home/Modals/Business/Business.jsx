@@ -1,58 +1,64 @@
-import React, { useState } from 'react';
-import Modal from '../Modal';
-import css from './Business.module.css';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import Modal from "../Modal";
+import css from "./Business.module.css";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 
 const BusinessModal = ({ onClose }) => {
   const [showInstallAddressInput, setShowInstallAddressInput] = useState(false);
   const [captchaToken, setCaptchaToken] = useState(null);
 
+  const savedFormData = JSON.parse(localStorage.getItem("businessFormData"));
+
   const handleCaptcha = (token) => {
     setCaptchaToken(token);
   };
 
+  const initialValues = savedFormData || {
+    company: "",
+    contactFirstName: "",
+    contactLastName: "",
+    email: "",
+    phone: "",
+    street: "",
+    city: "",
+    postalCode: "",
+    privatePolicy: false,
+  };
+  console.log(savedFormData, initialValues);
+
   const validationSchema = Yup.object({
-    company: Yup.string().required('Nazwa firmy jest wymagany'),
-    contactFirstName: Yup.string().required('Imię jest wymagane'),
-    contactLastName: Yup.string().required('Nazwisko jest wymagane'),
-    street: Yup.string().required('Ulica jest wymagana'),
-    city: Yup.string().required('Miasto jest wymagane'),
-    postalCode: Yup.string().required('Kod pocztowy jest wymagany'),
+    company: Yup.string().required("Nazwa firmy jest wymagany"),
+    contactFirstName: Yup.string().required("Imię jest wymagane"),
+    contactLastName: Yup.string().required("Nazwisko jest wymagane"),
+    street: Yup.string().required("Ulica jest wymagana"),
+    city: Yup.string().required("Miasto jest wymagane"),
+    postalCode: Yup.string().required("Kod pocztowy jest wymagany"),
     email: Yup.string()
-      .email('Nieprawidłowy email')
-      .required('Email jest wymagany'),
-    phone: Yup.string().required('Telefon jest wymagany'),
+      .email("Nieprawidłowy email")
+      .required("Email jest wymagany"),
+    phone: Yup.string().required("Telefon jest wymagany"),
     privatePolicy: Yup.boolean().oneOf(
       [true],
-      'Musisz zaakceptować regulamin i politykę prywatności'
+      "Musisz zaakceptować regulamin i politykę prywatności"
     ),
   });
 
   const formik = useFormik({
-    initialValues: {
-      company: '',
-      contactFirstName: '',
-      contactLastName: '',
-      email: '',
-      phone: '',
-      street: '',
-      city: '',
-      postalCode: '',
-      privatePolicy: false,
-    },
+    enableReinitialize: true,
+    initialValues,
     validationSchema: validationSchema,
-    onSubmit: async (values, { setSubmitting }) => {
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
       if (!captchaToken) {
-        alert('Proszę ukończyć weryfikację reCAPTCHA');
+        alert("Proszę ukończyć weryfikację reCAPTCHA");
         return;
       }
 
       try {
         const response = await axios.post(
-          'http://localhost:5000/api/send-business',
+          "http://localhost:5000/api/send-business",
           {
             ...values,
             captchaToken,
@@ -60,18 +66,24 @@ const BusinessModal = ({ onClose }) => {
         );
 
         if (response.status === 200) {
-          alert('Formularz został wysłany pomyślnie!');
+          alert("Formularz został wysłany pomyślnie!");
+          resetForm();
+          localStorage.removeItem("businessFormData");
+          onClose();
         } else {
-          throw new Error('Błąd podczas wysyłania formularza');
+          throw new Error("Błąd podczas wysyłania formularza");
         }
       } catch (error) {
-        console.error('Error:', error);
-        alert('Wystąpił błąd podczas wysyłania formularza.');
+        console.error("Error:", error);
+        alert("Wystąpił błąd podczas wysyłania formularza.");
       } finally {
         setSubmitting(false);
       }
     },
   });
+  useEffect(() => {
+    localStorage.setItem("businessFormData", JSON.stringify(formik.values));
+  }, [formik.values]);
 
   return (
     <Modal onClose={onClose}>
@@ -80,10 +92,9 @@ const BusinessModal = ({ onClose }) => {
         <label className={css.formItem}>
           <span>Firma:</span>
           <input
-            className=""
             type="text"
             name="company"
-            value={formik.company}
+            value={formik.values.company}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
@@ -97,7 +108,7 @@ const BusinessModal = ({ onClose }) => {
             type="text"
             name="street"
             placeholder="Ulica"
-            value={formik.street}
+            value={formik.values.street}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
@@ -148,7 +159,7 @@ const BusinessModal = ({ onClose }) => {
                 value={formik.values.installStreet}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-              />{' '}
+              />{" "}
               {formik.touched.installStreet && formik.errors.installStreet ? (
                 <div>{formik.errors.installStreet}</div>
               ) : null}
@@ -170,7 +181,7 @@ const BusinessModal = ({ onClose }) => {
                 value={formik.values.installPostalCode}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-              />{' '}
+              />{" "}
               {formik.touched.installPostalCode &&
               formik.errors.installPostalCode ? (
                 <div>{formik.errors.installPostalCode}</div>
@@ -195,7 +206,7 @@ const BusinessModal = ({ onClose }) => {
             type="text"
             name="contactLastName"
             placeholder="Nazwisko"
-            value={formik.values.contactSecondName}
+            value={formik.values.contactLastName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
