@@ -1,64 +1,70 @@
-import React, { useState, useEffect } from "react";
-import Modal from "../Modal";
-import css from "./Business.module.css";
-import ReCAPTCHA from "react-google-recaptcha";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import Modal from '../Modal';
+import css from './Business.module.css';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
 
 const BusinessModal = ({ onClose }) => {
   const [showInstallAddressInput, setShowInstallAddressInput] = useState(false);
   const [captchaToken, setCaptchaToken] = useState(null);
 
-  const savedFormData = JSON.parse(localStorage.getItem("businessFormData"));
+  const savedFormData = JSON.parse(localStorage.getItem('businessFormData'));
 
   const handleCaptcha = (token) => {
     setCaptchaToken(token);
   };
 
   const initialValues = savedFormData || {
-    company: "",
-    contactFirstName: "",
-    contactLastName: "",
-    email: "",
-    phone: "",
-    street: "",
-    city: "",
-    postalCode: "",
+    company: '',
+    contactFirstName: '',
+    contactLastName: '',
+    email: '',
+    phone: '',
+    street: '',
+    city: '',
+    postalCode: '',
+    devicesCount: '',
+    installStreet: '',
+    installCity: '',
+    installPostalCode: '',
     privatePolicy: false,
   };
-  console.log(savedFormData, initialValues);
 
   const validationSchema = Yup.object({
-    company: Yup.string().required("Nazwa firmy jest wymagany"),
-    contactFirstName: Yup.string().required("Imię jest wymagane"),
-    contactLastName: Yup.string().required("Nazwisko jest wymagane"),
-    street: Yup.string().required("Ulica jest wymagana"),
-    city: Yup.string().required("Miasto jest wymagane"),
-    postalCode: Yup.string().required("Kod pocztowy jest wymagany"),
+    company: Yup.string().required('*Nazwa firmy jest wymagana'),
+    contactFirstName: Yup.string().required('*Imię jest wymagane'),
+    contactLastName: Yup.string().required('*Nazwisko jest wymagane'),
+    street: Yup.string().required('*Ulica jest wymagana'),
+    city: Yup.string().required('*Miasto jest wymagane'),
+    postalCode: Yup.string().required('*Kod pocztowy jest wymagany'),
     email: Yup.string()
-      .email("Nieprawidłowy email")
-      .required("Email jest wymagany"),
-    phone: Yup.string().required("Telefon jest wymagany"),
+      .email('*Nieprawidłowy email')
+      .required('*Email jest wymagany'),
+    phone: Yup.string().required('*Telefon jest wymagany'),
+    devicesCount: Yup.number()
+      .typeError('*Ilość urządzeń musi być liczbą')
+      .positive('*Ilość urządzeń musi być większa od zera')
+      .required('*Ilość urządzeń jest wymagana'),
     privatePolicy: Yup.boolean().oneOf(
       [true],
-      "Musisz zaakceptować regulamin i politykę prywatności"
+      '*Musisz zaakceptować regulamin i politykę prywatności'
     ),
   });
 
   const formik = useFormik({
-    enableReinitialize: true,
     initialValues,
     validationSchema: validationSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       if (!captchaToken) {
-        alert("Proszę ukończyć weryfikację reCAPTCHA");
+        alert('Proszę ukończyć weryfikację reCAPTCHA');
         return;
       }
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/send-business",
+          'http://localhost:5000/api/send-business',
           {
             ...values,
             captchaToken,
@@ -66,28 +72,44 @@ const BusinessModal = ({ onClose }) => {
         );
 
         if (response.status === 200) {
-          alert("Formularz został wysłany pomyślnie!");
+          alert('Formularz został wysłany pomyślnie!');
           resetForm();
-          localStorage.removeItem("businessFormData");
+          localStorage.removeItem('businessFormData');
           onClose();
         } else {
-          throw new Error("Błąd podczas wysyłania formularza");
+          throw new Error('Błąd podczas wysyłania formularza');
         }
       } catch (error) {
-        console.error("Error:", error);
-        alert("Wystąpił błąd podczas wysyłania formularza.");
+        console.error('Error:', error);
+        alert('Wystąpił błąd podczas wysyłania formularza.');
       } finally {
         setSubmitting(false);
       }
     },
   });
+
   useEffect(() => {
-    localStorage.setItem("businessFormData", JSON.stringify(formik.values));
+    localStorage.setItem('businessFormData', JSON.stringify(formik.values));
   }, [formik.values]);
 
+  const handleBackButton = () => {
+    setShowInstallAddressInput(false);
+    formik.setFieldValue('installStreet', '');
+    formik.setFieldValue('installCity', '');
+    formik.setFieldValue('installPostalCode', '');
+  };
+  const handleReset = () => {
+    formik.resetForm();
+    localStorage.removeItem('businessFormData');
+  };
   return (
     <Modal onClose={onClose}>
       <span className={css.modalTitle}>Podłącz się do świata!</span>
+      <p className={css.modalDescription}>
+        Interesujesz się Usługami yesNET? <br />
+        Ciekawi Cię co mamy do zaoferowania? <br />
+        Prześli formualrz, a skontaktujemy się z Tobą!
+      </p>
       <form onSubmit={formik.handleSubmit} className={css.formMainSet}>
         <label className={css.formItem}>
           <span>Firma:</span>
@@ -99,7 +121,7 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.company && formik.errors.company ? (
-            <div>{formik.errors.company}</div>
+            <div className={css.yupError}>{formik.errors.company}</div>
           ) : null}
         </label>
         <label className={css.formItem}>
@@ -113,7 +135,7 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.street && formik.errors.street ? (
-            <div>{formik.errors.street}</div>
+            <div className={css.yupError}>{formik.errors.street}</div>
           ) : null}
           <input
             type="text"
@@ -124,7 +146,7 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.city && formik.errors.city ? (
-            <div>{formik.errors.city}</div>
+            <div className={css.yupError}>{formik.errors.city}</div>
           ) : null}
           <input
             type="text"
@@ -135,19 +157,18 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.postalCode && formik.errors.postalCode ? (
-            <div>{formik.errors.postalCode}</div>
+            <div className={css.yupError}>{formik.errors.postalCode}</div>
           ) : null}
         </label>
-        {formik.values.street !== formik.values.installStreet &&
-          !showInstallAddressInput && (
-            <button
-              className={css.formItem_buttonAdditional}
-              type="button"
-              onClick={() => setShowInstallAddressInput(true)}
-            >
-              Inny adres instalacji
-            </button>
-          )}
+        {!showInstallAddressInput && (
+          <button
+            className={css.formItem_buttonAdditional}
+            type="button"
+            onClick={() => setShowInstallAddressInput(true)}
+          >
+            Inny adres instalacji
+          </button>
+        )}
         {showInstallAddressInput && (
           <>
             <label className={css.formItem}>
@@ -159,7 +180,7 @@ const BusinessModal = ({ onClose }) => {
                 value={formik.values.installStreet}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-              />{" "}
+              />
               {formik.touched.installStreet && formik.errors.installStreet ? (
                 <div>{formik.errors.installStreet}</div>
               ) : null}
@@ -181,12 +202,19 @@ const BusinessModal = ({ onClose }) => {
                 value={formik.values.installPostalCode}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-              />{" "}
+              />
               {formik.touched.installPostalCode &&
               formik.errors.installPostalCode ? (
                 <div>{formik.errors.installPostalCode}</div>
               ) : null}
             </label>
+            <button
+              className={css.formItem_buttonBack}
+              type="button"
+              onClick={handleBackButton}
+            >
+              Cofnij
+            </button>
           </>
         )}
         <label className={css.formItem}>
@@ -200,7 +228,7 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.contactFirstName && formik.errors.contactFirstName ? (
-            <div>{formik.errors.contactFirstName}</div>
+            <div className={css.yupError}>{formik.errors.contactFirstName}</div>
           ) : null}
           <input
             type="text"
@@ -211,7 +239,7 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.contactLastName && formik.errors.contactLastName ? (
-            <div>{formik.errors.contactLastName}</div>
+            <div className={css.yupError}>{formik.errors.contactLastName}</div>
           ) : null}
         </label>
         <label className={css.formItem}>
@@ -224,11 +252,11 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
+            <div className={css.yupError}>{formik.errors.email}</div>
           ) : null}
         </label>
         <label className={css.formItem}>
-          <span>telefon:</span>
+          <span>Telefon:</span>
           <input
             type="tel"
             name="phone"
@@ -237,9 +265,30 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.phone && formik.errors.phone ? (
-            <div>{formik.errors.phone}</div>
+            <div className={css.yupError}>{formik.errors.phone}</div>
           ) : null}
         </label>
+        <label className={css.formItem}>
+          <span>Ilość urządzeń podłączonych do sieci:</span>
+          <input
+            type="text"
+            name="devicesCount"
+            inputMode="numeric"
+            value={formik.values.devicesCount}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.devicesCount && formik.errors.devicesCount ? (
+            <div className={css.yupError}>{formik.errors.devicesCount}</div>
+          ) : null}
+        </label>
+        <button
+          className={css.formItem_buttonReset}
+          type="button"
+          onClick={handleReset}
+        >
+          Reset
+        </button>
         <ReCAPTCHA
           sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
           onChange={handleCaptcha}
@@ -253,14 +302,15 @@ const BusinessModal = ({ onClose }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.privatePolicy && formik.errors.privatePolicy ? (
-            <div>{formik.errors.privatePolicy}</div>
+            <div className={css.yupError}>{formik.errors.privatePolicy}</div>
           ) : null}
           <p>
             Oświadczam, że zapoznałem się i akceptuję
             <a href="/statute"> regulamin</a> oraz
-            <a href="/policy-privacy"> Polityką Prywatności</a>
+            <a href="/policy-privacy"> Politykę Prywatności</a>
           </p>
         </label>
+
         <button className={css.formItem_button} type="submit">
           Wyślij
         </button>

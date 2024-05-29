@@ -18,6 +18,7 @@ const sendIndividualOrder = async (req, res) => {
     postalCode,
     email,
     phone,
+    devicesCount,
     installStreet,
     installCity,
     installPostalCode,
@@ -50,6 +51,7 @@ const sendIndividualOrder = async (req, res) => {
           Kod pocztowy: ${postalCode}
           Email: ${email}
           Telefon: ${phone}
+          Ilość Urządzeń Podłączonych do Sieci: ${devicesCount}
 
           Adres Instalacji:
           Ulica: ${installStreet}
@@ -71,6 +73,7 @@ const sendBusinessOrder = async (req, res) => {
     postalCode,
     email,
     phone,
+    devicesCount,
     installStreet,
     installCity,
     installPostalCode,
@@ -103,6 +106,7 @@ const sendBusinessOrder = async (req, res) => {
       Kod pocztowy: ${postalCode}
       Email: ${email}
       Telefon: ${phone}
+      Ilość Urządzeń Podłączonych do Sieci: ${devicesCount}
 
       Adres Instalacji:
       Ulica: ${installStreet}
