@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import css from './ContactForm.module.css'
 import axios from 'axios'
+import notiflix from 'notiflix'
 
 const ContactForm = () => {
   const [isPrimaryOptionsVisible, setPrimaryOptionsVisible] = useState(false)
@@ -61,10 +62,11 @@ const ContactForm = () => {
     e.preventDefault()
     try {
       await axios.post('/api/sendSubmissionForm', formData)
-      alert('Formularz został wysłany pomyślnie!')
+      notiflix.Notify.success('Formularz został wysłany pomyślnie')
     } catch (error) {
       console.error('Error submitting form', error)
-      alert('Wystąpił błąd podczas wysyłania formularza.')
+
+      notiflix.Notify.failure('Wystąpił błąd podczas wysyłania formularza.')
     }
   }
 

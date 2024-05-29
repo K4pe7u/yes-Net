@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import Modal from '../Modal';
-import css from './Individual.module.css';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import Modal from '../Modal'
+import css from './Individual.module.css'
+import ReCAPTCHA from 'react-google-recaptcha'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import axios from 'axios'
+import notiflix from 'notiflix'
 
 const IndividualModal = ({ onClose }) => {
-  const [showInstallAddressInput, setShowInstallAddressInput] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState(null);
+  const [showInstallAddressInput, setShowInstallAddressInput] = useState(false)
+  const [captchaToken, setCaptchaToken] = useState(null)
 
-  const savedFormData = JSON.parse(localStorage.getItem('individualFormData'));
+  const savedFormData = JSON.parse(localStorage.getItem('individualFormData'))
 
   const handleCaptcha = (token) => {
-    setCaptchaToken(token);
-  };
+    setCaptchaToken(token)
+  }
 
   const initialValues = savedFormData || {
     contactFirstName: '',
@@ -28,8 +29,8 @@ const IndividualModal = ({ onClose }) => {
     installStreet: '',
     installCity: '',
     installPostalCode: '',
-    privatePolicy: false,
-  };
+    privatePolicy: false
+  }
 
   const validationSchema = Yup.object({
     contactFirstName: Yup.string().required('Imię jest wymagane'),
@@ -48,16 +49,16 @@ const IndividualModal = ({ onClose }) => {
     privatePolicy: Yup.boolean().oneOf(
       [true],
       'Musisz zaakceptować regulamin i politykę prywatności'
-    ),
-  });
+    )
+  })
 
   const formik = useFormik({
     initialValues,
     validationSchema: validationSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       if (!captchaToken) {
-        alert('Proszę ukończyć weryfikację reCAPTCHA');
-        return;
+        notiflix.Notify.info('Proszę ukończyć weryfikację reCAPTCHA')
+        return
       }
 
       try {
@@ -65,41 +66,41 @@ const IndividualModal = ({ onClose }) => {
           'http://localhost:5000/api/send-individual',
           {
             ...values,
-            captchaToken,
+            captchaToken
           }
-        );
+        )
 
         if (response.status === 200) {
-          alert('Formularz został wysłany pomyślnie!');
-          resetForm();
-          localStorage.removeItem('individualFormData');
-          onClose();
+          notiflix.Notify.success('Formularz został wysłany pomyślnie!')
+          resetForm()
+          localStorage.removeItem('individualFormData')
+          onClose()
         } else {
-          throw new Error('Błąd podczas wysyłania formularza');
+          throw new Error('Błąd podczas wysyłania formularza')
         }
       } catch (error) {
-        console.error('Error:', error);
-        alert('Wystąpił błąd podczas wysyłania formularza.');
+        console.error('Error:', error)
+        notiflix.Notify.failure('Wystąpił błąd podczas wysyłania formularza.')
       } finally {
-        setSubmitting(false);
+        setSubmitting(false)
       }
-    },
-  });
+    }
+  })
 
   useEffect(() => {
-    localStorage.setItem('individualFormData', JSON.stringify(formik.values));
-  }, [formik.values]);
+    localStorage.setItem('individualFormData', JSON.stringify(formik.values))
+  }, [formik.values])
 
   const handleBackButton = () => {
-    setShowInstallAddressInput(false);
-    formik.setFieldValue('installStreet', '');
-    formik.setFieldValue('installCity', '');
-    formik.setFieldValue('installPostalCode', '');
-  };
+    setShowInstallAddressInput(false)
+    formik.setFieldValue('installStreet', '')
+    formik.setFieldValue('installCity', '')
+    formik.setFieldValue('installPostalCode', '')
+  }
   const handleReset = () => {
-    formik.resetForm();
-    localStorage.removeItem('individualFormData');
-  };
+    formik.resetForm()
+    localStorage.removeItem('individualFormData')
+  }
 
   return (
     <Modal onClose={onClose}>
@@ -113,9 +114,9 @@ const IndividualModal = ({ onClose }) => {
         <label className={css.formItem}>
           <span>Osoba kontaktowa:</span>
           <input
-            type="text"
-            name="contactFirstName"
-            placeholder="Imię"
+            type='text'
+            name='contactFirstName'
+            placeholder='Imię'
             value={formik.values.contactFirstName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -124,9 +125,9 @@ const IndividualModal = ({ onClose }) => {
             <div className={css.yupError}>{formik.errors.contactFirstName}</div>
           ) : null}
           <input
-            type="text"
-            name="contactLastName"
-            placeholder="Nazwisko"
+            type='text'
+            name='contactLastName'
+            placeholder='Nazwisko'
             value={formik.values.contactLastName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -139,9 +140,9 @@ const IndividualModal = ({ onClose }) => {
         <label className={css.formItem}>
           <span>Adres:</span>
           <input
-            type="text"
-            name="street"
-            placeholder="Ulica"
+            type='text'
+            name='street'
+            placeholder='Ulica'
             value={formik.values.street}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -150,9 +151,9 @@ const IndividualModal = ({ onClose }) => {
             <div className={css.yupError}>{formik.errors.street}</div>
           ) : null}
           <input
-            type="text"
-            name="city"
-            placeholder="Miejscowość"
+            type='text'
+            name='city'
+            placeholder='Miejscowość'
             value={formik.values.city}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -161,9 +162,9 @@ const IndividualModal = ({ onClose }) => {
             <div className={css.yupError}>{formik.errors.city}</div>
           ) : null}
           <input
-            type="text"
-            name="postalCode"
-            placeholder="Kod pocztowy"
+            type='text'
+            name='postalCode'
+            placeholder='Kod pocztowy'
             value={formik.values.postalCode}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -175,7 +176,7 @@ const IndividualModal = ({ onClose }) => {
         {!showInstallAddressInput && (
           <button
             className={css.formItem_buttonAdditional}
-            type="button"
+            type='button'
             onClick={() => setShowInstallAddressInput(true)}
           >
             Inny adres instalacji
@@ -186,9 +187,9 @@ const IndividualModal = ({ onClose }) => {
             <label className={css.formItem}>
               <span>Adres instalacji:</span>
               <input
-                type="text"
-                name="installStreet"
-                placeholder="Ulica "
+                type='text'
+                name='installStreet'
+                placeholder='Ulica '
                 value={formik.values.installStreet}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -197,9 +198,9 @@ const IndividualModal = ({ onClose }) => {
                 <div>{formik.errors.installStreet}</div>
               ) : null}
               <input
-                type="text"
-                name="installCity"
-                placeholder="Miejscowość"
+                type='text'
+                name='installCity'
+                placeholder='Miejscowość'
                 value={formik.values.installCity}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -208,9 +209,9 @@ const IndividualModal = ({ onClose }) => {
                 <div>{formik.errors.installCity}</div>
               ) : null}
               <input
-                type="text"
-                name="installPostalCode"
-                placeholder="Kod pocztowy "
+                type='text'
+                name='installPostalCode'
+                placeholder='Kod pocztowy '
                 value={formik.values.installPostalCode}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -222,7 +223,7 @@ const IndividualModal = ({ onClose }) => {
             </label>
             <button
               className={css.formItem_buttonBack}
-              type="button"
+              type='button'
               onClick={handleBackButton}
             >
               Cofnij
@@ -233,8 +234,8 @@ const IndividualModal = ({ onClose }) => {
         <label className={css.formItem}>
           <span>Email:</span>
           <input
-            type="email"
-            name="email"
+            type='email'
+            name='email'
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -246,8 +247,8 @@ const IndividualModal = ({ onClose }) => {
         <label className={css.formItem}>
           <span>Telefon:</span>
           <input
-            type="tel"
-            name="phone"
+            type='tel'
+            name='phone'
             value={formik.values.phone}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -259,9 +260,9 @@ const IndividualModal = ({ onClose }) => {
         <label className={css.formItem}>
           <span>Ilość urządzeń podłączonych do sieci:</span>
           <input
-            type="text"
-            name="devicesCount"
-            inputMode="numeric"
+            type='text'
+            name='devicesCount'
+            inputMode='numeric'
             value={formik.values.devicesCount}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -272,7 +273,7 @@ const IndividualModal = ({ onClose }) => {
         </label>
         <button
           className={css.formItem_buttonReset}
-          type="button"
+          type='button'
           onClick={handleReset}
         >
           Reset
@@ -283,8 +284,8 @@ const IndividualModal = ({ onClose }) => {
         />
         <label className={css.privateCheck}>
           <input
-            type="checkbox"
-            name="privatePolicy"
+            type='checkbox'
+            name='privatePolicy'
             checked={formik.values.privatePolicy}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -294,16 +295,16 @@ const IndividualModal = ({ onClose }) => {
           ) : null}
           <p>
             Oświadczam, że zapoznałem się i akceptuję
-            <a href="/statute"> regulamin</a> oraz
-            <a href="/policy-privacy"> Politykę Prywatności</a>
+            <a href='/statute'> regulamin</a> oraz
+            <a href='/policy-privacy'> Politykę Prywatności</a>
           </p>
         </label>
-        <button className={css.formItem_button} type="submit">
+        <button className={css.formItem_button} type='submit'>
           Wyślij
         </button>
       </form>
     </Modal>
-  );
-};
+  )
+}
 
-export default IndividualModal;
+export default IndividualModal

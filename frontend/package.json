@@ -13,6 +13,7 @@
     "emailjs-com": "^3.2.0",
     "formik": "^2.4.6",
     "link": "^2.1.0",
+    "netlify": "^13.1.17",
     "notiflix": "^3.2.7",
     "notifly": "^0.0.1",
     "react": "^18.2.0",

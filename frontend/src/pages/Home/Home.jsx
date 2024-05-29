@@ -1,5 +1,6 @@
 import React from 'react'
 import css from './Home.module.css'
+import notiflix from 'notiflix'
 import Header from '../../components/Header/Header'
 import Mainset from '../../components/Mainset/Mainset'
 import Ourself from '../../components/Ourself/Ourself'
@@ -30,6 +31,14 @@ function Home() {
       document.body.style.overflow = 'auto'
     }
   }, [currentModal])
+
+  notiflix.Notify.init({
+    // height: '300px',
+    width: '400px',
+    fontSize: '16px',
+    distance: '20px',
+    fontFamily: 'Poppins'
+  })
 
   return (
     <div className={css.page}>
