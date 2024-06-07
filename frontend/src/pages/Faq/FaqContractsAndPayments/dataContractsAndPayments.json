@@ -1,38 +1,70 @@
 [
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Czym jest nr klienta ID i gdzie mogę go znajdę?",
+    "answer": "Numer ID to indywidualny numer klienta przyznawany podczas zawarcia umowy. Można go znaleźć w nagłówku umowy lub w razie potrzeby, uzyskać dzwoniąc do Biura Obsługi Klienta. Po przejściu prawidłowej weryfikacji danych Abonamenta telekonsultant udzieli takiej informacji."
   },
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
-  },
-
-  {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Gdzie znajdują się moje faktury",
+    "answer": "Za pomocą dowolnej przeglądarki, należy uruchomić stronę yesNET.pl i w menu głównym odszukać przycisk 'ZALOGUJ SIĘ'. Po wprowadzeniu nr klienta ID oraz przypisanego hasła wyświetli się lista wszystkich faktur, które można pobrać i wydrukować. Hasło, podobnie jak nr ID znajduje się na umowie."
   },
 
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
-  },
-  {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
-  },
-  {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Jak zmienić dane lub warunki umowy na usługę yesNET?",
+    "answer": "Najszybszym sposobem jest kontakt z Biurem Obsługi Klienta, osobisty lub telefoniczny na nr tel.: 690 860 520. Istnieje również opcja kontaktu poprzez FORMULARZ KONTAKTOWY na stronie głównej, podając szczegóły."
   },
 
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Jak dokonać cesji umowy?",
+    "answer": "Aby mogło dojść do przejęcia usługi przez nowego Abonenta konieczne jest jego przybycie do Biura Obsługi Klienta, podanie swoich danych osobistych i podpisanie dokumentu cesji."
+  },
+  {
+    "question": "Jak przenieść usługę pod inny adres?",
+    "answer": "Przeniesienie usługi pod inny adres należy skontaktować się z Biurem Obsługi Klienta w celu przygotowania i podpisania aneksu do umowy. Następnie można we włąsnym zakresie zdemontować sprzęt z dotychczasowej lokalizacji lub zlecić to usługodawcy (usługa odpłatna). W umówionym przez obie strony terminie nastąpi uruchmowienie usługi w nowej lokalizacji (usługa odpłatna)."
+  },
+  {
+    "question": "Jak wypowiedzieć umowę?",
+    "answer": "Zgodnie z powszechnie obowiązującymi przepisami, aby skutecznie wypowiedzieć umowę należy złozyć wypowiedzenie w formie pismenej. Druk wypowiedzenia można pobrać na stronie w zakładce Faq, wypełnić, czytelnie podpisać i przesłać do Operatora listem tradycyjnym, elektronicznie na adres BOK@yesnet.pl w formie podpisanego załącznika lub dostarczyć osobiście do Biura Obsługi Klienta. Należy pamiętać, że wiążącą datą jest data wpływu wypowiedzenia do Usługodawcy - od tego momentu zaczyna się bieg okresu wypoiwedzenia, który kończy się po upływie miesiąca, na koniec miesiąca. Poza oświadczeniem o wypowiedzeniu umowy, ważne jest określenie sposobu demonatażu sprzętu: osobisty lub przez Operatora (usługa odpłatna). Dla Usługodawcy ważny jest też powód wypowiedzenia usługi - jego podanie pomaga nam jeszcze lepiej rozwijać usługi."
   },
 
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Kiedy i jak mogę zwrócić sprzęt?",
+    "answer": "Zwrotu sprzętu należy dokonać w terminie 7-u dni po rozwiązaniu umowy. Można to zrobić osobiście w każdej placówce, wówczas Abonent otrzymuje protokół zwrotu lub też zlecić demontaż Operatorowi (usługa odpłatna). Sprzęt można również zwrócić wysyłając go kurierem lub pocztą na adres: ul. Towarowa 1, 64-510 Wronki."
+  },
+
+  {
+    "question": "Jak przedłużyć umowę?",
+    "answer": "Nie ma potrzeby przedłużania umowy, ponieważ wszystkie umowy zawarte z yesNET są na czas nieokreślony."
+  },
+  {
+    "question": "Czym jest usługa PrePaid?",
+    "answer": "PrePaid to nazwa usługi telekomunikacyjnej o charakterze przedpłaconym. Oznacza to, że Abonent, zanim zacznie korzystać z internetu, musi doładować swoje konto odpowiednią kwotą, która została określona w zawartej z Operatorem umowie."
+  },
+  {
+    "question": "Jeśli abonament nie zostanie opłacony, czy umowa rozwiąże się automatycznie?",
+    "answer": "Nie, mimo, że usługa nie wznowi się bez wniesienia opłaty na kolejny miesiąc, to umowa nadal jest ważna, ponieważ reguluje również kwestie, poza usługą; między innymi na podstawie niniejszej umowy Operator przekazał Abonentowi sprzęt umożliwoający korzystanie z usług."
+  },
+  {
+    "question": "W jaki sposób można płacić za usługi yesNET?",
+    "answer": "Preferowanym sposobem zapłaty za usługi yesNET jest płatność przelewem z rachunku bankowego Abonenta. Dzięki temu Operator powiąże ten rachunek z ID Abonenta, co znacząco ułatwi proces rozliczeń. Opłaty należy wnosić na dedykowany nr rachunku bankowego Operatora: 21 1050 1520 1000 0022 7161 0178, prowadzony w ING. Oczywiście akceptowane są również inne sposoby regulowania należności, np. poprzez pocztę lub agencję. Poza tym Abonent może dokonać płatności gotówką w Biurze Obsługi Klienta, znajdującym się najbliżej jego miejsca zamieszkania, to jest w Szamotułach, Krzyżu Wielkopolskim lub we Wronkach (tutaj możliwa jest płatność kartą). Dokonując płatności przelewem należy pamiętać, aby w tytule przelewu podać numer ID klienta, imię, nazwisko oraz adres zamieszkania. Nie ma konieczności podawania numeru faktury ani okresu, za który wnoszona jest opłata, gdyż zostanie ona zaksięgowana na najstarsze, nierozliczone zobowiązanie Abonenta."
+  },
+  {
+    "question": "Czy jest mozliwość zapłaty 'z góry' za okres dłuższy niż jeden miesiąc?",
+    "answer": "Oczywiście możesz zapłacić za okres dłuższy niż 1 miesiąc, jednak zalecamy płacenie za okresy miesięczne - np. złożenie zlecenia stałego na swoim rachunku bankowym, płatnego w cyklach miesięcznych do 10-go dnia miesiąca na kwotę abonamentu, podając w tytule zlecenia numer ID klienta, imię, nazwisko oraz adres zamieszkania. Poza tym okresowo Operator prowadzi promocję: 'zapłać za 11 miesięcy z góry, a 12 miesiąc masz za 1zł (*należy zapoznać się z informacjami o aktualnych promocjach; *promocja dotyczy wyłącznie internetu; *niniejsza wzmianka nie stanowi oferty w rozumieniu przepisów KC)."
+  },
+  {
+    "question": "Czy jest możliwa zmiana terminu płatności?",
+    "answer": "Nie ma możliwości zmiany terminu płatności, ponieważ jego dotrzymanie wiąże się z określonymi przywilejami dla Abonenta."
+  },
+  {
+    "question": "Nie zapłaciłem za abonament i moje usługi przestały działać. W jaki sposób mogę je jak najszybciej przywrócić?",
+    "answer": "Jeśli termin zapłaty nie został dotrzymany i usługa nie działa to dokonaj niezwłocznie zapłaty, powiększając kwotę abonamentu o 10zł. Możesz uniknąć tej opłaty, jeśli zapłącisz jednocześnie za zaległą i bieżącą fakturę. Niezwłocznie, gdy pieniądze zostaną zaksięgowane na Twoim koncie, usługi zostaną wznowione. Zwracaj uwagę na sms'y, które wysyłamy do Ciebie, gdy minie termin płatności - jesli na nie zareagujesz i dokonasz zapłaty, to Twoje usługi będą zawsze działać. W wyjątkowych sytuacjach możesz przesłać potwierdzenie zapłaty na adres mailowy: bok@yesnet.pl lub mms'a na numery telefonów: 690 860 520 lub 690 860 530; jeżeli niniejsza wiadomość zostanie dostarczzona w dniu roboczym do godziny 15:30, to uruchomimy warunkowo Twoje usługi w tym samym dniu."
+  },
+  {
+    "question": "Co zrobić z nadpłatą na koncie Abonenta?",
+    "answer": "Wpłata dokonana w kwocie wyższej niż ustalony abonament zostanie rozliczona na poczet kolejnej faktury. Jeżeli jednak wolisz otrzymać zwrot nadwyżki wypełnij formularz zwrotu, podpisz go czytelnie i prześlij w formie elektronicznej na adres: bok@yesnet.pl. We formularzu podaj koniecznie numer rachunku, z którego dokonano zapłaty. Zwrot zostanie dokonany na ten sam numer rachunku."
+  },
+  {
+    "question": "Jakie korzyści i ich brak wynika z terminowych płatności?",
+    "answer": "Jeśli dokonujesz płatności w terminie korzystasz z rabatu w wysokości 10zł co miesiąc. Ponadto Twoje usługi zawsze działają ;)"
   }
 ]
