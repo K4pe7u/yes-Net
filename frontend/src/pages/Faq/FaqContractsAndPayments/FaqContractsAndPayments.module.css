@@ -13,7 +13,7 @@
   position: relative;
 }
 .item:hover::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -1;
   left: -10%;
@@ -25,7 +25,7 @@
   border-radius: 50px;
 }
 .item:nth-child(odd):hover::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -1;
   left: -10%;
@@ -53,8 +53,9 @@
   overflow: hidden;
   transition: height 0.5s;
 }
-.show {
-  height: 90px;
+
+.content p {
+  margin: 0;
 }
 
 .information {

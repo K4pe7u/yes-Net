@@ -11,9 +11,10 @@
   margin-bottom: 5px;
   padding: 10px 20px;
   position: relative;
+  cursor: pointer;
 }
 .item:hover::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -1;
   left: -10%;
@@ -25,7 +26,7 @@
   border-radius: 50px;
 }
 .item:nth-child(odd):hover::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -1;
   left: -10%;
@@ -41,7 +42,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
 }
 .question {
   font-size: large;
@@ -53,8 +53,9 @@
   overflow: hidden;
   transition: height 0.5s;
 }
-.show {
-  height: 90px;
+
+.content p {
+  margin: 0;
 }
 
 .information {
