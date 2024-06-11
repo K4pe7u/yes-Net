@@ -1,38 +1,38 @@
 [
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Jak mogę sprawdzić dostępność usług internetowych w mojej lokalizacji?",
+    "answer": "Najszybszym sposobem jest skontaktowanie się z naszym Biurem Obsługi Klienta telefonicznie z prośba weryfikacji zasięgu. Można również skorzystać z naszych formularzy na stronie głównej ( w tym formularzy zamówień); po ich weryfikacji otrzymają państwo odpowiedź również w temacie dostępności zasięgu. "
   },
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
-  },
-
-  {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Jakie prędkości internetu oferujecie?",
+    "answer": "Nie uzależniamy się od stałych prędkości, oferując klientom sztywne pakiety. Dzięki temu jesteśmy elastyczni i dostosowujemy usługi indywidualnie do potrzeb klientów. Skontaktuj się z nami w dowolnej formie i wspólnie skrójmy pakiet dla Twoich potrzeb."
   },
 
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
-  },
-  {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
-  },
-  {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "W jaki sposób mogę zaktualizaować swój pakiet internetowy?",
+    "answer": "Jeśli po pewnym czasie Twoje oczekiwania co do podpisanej umowy są inne lub chciałbyś zmienić lub ulepszyć swój pakiet, prosimy o kontakt w dowolnej formie. Wspólnie zastanowimy się nad nowymi rozwiązaniami dla Ciebie."
   },
 
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Czy oferujecie usługi internetowe bez limitu danych?",
+    "answer": "Tak, wszystkie nasze pakiety internetowe oferują nielimitowany dostęp do danych."
+  },
+  {
+    "question": "Co zrobić, jeśli mój internet nie działa?",
+    "answer": "Sprawdz kategorie 'Pomoc Techniczna' i prześledź wszystkie zawarte w niej kroki. Jeżeli to nie rozwiąże problemu skontaktuj się z nami."
+  },
+  {
+    "question": "Jak zamówić usługę telewizyjną w yesNET",
+    "answer": "Skontaktuj się z nami telefonicznie lub po przez formularze. Oferta uzależniona jest od wielu czynników, a chcemy jak najlepiej dostosować ją do Twoich oczekiwań."
   },
 
   {
-    "question": "Pytanie co tu robisz i czego oczekujesz?",
-    "answer": "Lorem ipsum coś tam coś tam tylko nie rób tego w domu."
+    "question": "Gdzie znajdę listę programów oraz dostępnych pakietów?",
+    "answer": "U dołu strony udostępniamy listę programów. Istnieje również możliwość pobrania lub wydrukowania broszury."
+  },
+
+  {
+    "question": "Czy oferujecie telewizję w jakości 4K?",
+    "answer": "Niestety ta opcja jest u nas niedostępna."
   }
 ]

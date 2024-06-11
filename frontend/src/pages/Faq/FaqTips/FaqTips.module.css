@@ -8,7 +8,6 @@
   width: 500px;
 }
 .item {
-  margin-bottom: 5px;
   padding: 10px 20px;
   position: relative;
   cursor: pointer;
@@ -59,7 +58,7 @@
 }
 
 .information {
-  margin-top: 42px;
+  margin: 24px 0px;
   font-size: large;
 }
 .informationList {

@@ -1,41 +1,41 @@
-import React, { useState, useRef } from 'react'
-import css from './FaqTips.module.css'
-import dataTips from './dataTips.json'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useRef } from 'react';
+import css from './FaqTips.module.css';
+import dataTips from './dataTips.json';
+import { useNavigate } from 'react-router-dom';
 
 const FaqTips = () => {
-  const navigate = useNavigate()
-  const listOfTips = useRef(null)
-  const [selected, setSelected] = useState(null)
+  const navigate = useNavigate();
+  const listOfTips = useRef(null);
+  const [selected, setSelected] = useState(null);
 
   const toggle = (index) => {
     if (selected === index) {
-      return setSelected(null)
+      return setSelected(null);
     }
 
-    setSelected(index)
-  }
+    setSelected(index);
+  };
 
   const clear = () => {
-    const list = listOfTips.current.querySelectorAll(`.${css.content}`)
+    const list = listOfTips.current.querySelectorAll(`[data-content="true"]`);
     list.forEach((item) => {
       if (item.clientHeight) {
-        item.style.height = 0
+        item.style.height = 0;
       }
-    })
-  }
+    });
+  };
 
   const grow = (e) => {
-    e.stopPropagation()
-    clear()
-    const content = e.currentTarget.querySelector(`.${css.content}`)
-    const txt = content.querySelector(`p`)
+    e.stopPropagation();
+    clear();
+    const content = e.currentTarget.querySelector(`[data-content="true"]`);
+    const txt = content.querySelector(`p`);
     if (content.clientHeight) {
-      content.style.height = 0
+      content.style.height = 0;
     } else {
-      content.style.height = txt.clientHeight + 'px'
+      content.style.height = txt.clientHeight + 'px';
     }
-  }
+  };
 
   return (
     <>
@@ -50,8 +50,8 @@ const FaqTips = () => {
               key={index}
               className={css.item}
               onClick={(event) => {
-                toggle(index)
-                grow(event)
+                toggle(index);
+                grow(event);
               }}
             >
               <div className={css.title}>
@@ -59,7 +59,7 @@ const FaqTips = () => {
                 <span>{selected === index ? '-' : '+'}</span>
               </div>
               {item.tip && (
-                <div className={`${css.content}`}>
+                <div className={css.content} data-content="true">
                   <p>{item.tip}</p>
                 </div>
               )}
@@ -92,8 +92,8 @@ const FaqTips = () => {
               className={css.formAnchor}
               onClick={() => {
                 navigate('/', {
-                  state: { target: ['Footer', [-730, -600, -610]] }
-                })
+                  state: { target: ['Footer', [-730, -600, -610]] },
+                });
               }}
             >
               Formularza
@@ -109,7 +109,7 @@ const FaqTips = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FaqTips
+export default FaqTips;
