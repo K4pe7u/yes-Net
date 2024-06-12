@@ -55,7 +55,7 @@ const FaqTips = () => {
               }}
             >
               <div className={css.title}>
-                <h2>{item.step}</h2>
+                <h2 className={css.title_question}>{item.step}</h2>
                 <span>{selected === index ? '-' : '+'}</span>
               </div>
               {item.tip && (

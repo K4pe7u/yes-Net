@@ -53,7 +53,7 @@ const FaqContractsAndPayments = () => {
               }}
             >
               <div className={css.title}>
-                <h2>{item.question}</h2>
+                <h2 className={css.title_question}>{item.question}</h2>
                 <span>{selected === index ? '-' : '+'}</span>
               </div>
               {item.answer && (
@@ -68,7 +68,7 @@ const FaqContractsAndPayments = () => {
           <h3>Przydatne pliki do pobrania:</h3>
           <ul className={css.downloads_list}>
             <li>
-              <span>Okresowe Zawieszenie Usług - </span>
+              <span>Zawieszenie Usług - </span>
               <a
                 href="files/zawieszenie.pdf"
                 download

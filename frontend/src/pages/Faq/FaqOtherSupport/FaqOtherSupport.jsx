@@ -39,8 +39,8 @@ const FaqOtherSupport = () => {
     <>
       <div className={css.wrapper}>
         <p className={css.question}>
-          Tu znajdziesz najczęściej zadawane pytania i odpowiedzi na nie,
-          dotyczące umów i płatności w yesNET.
+          Dodatkowe wskazówki, porady, odpowiedzi. Bądźmy kreatywni i oryginalni
+          we wspólnym działaniu!
         </p>
         <div className={css.accordion} ref={listOfTips}>
           {data.map((item, index) => (
@@ -53,7 +53,7 @@ const FaqOtherSupport = () => {
               }}
             >
               <div className={css.title}>
-                <h2>{item.question}</h2>
+                <h2 className={css.title_question}>{item.question}</h2>
                 <span>{selected === index ? '-' : '+'}</span>
               </div>
               {item.answer && (

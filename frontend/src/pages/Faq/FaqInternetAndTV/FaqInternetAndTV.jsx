@@ -53,7 +53,7 @@ const FaqInternetAndTV = () => {
               }}
             >
               <div className={css.title}>
-                <h2>{item.question}</h2>
+                <h2 className={css.title_question}>{item.question}</h2>
                 <span>{selected === index ? '-' : '+'}</span>
               </div>
               {item.answer && (
