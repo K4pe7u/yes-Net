@@ -7,14 +7,8 @@
   },
   {
     "id": 2,
-    "title": "Optymalizacja Sieci",
-    "content": "W celu optymalizacji wydajności sieci, w nocy dokonano zmiany ustawień routerów brzegowych na połączenia dynamiczne. Niestety, po tej zmianie konfiguracji okazało się, że koncentrator na Borku nie był w stanie otworzyć niektórych stron internetowych. W rezultacie, konieczne było przywrócenie ustawień statycznych wymiany ruchu, to związane było z porannymi przerwami w dostępie do internetu. Inwestujemy w rozwój oraz pracujemy nad rozbudową infrastruktury usługi internetowej. W najbliższym czasie planowane są kolejne istotne zmiany w szkielecie sieci. Więc w godzinach nocnych między 3 a 6, możliwe, że wystąpią przerwy w dostępie do internetu. Dziękujemy za wyrozumiałość i cierpliwość.",
-    "date": "2024-02-22"
-  },
-  {
-    "id": 3,
-    "title": "Optymalizacja Sieci",
-    "content": "W celu optymalizacji wydajności sieci, w nocy dokonano zmiany ustawień routerów brzegowych na połączenia dynamiczne. Niestety, po tej zmianie konfiguracji okazało się, że koncentrator na Borku nie był w stanie otworzyć niektórych stron internetowych. W rezultacie, konieczne było przywrócenie ustawień statycznych wymiany ruchu, to związane było z porannymi przerwami w dostępie do internetu. Inwestujemy w rozwój oraz pracujemy nad rozbudową infrastruktury usługi internetowej. W najbliższym czasie planowane są kolejne istotne zmiany w szkielecie sieci. Więc w godzinach nocnych między 3 a 6, możliwe, że wystąpią przerwy w dostępie do internetu. Dziękujemy za wyrozumiałość i cierpliwość.",
-    "date": "2024-02-22"
+    "title": "Wyprzedaż Sprzętu Sieciowego",
+    "content": "Z racji przebudowy sieci: wprowadzania ulepszeń technicznych oraz wprowadzania nowych technologi, część sprzętu zostaje wymieniana na nowszy lub bardziej zoptymalizowany pod działanie naszej sieci. Demontowany sprzęt składujemy na magazynie i wystawiamy na sprzedaż pod adresem: https://www.olx.pl/oferty/uzytkownik/1UO84R/ lub po kliknieciu w link znajdujący się w menu. Sprzedajemy między innymi używane: anteny radiowe, routery, zasilacze, etc. Sprzęt przed wysyłką jest dokładnie sprawdzany. Daj drugie życie naszej elektronice. ",
+    "date": "2024-06-14"
   }
 ]

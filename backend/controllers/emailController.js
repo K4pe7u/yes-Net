@@ -1,12 +1,12 @@
-const { sendEmail, transporter } = require('../config/mailer');
+const { sendEmail, transporter } = require("../config/mailer");
 
 const sendEmailWrapper = async (mailOptions, res) => {
   try {
     await sendEmail(mailOptions);
-    res.status(200).send('Email sent successfully');
+    res.status(200).send("Email sent successfully");
   } catch (error) {
-    console.error('Error sending email', error);
-    res.status(500).send('Error sending email');
+    console.error("Error sending email", error);
+    res.status(500).send("Error sending email");
   }
 };
 const sendIndividualOrder = async (req, res) => {
@@ -33,13 +33,13 @@ const sendIndividualOrder = async (req, res) => {
     !email ||
     !phone
   ) {
-    return res.status(400).send('All fields are required');
+    return res.status(400).send("All fields are required");
   }
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'juliusz@yesnet.pl',
-    subject: 'Zamówienie Indywidualne yesnet.pl',
+    to: "juliusz@yesnet.pl",
+    subject: "Zamówienie Indywidualne yesnet.pl",
     text: `
           Pojawiło się nowe Zamówienie Indywidualne - Skontaktuj się z potencjalnym klientem ;)
 
@@ -87,13 +87,13 @@ const sendBusinessOrder = async (req, res) => {
     !email ||
     !phone
   ) {
-    return res.status(400).send('All fields are required');
+    return res.status(400).send("All fields are required");
   }
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'juliusz@yesnet.pl',
-    subject: 'Zamówienie Biznesowe yesnet.pl',
+    to: "juliusz@yesnet.pl",
+    subject: "Zamówienie Biznesowe yesnet.pl",
     text: `
       Pojawiło się nowe Zamówienie Biznesowe - Skontaktuj się z potencjalnym klientem.
 
@@ -122,51 +122,54 @@ const sendSubmissionForm = async (req, res) => {
   const { name, email, message, primaryOptionId, additionalOptionId } =
     req.body;
   if (!name || !email || !message) {
-    return res.status(400).send('All fields are required');
+    return res.status(400).send("All fields are required");
   }
 
-  let primaryOptionText = '';
-  let additionalOptionText = '';
+  let primaryOptionText = "";
+  let additionalOptionText = "";
 
   switch (primaryOptionId) {
-    case '1.1':
-      primaryOptionText = 'Zgłoszenie Serwisowe';
+    case "1.1":
+      primaryOptionText = "Zgłoszenie Serwisowe";
       break;
-    case '1.2':
-      primaryOptionText = 'Zapytanie';
+    case "1.2":
+      primaryOptionText = "Zapytanie";
       break;
     default:
-      primaryOptionText = '-';
+      primaryOptionText = "-";
   }
 
   switch (additionalOptionId) {
-    case '2.1':
-      additionalOptionText = 'Całkowity Zanik Łącza';
+    case "2.1":
+      additionalOptionText = "Całkowity Zanik Łącza";
       break;
-    case '2.2':
-      additionalOptionText = 'Niestabilna Praca Łącza';
+    case "2.2":
+      additionalOptionText = "Niestabilna Praca Łącza";
       break;
-    case '2.3':
-      additionalOptionText = 'Problem z Zasięgiem WiFi';
+    case "2.3":
+      additionalOptionText = "Problem z Zasięgiem WiFi";
       break;
-    case '2.4':
-      additionalOptionText = 'Inne';
+    case "2.4":
+      additionalOptionText = "Inne";
       break;
     default:
-      additionalOptionText = '-';
+      additionalOptionText = "-";
   }
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'juliusz@yesnet.pl',
-    subject: 'Wiadomość z formularza kontaktowego',
+    to: "juliusz@yesnet.pl",
+    subject: "Zgłoszenie alarmowe lub zapytanie",
     text: `
       Wiadomość od: ${name} (${email})
-      Treść wiadomości: ${message}
 
       Wybrane opcje:
+      
       Kategoria: ${primaryOptionText}
       Dodatkowa kategoria: ${additionalOptionText}
+
+      Treść wiadomości: ${message}
+
     `,
   };
 

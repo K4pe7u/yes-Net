@@ -1,65 +1,66 @@
-import css from './Menu.module.css'
-import icon from '../../icons/icons.svg'
-import { useState, useRef, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import css from "./Menu.module.css";
+import icon from "../../icons/icons.svg";
+import olx from "../../icons/olx.svg";
+import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Menu = ({ open, onClose, outsideClick }) => {
-  const menuRef = useRef(null)
-  const dialogWindowRef = useRef(null)
-  let { state } = useLocation()
-  let { target } = state || {}
+  const menuRef = useRef(null);
+  const dialogWindowRef = useRef(null);
+  let { state } = useLocation();
+  let { target } = state || {};
 
-  const [isCompanyOpen, setIsCompanyOpen] = useState(false)
-  const [isSupportOpen, setIsSupportOpen] = useState(false)
+  const [isCompanyOpen, setIsCompanyOpen] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
 
   const scrollToSection = (section, offset) => {
-    const sectionToScrollTo = document.getElementById(`${section}`)
+    const sectionToScrollTo = document.getElementById(`${section}`);
 
     if (
-      window.matchMedia('(min-width: 320px)').matches &&
-      window.matchMedia('(max-width: 767px)').matches
+      window.matchMedia("(min-width: 320px)").matches &&
+      window.matchMedia("(max-width: 767px)").matches
     ) {
       window.scrollTo({
         top: sectionToScrollTo.offsetTop - offset[0],
         left: 0,
-        behavior: 'smooth'
-      })
+        behavior: "smooth",
+      });
     } else if (
-      window.matchMedia('(min-width: 768px)').matches &&
-      window.matchMedia('(max-width: 1279px)').matches
+      window.matchMedia("(min-width: 768px)").matches &&
+      window.matchMedia("(max-width: 1279px)").matches
     ) {
-      console.log(sectionToScrollTo.offsetTop, offset[1])
+      console.log(sectionToScrollTo.offsetTop, offset[1]);
       window.scrollTo({
         top: sectionToScrollTo.offsetTop - offset[1],
         left: 0,
-        behavior: 'smooth'
-      })
-    } else if (window.matchMedia('(min-width: 1280px)').matches) {
-      console.log(sectionToScrollTo.offsetTop, offset[2])
+        behavior: "smooth",
+      });
+    } else if (window.matchMedia("(min-width: 1280px)").matches) {
+      console.log(sectionToScrollTo.offsetTop, offset[2]);
       window.scrollTo({
         top: sectionToScrollTo.offsetTop - offset[2],
         left: 0,
-        behavior: 'smooth'
-      })
+        behavior: "smooth",
+      });
     }
-  }
+  };
 
   const toggleCompany = (e) => {
-    e.stopPropagation()
-    setIsCompanyOpen(!isCompanyOpen)
-    setIsSupportOpen(false)
-  }
+    e.stopPropagation();
+    setIsCompanyOpen(!isCompanyOpen);
+    setIsSupportOpen(false);
+  };
 
   const toggleSupport = (e) => {
-    e.stopPropagation()
-    setIsSupportOpen(!isSupportOpen)
-    setIsCompanyOpen(false)
-  }
+    e.stopPropagation();
+    setIsSupportOpen(!isSupportOpen);
+    setIsCompanyOpen(false);
+  };
 
   const hideMenuWindows = () => {
-    setIsCompanyOpen(false)
-    setIsSupportOpen(false)
-  }
+    setIsCompanyOpen(false);
+    setIsSupportOpen(false);
+  };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -68,25 +69,25 @@ const Menu = ({ open, onClose, outsideClick }) => {
         (dialogWindowRef.current &&
           !dialogWindowRef.current.contains(event.target))
       ) {
-        outsideClick()
-        hideMenuWindows()
+        outsideClick();
+        hideMenuWindows();
       }
     }
 
-    document.addEventListener('click', handleClickOutside)
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside)
-    }
-  }, [outsideClick])
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [outsideClick]);
 
   useEffect(() => {
     if (target) {
-      scrollToSection(target[0], target[1])
-      window.history.replaceState({}, '')
+      scrollToSection(target[0], target[1]);
+      window.history.replaceState({}, "");
     } else {
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     }
-  }, [target])
+  }, [target]);
 
   return (
     <>
@@ -99,9 +100,9 @@ const Menu = ({ open, onClose, outsideClick }) => {
             <div className={css.menuHeader}>
               <svg
                 className={`${css.arrow_right}`}
-                width='36px'
-                height='32px'
-                fill='white'
+                width="36px"
+                height="32px"
+                fill="white"
                 onClick={onClose}
               >
                 <use href={`${icon}#arrow_right`}></use>
@@ -120,15 +121,15 @@ const Menu = ({ open, onClose, outsideClick }) => {
               <li className={css.navigation_item}>
                 {/* eslint-disable-next-line */}
                 <a
-                  href='#Header'
+                  href="#Header"
                   onClick={outsideClick}
                   className={css.navigation_link}
                 >
                   <svg
                     className={`${css.house}`}
-                    width='48px'
-                    height='32px'
-                    fill='white'
+                    width="48px"
+                    height="32px"
+                    fill="white"
                   >
                     <use href={`${icon}#house`}></use>
                   </svg>
@@ -140,9 +141,9 @@ const Menu = ({ open, onClose, outsideClick }) => {
                 <a onClick={outsideClick} className={css.navigation_link}>
                   <svg
                     className={`${css.account}`}
-                    width='48px'
-                    height='32px'
-                    fill='white'
+                    width="48px"
+                    height="32px"
+                    fill="white"
                   >
                     <use href={`${icon}#account`}></use>
                   </svg>
@@ -153,14 +154,14 @@ const Menu = ({ open, onClose, outsideClick }) => {
                 <div className={css.company_container}>
                   <span
                     className={`${css.company_title} ${
-                      isCompanyOpen ? css.company_title_open : ''
+                      isCompanyOpen ? css.company_title_open : ""
                     }`}
                   >
                     Company
                   </span>
                   <span
                     className={`${css.company_open_btn} ${
-                      isCompanyOpen ? css.company_open : ''
+                      isCompanyOpen ? css.company_open : ""
                     }`}
                   >
                     &#9660;
@@ -168,23 +169,23 @@ const Menu = ({ open, onClose, outsideClick }) => {
 
                   <ul
                     className={`${css.company_navigation} ${
-                      isCompanyOpen ? css.company_navigation_open : ''
+                      isCompanyOpen ? css.company_navigation_open : ""
                     }`}
                     ref={isCompanyOpen ? dialogWindowRef : null}
                     onClick={(e) => {
-                      e.stopPropagation()
+                      e.stopPropagation();
                     }}
                   >
                     <li className={css.company_navigation_main_section}>
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          hideMenuWindows()
-                          outsideClick()
-                          scrollToSection('Ourself', [60, 80, 180])
+                          hideMenuWindows();
+                          outsideClick();
+                          scrollToSection("Ourself", [60, 80, 180]);
                         }}
                       >
-                        <svg className={`${css.groupPeople}`} fill='white'>
+                        <svg className={`${css.groupPeople}`} fill="white">
                           <use href={`${icon}#groupPeople`}></use>
                         </svg>
                         <div>
@@ -197,12 +198,12 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          hideMenuWindows()
-                          outsideClick()
-                          scrollToSection('Footer', [-1430, -1230, -1550])
+                          hideMenuWindows();
+                          outsideClick();
+                          scrollToSection("Footer", [-1430, -1230, -1550]);
                         }}
                       >
-                        <svg className={`${css.map}`} fill='white'>
+                        <svg className={`${css.map}`} fill="white">
                           <use href={`${icon}#map`}></use>
                         </svg>
                         <div>
@@ -218,12 +219,12 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          hideMenuWindows()
-                          outsideClick()
+                          hideMenuWindows();
+                          outsideClick();
                         }}
-                        href='tel:+48690860520'
+                        href="tel:+48690860520"
                       >
-                        <svg className={`${css.phone}`} fill='white'>
+                        <svg className={`${css.phone}`} fill="white">
                           <use href={`${icon}#phone`}></use>
                         </svg>
                         <div>
@@ -233,16 +234,25 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          hideMenuWindows()
-                          outsideClick()
+                          hideMenuWindows();
+                          outsideClick();
                         }}
-                        href='mailto:bok@yesnet.pl'
+                        href="mailto:bok@yesnet.pl"
                       >
-                        <svg className={`${css.envelop}`} fill='white'>
+                        <svg className={`${css.envelop}`} fill="white">
                           <use href={`${icon}#envelop`}></use>
                         </svg>
                         <div>
                           <h4>bok@yesnet.pl</h4>
+                        </div>
+                      </a>
+                      <a
+                        onClick={onClose}
+                        href="https://www.olx.pl/oferty/uzytkownik/1UO84R/"
+                      >
+                        <img src={olx} width={24} height={24} alt="olx"></img>
+                        <div>
+                          <h4 className={css.contact_context}>Wyprzedaż</h4>
                         </div>
                       </a>
                     </li>
@@ -253,14 +263,14 @@ const Menu = ({ open, onClose, outsideClick }) => {
                 <div className={css.support_container} onClick={toggleSupport}>
                   <span
                     className={`${css.support_title} ${
-                      isSupportOpen ? css.support_title_open : ''
+                      isSupportOpen ? css.support_title_open : ""
                     }`}
                   >
                     Support
                   </span>
                   <span
                     className={`${css.support_open_btn} ${
-                      isSupportOpen ? css.support_open : ''
+                      isSupportOpen ? css.support_open : ""
                     }`}
                   >
                     &#9660;
@@ -268,27 +278,27 @@ const Menu = ({ open, onClose, outsideClick }) => {
 
                   <ul
                     className={`${css.support_navigation} ${
-                      isSupportOpen ? css.suppport_navigation_open : ''
+                      isSupportOpen ? css.suppport_navigation_open : ""
                     }`}
                     ref={isSupportOpen ? dialogWindowRef : null}
                     onClick={(e) => {
-                      e.stopPropagation()
+                      e.stopPropagation();
                     }}
                   >
                     <li>
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          hideMenuWindows()
-                          outsideClick()
-                          scrollToSection('News', [110, 150, 220])
+                          hideMenuWindows();
+                          outsideClick();
+                          scrollToSection("News", [110, 150, 220]);
                         }}
                       >
                         <svg
                           className={`${css.news}`}
-                          width='20%'
-                          height='50%'
-                          fill='white'
+                          width="20%"
+                          height="50%"
+                          fill="white"
                         >
                           <use href={`${icon}#news`}></use>
                         </svg>
@@ -304,16 +314,16 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          hideMenuWindows()
-                          outsideClick()
-                          scrollToSection('Footer', [-730, -600, -610])
+                          hideMenuWindows();
+                          outsideClick();
+                          scrollToSection("Footer", [-730, -600, -610]);
                         }}
                       >
                         <svg
                           className={`${css.pen}`}
-                          width='20%'
-                          height='50%'
-                          fill='white'
+                          width="20%"
+                          height="50%"
+                          fill="white"
                         >
                           <use href={`${icon}#pen`}></use>
                         </svg>
@@ -329,16 +339,16 @@ const Menu = ({ open, onClose, outsideClick }) => {
                       {/* eslint-disable-next-line */}
                       <a
                         onClick={() => {
-                          hideMenuWindows()
-                          outsideClick()
-                          scrollToSection('MiniFaq', [80, 80, 140])
+                          hideMenuWindows();
+                          outsideClick();
+                          scrollToSection("MiniFaq", [80, 80, 140]);
                         }}
                       >
                         <svg
                           className={`${css.faq}`}
-                          width='20%'
-                          height='50%'
-                          fill='white'
+                          width="20%"
+                          height="50%"
+                          fill="white"
                         >
                           <use href={`${icon}#faq`}></use>
                         </svg>
@@ -354,9 +364,20 @@ const Menu = ({ open, onClose, outsideClick }) => {
                 </div>
               </li>
             </ul>
+            <div>
+              <a
+                className={css.olx}
+                onClick={onClose}
+                href="https://www.olx.pl/oferty/uzytkownik/1UO84R/"
+              >
+                <img src={olx} width={24} height={24} alt="olx"></img>
+
+                <h4 className={css.contact_context}>Wyprzedaż</h4>
+              </a>
+            </div>
             <div className={css.mobile_menu_contact_section}>
-              <a onClick={onClose} href='tel:+48690860520'>
-                <svg className={`${css.phone}`} fill='white'>
+              <a onClick={onClose} href="tel:+48690860520">
+                <svg className={`${css.phone}`} fill="white">
                   <use href={`${icon}#phone`}></use>
                 </svg>
                 <div>
@@ -364,8 +385,8 @@ const Menu = ({ open, onClose, outsideClick }) => {
                 </div>
               </a>
 
-              <a onClick={onClose} href='mailto:bok@yesnet.pl'>
-                <svg className={`${css.envelop}`} fill='white'>
+              <a onClick={onClose} href="mailto:bok@yesnet.pl">
+                <svg className={`${css.envelop}`} fill="white">
                   <use href={`${icon}#envelop`}></use>
                 </svg>
                 <div>
@@ -377,7 +398,7 @@ const Menu = ({ open, onClose, outsideClick }) => {
         </>
       }
     </>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

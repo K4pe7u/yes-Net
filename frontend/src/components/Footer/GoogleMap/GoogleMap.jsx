@@ -4,13 +4,11 @@ import css from "./GoogleMap.module.css";
 const GoogleMap = () => {
   return (
     <div className={css.googleMap}>
-      <h2 className={css.googleMap_title}>
-        Lokalizacja punktów obsługi YesNet
-      </h2>
+      <h2 className={css.googleMap_title}>Lokalizacja punktów yesNET</h2>
       <iframe
-        title="Google Map - Lokalizacja biura w Wronkach"
+        title="Google Map - Lokalizacja punktów yesNET"
         className={css.mapIframe}
-        src="https://www.google.com/maps/d/u/0/embed?mid=1GmaU2EqRUKf-yCJob2NYPUYUc36CiSc&ehbc=2E312F&noprof=1"
+        src="https://www.google.com/maps/d/embed?mid=1rwAYsY5PPrKUzM9u0h0MHY-VJha9Cwc&ehbc=2E312F&noprof=1"
         style={{ border: 0 }}
         allowFullScreen={true}
         aria-hidden="false"

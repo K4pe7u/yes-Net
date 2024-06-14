@@ -5,7 +5,7 @@
 
 .faqContainer {
   padding: 0px 16px;
-  margin-bottom: 130px;
+  margin-bottom: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .faqTitle {
   font-family: Blanka;
@@ -34,7 +33,6 @@
   text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
   text-align: center;
 }
-
 
 .faqLink_content {
   position: sticky;
@@ -66,7 +64,7 @@
   height: 100px;
   border-radius: 50%;
   background-color: #007cf0;
-  left:0;
+  left: 0;
   top: 0;
   z-index: 5;
   animation: circleAround1 13s linear infinite;
@@ -76,11 +74,11 @@
 .faqLink::before {
   content: "";
   position: absolute;
-  width:100px;
+  width: 100px;
   height: 100px;
   border-radius: 50%;
   background-color: #ff0080;
-  right:0;
+  right: 0;
   bottom: 0;
   z-index: 4;
   animation: circleAround2 12s linear infinite;
@@ -139,8 +137,8 @@
   content: "";
   position: absolute;
   background: conic-gradient(transparent 270deg, white, transparent);
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   aspect-ratio: 1;
