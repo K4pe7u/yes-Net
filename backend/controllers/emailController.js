@@ -38,7 +38,7 @@ const sendIndividualOrder = async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: "juliusz@yesnet.pl",
+    to: "jonasz@yesnet.pl",
     subject: "Zamówienie Indywidualne yesnet.pl",
     text: `
           Pojawiło się nowe Zamówienie Indywidualne - Skontaktuj się z potencjalnym klientem ;)
