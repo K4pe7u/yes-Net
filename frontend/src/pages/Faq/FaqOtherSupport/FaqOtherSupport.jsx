@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
-import css from './FaqOtherSupport.module.css';
-import data from './dataFaqOtherSupport.json';
+import React, { useState, useRef } from "react";
+import css from "./FaqOtherSupport.module.css";
+import data from "./dataFaqOtherSupport.json";
 
 const FaqOtherSupport = () => {
   const [selected, setSelected] = useState(null);
@@ -31,7 +31,7 @@ const FaqOtherSupport = () => {
     if (content.clientHeight) {
       content.style.height = 0;
     } else {
-      content.style.height = txt.clientHeight + 'px';
+      content.style.height = txt.clientHeight + "px";
     }
   };
 
@@ -54,7 +54,7 @@ const FaqOtherSupport = () => {
             >
               <div className={css.title}>
                 <h2 className={css.title_question}>{item.question}</h2>
-                <span>{selected === index ? '-' : '+'}</span>
+                <span>{selected === index ? "-" : "+"}</span>
               </div>
               {item.answer && (
                 <div className={css.content} data-content="true">
@@ -63,17 +63,6 @@ const FaqOtherSupport = () => {
               )}
             </div>
           ))}
-        </div>
-        <div className={css.downloads}>
-          <h3>Przydatne pliki do pobrania:</h3>
-          <ul className={css.downloads_list}>
-            <li>
-              <span>Cennik Innych Usług - </span>
-              <a href="files/ggg.pdf" download className={css.downloads_link}>
-                Pobierz Plik PDF
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
     </>
