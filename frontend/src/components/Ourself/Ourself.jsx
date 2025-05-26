@@ -1,95 +1,38 @@
 import css from "./Ourself.module.css";
-import icons from "./assets/icons.svg";
+import ai1 from "../../image/ai1.png";
+import ai2 from "../../image/ai2.png";
+import ai3 from "../../image/ai3.jpg";
 
 function Ourself() {
   return (
     <div className={css.container}>
       <h2 className={css.ourselfTitle}>Poznaj &nbsp;nas</h2>
-      <div className={css.gridContainer}>
-        <section className={css.singleBlock}>
-          <div className={css.iconBlock}>
-            <svg>
-              <use href={`${icons}#Hands`}></use>
-            </svg>
-          </div>
-          <div className={css.infoBlock}>
-            <p className={css.info}>
-              Jesteśmy zespołem ludzi dla ludzi. Pracujemy nad zapewnieniem
-              stałego łącza i pełnego komfortu odbioru, dostarczanych usług
-              naszym klientom.
-            </p>
-          </div>
-        </section>
-        <section className={css.singleBlock}>
-          <div className={css.iconBlock}>
-            <svg>
-              <use href={`${icons}#Lock`}></use>
-            </svg>
-          </div>
-          <div className={css.infoBlock}>
-            <p className={css.info}>
-              Zawsze możesz liczyć na naszą pomoc i wsparcie. Nikogo nie
-              pozostawimy bez odpowiedzi. Pragniemy, aby nasi klienciu czuli się
-              z nami bezpiecznie.
-            </p>
-          </div>
-        </section>
-        <section className={css.singleBlock}>
-          <div className={css.iconBlock}>
-            <svg>
-              <use href={`${icons}#Planet`}></use>
-            </svg>
-          </div>
-          <div className={css.infoBlock}>
-            <p className={css.info}>
-              Łączymy świat za pomocą sieci współpracując z innymi operatorami,
-              bowiem jesteśmy cząstką sieciowego ekosystemu i gramy w jednej
-              drużynie.
-            </p>
-          </div>
-        </section>
-        <section className={css.singleBlock}>
-          <div className={css.iconBlock}>
-            <svg>
-              <use href={`${icons}#People`}></use>
-            </svg>
-          </div>
-          <div className={css.infoBlock}>
-            <p className={css.info}>
-              Kochamy to co robimy i z pełnym zaangażowaniem brniemy w nowe
-              technologie i rozwiązania, aby móc zaserwować klientom internet
-              wysokiej jakości.
-            </p>
-          </div>
-        </section>
-        <section className={css.singleBlock}>
-          <div className={css.iconBlock}>
-            <svg>
-              <use href={`${icons}#Cloud`}></use>
-            </svg>
-          </div>
-          <div className={css.infoBlock}>
-            <p className={css.info}>
-              Ciągle rozwijamy nasz wspólny, cyfrowy plac zabaw. Przez słuchanie
-              ludzi i doświadczanie sytuacji, budujemy silny fundament
-              współpracy z klientami.
-            </p>
-          </div>
-        </section>
-        <section className={css.singleBlock}>
-          <div className={css.iconBlock}>
-            <svg>
-              <use href={`${icons}#Eye`}></use>
-            </svg>
-          </div>
-          <div className={css.infoBlock}>
-            <p className={css.info}>
-              Bacznie obserwujemy każdy aspekt naszej pracy upewniając się, że
-              działamy zgodnie z założonymi celami, nie pomiając
-              najdrobniejszych elementów.
-            </p>
-          </div>
-        </section>
+      <p className={css.lead}>
+        Jesteśmy firmą, która łączy ludzi, technologię i świat cyfrowy z pasją i zaangażowaniem.
+      </p>
+      <div className={css.tilesContainer}>
+        <div className={css.tile}>
+          <img src={ai2} alt="Zespół z pasją" className={css.tileImage} />
+          <h3 className={css.tileTitle}>Zespół z pasją</h3>
+          <p className={css.tileDesc}>
+            Tworzymy zgrany zespół, który łączy doświadczenie z energią. Każdego dnia wspieramy naszych klientów, bo ich zadowolenie to nasza największa motywacja.
+          </p>
+        </div>
+        <div className={css.tile}>
+          <img src={ai3} alt="Łączymy świat" className={css.tileImage} />
+          <h3 className={css.tileTitle}>Łączymy świat</h3>
+          <p className={css.tileDesc}>
+            Budujemy mosty w cyfrowym świecie. Dzięki naszej sieci możesz być bliżej ludzi, miejsc i możliwości w naszym rejonie.
+          </p>
+        </div>
+        <div className={css.tile}>
+          <img src={ai1} alt="Nowoczesne rozwiązania" className={css.tileImage} />
+          <h3 className={css.tileTitle}>Nowoczesne rozwiązania</h3>
+          <p className={css.tileDesc}>
+            Nieustannie wdrażamy innowacje, by zapewnić Ci szybki i niezawodny internet. Stawiamy na rozwój, bo przyszłość zaczyna się dziś.
+          </p>
+        </div>
+        
       </div>
     </div>
   );
