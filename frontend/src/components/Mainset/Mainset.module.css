@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 .sellContainer {
   display: flex;
@@ -22,7 +22,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
 
 .logoImage {
@@ -43,12 +42,11 @@
   max-width: unset;
 }
 .solutionSecondary {
-
   max-width: 65%;
   text-align: center;
   font-size: 42px;
   font-weight: 900;
-  font-family: "poppins", sans-serif;
+  font-family: 'poppins', sans-serif;
   text-shadow: 0 0 2px #ffffff, 0 0 8px #000, 0 0 12px #000;
 }
 
@@ -96,7 +94,7 @@
   left: 0px;
   background: inherit;
   border-radius: 8px;
-  background: linear-gradient(-90deg, #f8e700, #FFA500, #FFB347, #f8e700);
+  background: linear-gradient(-90deg, #f8e700, #ffa500, #ffb347, #f8e700);
   background-size: 400% 100%;
   border: none;
   padding: 0;
@@ -105,7 +103,7 @@
 
 .individualOption .highlight2:after,
 .companyOption .highlight:after {
-  content: "";
+  content: '';
   position: absolute;
   background-size: inherit;
   background-image: inherit;
@@ -173,6 +171,6 @@
 @media screen and (min-width: 1280px) {
   .sellContainer {
     padding: 0 160px;
-    
+    margin-top: 104px;
   }
 }
