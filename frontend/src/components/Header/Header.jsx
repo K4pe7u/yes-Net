@@ -66,12 +66,12 @@ const Header = () => {
     }
   })
   return (
-    <div className={`${css.header}`}>
-      <div className={css.logo_icon_container}>
+    <div className={`${css.header} ${scaledMenu ? css.scaledMenu : ""}`}>
+      {/* <div className={css.logo_icon_container}>
         <svg className={`${css.logo_icon}`} onClick={toTop}>
           <use href={`${icon}#logo`}></use>
         </svg>
-      </div>
+      </div> */}
       <ul className={css.navigation}>
         <li className={css.navigation_item}>
           <a className={css.navigation_link} href='https://ipot24.yesnet.pl'>
@@ -142,7 +142,7 @@ const Header = () => {
           </a>
         </li>
         <li className={css.navigation_item}>
-          <a className={css.navigation_link} onClick={() => {}} href='/faq'>
+          <a className={css.navigation_link} onClick={() => { }} href='/faq'>
             <svg className={`${css.faq}`}>
               <use href={`${icon}#faq`}></use>
             </svg>

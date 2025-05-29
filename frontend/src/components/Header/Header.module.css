@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap');
 
-.header {
+/* .header {
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -52,13 +52,12 @@
   font-size: 16px;
   width: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
   gap: 15px;
 }
 
 .navigation_item {
-  width: calc(100% - 30px);
+  width: 200px
 }
 
 .navigation_item .navigation_link {
@@ -66,29 +65,25 @@
   width: 100%;
   display: flex;
   gap: 10px;
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   fill: #fff;
 }
 
 .navigation_link svg {
   fill: inherit;
-  width: 15%;
+  width: 30px;
   aspect-ratio: 1;
-}
+} */
 
 @media screen and (min-width: 768px) {
   .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     height: 80px;
     padding: 12px 36px;
     width: calc(100% - 72px);
     background: #000000d3;
     gap: 6%;
+    overflow: hidden;
   }
 
   .navigation {
@@ -97,22 +92,24 @@
     font-size: 17px;
     width: auto;
     display: flex;
-    align-items: center;
     justify-content: center;
     /* gap: 8px; */
     flex-direction: row;
     height: 100%;
+    overflow: hidden;
   }
 
   .navigation_item {
-    width: auto;
+    width: 100%;
+    max-width: 200px;
+    min-width: 150px;
     border: none;
     padding: 0;
     white-space: nowrap;
     display: flex;
-    align-items: center;
     justify-content: center;
     height: 100%;
+    overflow: hidden;
   }
 
   .navigation_item .navigation_link {
@@ -121,12 +118,14 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
     transition: color 0.4s, fill 0.4s;
     cursor: pointer;
     padding: 0;
     border: none;
     height: 100%;
+    overflow: hidden;
+    fill: #fff;
   }
 
   .navigation_item:hover .navigation_link {
@@ -135,12 +134,19 @@
   }
 
   .scaledMenu {
+    /* height: 60px; */
+  }
+
+  .navigation_link svg {
+    fill: inherit;
+    width: 30px;
+    aspect-ratio: 1;
   }
 }
 
+/* 
 @media screen and (min-width: 1280px) {
-  /* .header {
-  } */
+
 
   .logo_icon_container {
     aspect-ratio: 1;
@@ -158,4 +164,4 @@
     font-weight: 400;
     gap: 30px;
   }
-}
+} */
