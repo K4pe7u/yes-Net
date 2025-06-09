@@ -8,10 +8,6 @@ const Header = () => {
   let { target } = state || {}
   const [scaledMenu, setScaledMenu] = useState(false)
 
-  const toTop = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-  }
-
   const scrollToSection = (section, offset) => {
     const sectionToScrollTo = document.getElementById(`${section}`)
 
@@ -66,15 +62,18 @@ const Header = () => {
     }
   })
   return (
-    <div className={`${css.header} ${scaledMenu ? css.scaledMenu : ""}`}>
-      {/* <div className={css.logo_icon_container}>
-        <svg className={`${css.logo_icon}`} onClick={toTop}>
-          <use href={`${icon}#logo`}></use>
-        </svg>
-      </div> */}
+    <div className={`${css.header} ${scaledMenu ? css.scaledMenu : ''}`}>
+      <div className={css.logo_icon_container}>
+        {/*eslint-disable-next-line*/}
+        <a href=''>
+          <svg className={`${css.logo_icon}`}>
+            <use href={`${icon}#logo`}></use>
+          </svg>
+        </a>
+      </div>
       <ul className={css.navigation}>
         <li className={css.navigation_item}>
-          <a className={css.navigation_link} href='https://ipot24.yesnet.pl'>
+          <a className={css.navigation_link} href='https://panel.yesnet.pl'>
             <svg className={`${css.account}`}>
               <use href={`${icon}#account`}></use>
             </svg>
@@ -142,7 +141,7 @@ const Header = () => {
           </a>
         </li>
         <li className={css.navigation_item}>
-          <a className={css.navigation_link} onClick={() => { }} href='/faq'>
+          <a className={css.navigation_link} onClick={() => {}} href='/faq'>
             <svg className={`${css.faq}`}>
               <use href={`${icon}#faq`}></use>
             </svg>
