@@ -7,6 +7,7 @@ const Header = () => {
   let { state } = useLocation()
   let { target } = state || {}
   const [scaledMenu, setScaledMenu] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const scrollToSection = (section, offset) => {
     const sectionToScrollTo = document.getElementById(`${section}`)
@@ -38,6 +39,10 @@ const Header = () => {
     }
   }
 
+  function handleMobileMenu() {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
   useEffect(() => {
     if (target) {
       scrollToSection(target[0], target[1])
@@ -63,106 +68,120 @@ const Header = () => {
   })
   return (
     <div className={`${css.header} ${scaledMenu ? css.scaledMenu : ''}`}>
-      <div className={css.logo_icon_container}>
-        {/*eslint-disable-next-line*/}
-        <a href=''>
-          <svg className={`${css.logo_icon}`}>
-            <use href={`${icon}#logo`}></use>
-          </svg>
-        </a>
+      <div className={css.mobileMenuBtn} onClick={handleMobileMenu}>
+        <svg>
+          <use href={`${icon}#menuBurger`}></use>
+        </svg>
       </div>
-      <ul className={css.navigation}>
-        <li className={css.navigation_item}>
-          <a className={css.navigation_link} href='https://panel.yesnet.pl'>
-            <svg className={`${css.account}`}>
-              <use href={`${icon}#account`}></use>
-            </svg>
-            <span>Login</span>
-          </a>
-        </li>
-        <li className={css.navigation_item}>
+      <div className={`${css.mobileContainer} ${isMenuOpen ? css.open : ''}`}>
+        <div className={css.mobileMenuCloseBtn} onClick={handleMobileMenu}>
+          <span></span>
+          <span></span>
+        </div>
+        <div className={css.logo_icon_container}>
           {/*eslint-disable-next-line*/}
-          <a
-            className={css.navigation_link}
-            onClick={() => {
-              scrollToSection('Ourself', [60, 20, 100])
-            }}
-          >
-            <svg className={`${css.groupPeople}`}>
-              <use href={`${icon}#groupPeople`}></use>
+          <a href=''>
+            <svg className={`${css.logo_icon}`}>
+              <use href={`${icon}#logo`}></use>
             </svg>
-            <span>O nas</span>
           </a>
-        </li>
-        <li className={css.navigation_item}>
-          {/*eslint-disable-next-line*/}
-          <a
-            className={css.navigation_link}
-            onClick={() => {
-              scrollToSection('News', [110, 150, 220])
-            }}
-          >
-            <svg className={`${css.news}`}>
-              <use href={`${icon}#news`}></use>
-            </svg>
+          <span className={css.logo_text}>
+            Skrój Internet <br /> dla Swoich potrzeb
+          </span>
+        </div>
+        <ul className={css.navigation}>
+          <li className={css.navigation_item}>
+            <a className={css.navigation_link} href='https://panel.yesnet.pl'>
+              <svg className={`${css.account}`}>
+                <use href={`${icon}#account`}></use>
+              </svg>
+              <span>Login</span>
+            </a>
+          </li>
+          <li className={css.navigation_item}>
+            {/*eslint-disable-next-line*/}
+            <a
+              className={css.navigation_link}
+              onClick={() => {
+                scrollToSection('Ourself', [60, 20, 100])
+              }}
+            >
+              <svg className={`${css.groupPeople}`}>
+                <use href={`${icon}#groupPeople`}></use>
+              </svg>
+              <span>O nas</span>
+            </a>
+          </li>
+          <li className={css.navigation_item}>
+            {/*eslint-disable-next-line*/}
+            <a
+              className={css.navigation_link}
+              onClick={() => {
+                scrollToSection('News', [110, 150, 220])
+              }}
+            >
+              <svg className={`${css.news}`}>
+                <use href={`${icon}#news`}></use>
+              </svg>
 
-            <span>Aktualności</span>
-          </a>
-        </li>
+              <span>Aktualności</span>
+            </a>
+          </li>
 
-        <li className={css.navigation_item}>
-          {/*eslint-disable-next-line*/}
-          <a
-            className={css.navigation_link}
-            onClick={() => {
-              scrollToSection('Footer', [-730, -600, -610])
-            }}
-          >
-            <svg className={`${css.pen}`}>
-              <use href={`${icon}#pen`}></use>
-            </svg>
-            <span>Zgłoszenia</span>
-          </a>
-        </li>
+          <li className={css.navigation_item}>
+            {/*eslint-disable-next-line*/}
+            <a
+              className={css.navigation_link}
+              onClick={() => {
+                scrollToSection('Footer', [-730, -600, -610])
+              }}
+            >
+              <svg className={`${css.pen}`}>
+                <use href={`${icon}#pen`}></use>
+              </svg>
+              <span>Zgłoszenia</span>
+            </a>
+          </li>
 
-        <li className={css.navigation_item}>
-          {/*eslint-disable-next-line*/}
-          <a
-            className={css.navigation_link}
-            onClick={() => {
-              scrollToSection('Footer', [-1430, -1230, -1550])
-            }}
-          >
-            <svg className={`${css.map}`}>
-              <use href={`${icon}#map`}></use>
-            </svg>
+          <li className={css.navigation_item}>
+            {/*eslint-disable-next-line*/}
+            <a
+              className={css.navigation_link}
+              onClick={() => {
+                scrollToSection('Footer', [-1430, -1230, -1550])
+              }}
+            >
+              <svg className={`${css.map}`}>
+                <use href={`${icon}#map`}></use>
+              </svg>
 
-            <span>Lokalizacja</span>
-          </a>
-        </li>
-        <li className={css.navigation_item}>
-          <a className={css.navigation_link} onClick={() => {}} href='/faq'>
-            <svg className={`${css.faq}`}>
-              <use href={`${icon}#faq`}></use>
-            </svg>
-            <span>FAQ</span>
-          </a>
-        </li>
-        <li className={css.navigation_item}>
-          {/*eslint-disable-next-line*/}
-          <a
-            className={css.navigation_link}
-            onClick={() => {
-              scrollToSection('Footer', [-1430, -1230, -1550])
-            }}
-          >
-            <svg className={`${css.phone}`}>
-              <use href={`${icon}#phone`}></use>
-            </svg>
-            <span>Kontakt</span>
-          </a>
-        </li>
-      </ul>
+              <span>Lokalizacja</span>
+            </a>
+          </li>
+          <li className={css.navigation_item}>
+            <a className={css.navigation_link} onClick={() => {}} href='/faq'>
+              <svg className={`${css.faq}`}>
+                <use href={`${icon}#faq`}></use>
+              </svg>
+              <span>FAQ</span>
+            </a>
+          </li>
+          <li className={css.navigation_item}>
+            {/*eslint-disable-next-line*/}
+            <a
+              className={css.navigation_link}
+              onClick={() => {
+                scrollToSection('Footer', [-1430, -1230, -1550])
+              }}
+            >
+              <svg className={`${css.phone}`}>
+                <use href={`${icon}#phone`}></use>
+              </svg>
+              <span>Kontakt</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   )
 }
