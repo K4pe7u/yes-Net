@@ -9,7 +9,7 @@ const Header = () => {
   const [scaledMenu, setScaledMenu] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const scrollToSection = (section, offset) => {
+  const scrollToSection = (section, offset = [0, 0, 0]) => {
     const sectionToScrollTo = document.getElementById(`${section}`)
 
     if (
@@ -17,26 +17,21 @@ const Header = () => {
       window.matchMedia('(max-width: 767px)').matches
     ) {
       window.scrollTo({
-        top: sectionToScrollTo.offsetTop - offset[0],
-        left: 0,
-        behavior: 'smooth'
+        top: sectionToScrollTo.offsetTop - visualViewport.height / 4 - offset[0]
       })
     } else if (
       window.matchMedia('(min-width: 768px)').matches &&
       window.matchMedia('(max-width: 1279px)').matches
     ) {
       window.scrollTo({
-        top: sectionToScrollTo.offsetTop - offset[1],
-        left: 0,
-        behavior: 'smooth'
+        top: sectionToScrollTo.offsetTop - visualViewport.height / 4 - offset[1]
       })
     } else if (window.matchMedia('(min-width: 1280px)').matches) {
       window.scrollTo({
-        top: sectionToScrollTo.offsetTop - offset[2],
-        left: 0,
-        behavior: 'smooth'
+        top: sectionToScrollTo.offsetTop - visualViewport.height / 4 - offset[2]
       })
     }
+    // sectionToScrollTo.textContent = visualViewport.height
   }
 
   function handleMobileMenu() {
@@ -103,7 +98,7 @@ const Header = () => {
             <a
               className={css.navigation_link}
               onClick={() => {
-                scrollToSection('Ourself', [60, 20, 100])
+                scrollToSection('Ourself', [-194, 0, -120])
               }}
             >
               <svg className={`${css.groupPeople}`}>
@@ -117,7 +112,7 @@ const Header = () => {
             <a
               className={css.navigation_link}
               onClick={() => {
-                scrollToSection('News', [110, 150, 220])
+                scrollToSection('News', [-40, -100, 50])
               }}
             >
               <svg className={`${css.news}`}>
@@ -127,13 +122,39 @@ const Header = () => {
               <span>Aktualności</span>
             </a>
           </li>
-
+          <li className={css.navigation_item}>
+            <a
+              className={css.navigation_link}
+              onClick={() => {
+                scrollToSection('MiniFaq', [-100, -200, -50])
+              }}
+            >
+              <svg className={`${css.faq}`}>
+                <use href={`${icon}#faq`}></use>
+              </svg>
+              <span>FAQ</span>
+            </a>
+          </li>
           <li className={css.navigation_item}>
             {/*eslint-disable-next-line*/}
             <a
               className={css.navigation_link}
               onClick={() => {
-                scrollToSection('Footer', [-730, -600, -610])
+                scrollToSection('Footer', [-90, -150, -30])
+              }}
+            >
+              <svg className={`${css.phone}`}>
+                <use href={`${icon}#phone`}></use>
+              </svg>
+              <span>Kontakt</span>
+            </a>
+          </li>
+          <li className={css.navigation_item}>
+            {/*eslint-disable-next-line*/}
+            <a
+              className={css.navigation_link}
+              onClick={() => {
+                scrollToSection('Footer', [-850, -800, -950])
               }}
             >
               <svg className={`${css.pen}`}>
@@ -148,7 +169,7 @@ const Header = () => {
             <a
               className={css.navigation_link}
               onClick={() => {
-                scrollToSection('Footer', [-1430, -1230, -1550])
+                scrollToSection('Footer', [-1830, -1730, -1970])
               }}
             >
               <svg className={`${css.map}`}>
@@ -156,28 +177,6 @@ const Header = () => {
               </svg>
 
               <span>Lokalizacja</span>
-            </a>
-          </li>
-          <li className={css.navigation_item}>
-            <a className={css.navigation_link} onClick={() => {}} href='/faq'>
-              <svg className={`${css.faq}`}>
-                <use href={`${icon}#faq`}></use>
-              </svg>
-              <span>FAQ</span>
-            </a>
-          </li>
-          <li className={css.navigation_item}>
-            {/*eslint-disable-next-line*/}
-            <a
-              className={css.navigation_link}
-              onClick={() => {
-                scrollToSection('Footer', [-1430, -1230, -1550])
-              }}
-            >
-              <svg className={`${css.phone}`}>
-                <use href={`${icon}#phone`}></use>
-              </svg>
-              <span>Kontakt</span>
             </a>
           </li>
         </ul>

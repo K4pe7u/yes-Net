@@ -41,5 +41,12 @@ ul {
 .scrollTop {
   position: fixed;
   bottom: 40px;
-  right: 40px;
+  right: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .scrollTop {
+    bottom: 40px;
+    right: 40px;
+  }
 }
