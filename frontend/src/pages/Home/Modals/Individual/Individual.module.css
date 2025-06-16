@@ -13,7 +13,7 @@
   font-size: 22px;
   color: transparent;
   text-align: center;
-  background: linear-gradient(-90deg, #007cf0, #008b87, #ff0080, #007cf0);
+  background: linear-gradient(-90deg, #f8e700, #FFA500, rgb(255, 179, 71), #f8e700);
   background-clip: text;
   animation: colorLoop 5s infinite linear;
   background-size: 400% 400%;
@@ -63,7 +63,7 @@
 
 .formItem_button {
   position: relative;
-  color: rgb(214, 214, 214);
+  color: #ffffff;
   font-weight: 700;
   font-size: 12px;
   text-transform: uppercase;
@@ -71,22 +71,39 @@
   border-radius: 8px;
   border: none;
   margin-top: 18px;
-  background-color: rgba(7, 15, 43, 0.3);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  background: transparent;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  transition: 0.25s;
+  font-family: poppins;
+  text-shadow: 0 0 1px #ffffff, 0 0 4px #00000085, 0 0 8px #0000006b;
+}
+
+.formItem_button:hover {
+  filter: brightness(1.1);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.formItem_button::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: linear-gradient(-90deg, #f8e700, #FFA500, rgb(255, 179, 71), #f8e700);
   background-size: 400% 100%;
-  transition: background-color 0.2s;
+  border-radius: 8px;
+  z-index: -1;
+  animation: background-anim-left 8s ease-in-out infinite;
 }
-@keyframes background-anim {
-  0% {
-    background-position: 0% 50%;
-  }
+
+@keyframes background-anim-left {
   50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+    background-position: 140% 50%;
   }
 }
+
 .privateCheck {
   font-family: "poppins", sans-serif;
   margin-top: 23px;
@@ -110,11 +127,6 @@
   margin: 0;
 }
 
-.formItem_button:hover {
-  cursor: pointer;
-  /* background-color: #0c1846; */
-  background-color: rgba(7, 15, 43, 0.6);
-}
 .formItem_buttonReset,
 .formItem_buttonBack,
 .formItem_buttonAdditional {
@@ -123,7 +135,7 @@
   border-radius: 8px;
   font-weight: 700;
   font-size: 9px;
-  background: transparent;
+  background: rgba(7, 15, 43, 0.3);
   color: #666;
   border: 1px solid #666;
   margin-bottom: 20px;
@@ -133,8 +145,8 @@
 .formItem_buttonBack:hover,
 .formItem_buttonAdditional:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 60px rgba(255, 255, 255, 0.7);
-  filter: brightness(1.6);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+  filter: brightness(1.1);
 }
 
 .yupError {
@@ -146,6 +158,28 @@
   font-size: 14px;
   text-align: center;
   margin-bottom: 32px;
+}
+
+.formItem select {
+  appearance: none;
+  color: #fff;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #666;
+  padding: 8px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  font-family: 'poppins', sans-serif;
+  font-weight: 300;
+}
+
+.formItem select option {
+  background-color: #666;
+  color: #fff;
+  font-size: 12px;
+  font-family: 'poppins', sans-serif;
+  font-weight: 300;
 }
 
 @media screen and (min-width: 768px) {
@@ -188,4 +222,89 @@
     margin-bottom: 12px;
     width: 100%;
   }
+}
+
+.customSelectWrapper {
+  position: relative;
+}
+
+.customSelectValue {
+  padding: 10px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  z-index: 1;
+}
+
+.customSelectOptions {
+  font-weight: bold;
+  font-size: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  width: 100%;
+  display: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: linear-gradient(225deg, #1b2735 20%, #090a0f 100%);
+  fill-opacity: 0.7;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.customSelectOptions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.customSelectOptions li:hover {
+  background-color: #00000049;
+}
+
+.customSelectOptions.show {
+  display: block;
+}
+
+.customSelectValue .arrow {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  margin-left: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 99;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.customSelectValue .arrow.arrow_down {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.customSelectValue .arrow.arrow_left {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.customSelectValue .arrow.arrow-left.arrow-down {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Usuń strzałki z pola typu number */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }

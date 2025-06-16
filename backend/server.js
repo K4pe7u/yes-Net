@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const emailRoutes = require('./routes/emailRoutes');
+
+const individualRoutes = require('./routes/individualRoutes');
 const limiter = require('./middleware/rateLimiter');
 const compression = require('compression')
 const path = require('path')
@@ -19,7 +20,7 @@ app.use(compression())
 
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-app.use('/api', emailRoutes);
+app.use('/api', individualRoutes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));

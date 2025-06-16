@@ -10,7 +10,6 @@ import News from '../../components/News/News'
 import MiniFaq from '../../components/MiniFAQ/MiniFAQ'
 
 import IndividualModal from './Modals/Individual/Individual'
-import BusinessModal from './Modals/Business/Business'
 import ScrollTop from './Modals/ScrollTop/ScrollTop'
 
 import { useState, useEffect } from 'react'
@@ -82,8 +81,6 @@ function Home() {
       {currentModal === 'individual' && (
         <IndividualModal onClose={closeModal} />
       )}
-
-      {currentModal === 'business' && <BusinessModal onClose={closeModal} />}
       <div className={css.scrollTop}>
         <ScrollTop></ScrollTop>
       </div>
