@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 60px;
-  margin-bottom: 32px;
+  margin-bottom: 250px;
 }
 
 .ourselfTitle {
@@ -89,7 +89,11 @@
   max-width: 350px;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
+  .container {
+    margin-bottom: 450px;
+  }
+
   .tilesContainer {
     flex-direction: row;
     gap: 48px;
