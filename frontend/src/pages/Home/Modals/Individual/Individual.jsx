@@ -359,7 +359,7 @@ const IndividualModal = ({ onClose }) => {
 
         {contactMethod === 'email' ? (
           <label className={css.formItem}>
-            <span>Email:</span>
+            
             <input
               type='email'
               name='email'
@@ -373,7 +373,7 @@ const IndividualModal = ({ onClose }) => {
           </label>
         ) : (
           <label className={css.formItem}>
-            <span>Telefon:</span>
+            
             <input
               type='tel'
               name='phone'
