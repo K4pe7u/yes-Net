@@ -25,6 +25,7 @@
   font-size: 32px;
   font-family: Blanka;
   text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
+  letter-spacing: 2px;
 }
 
 .contactList {
@@ -36,21 +37,24 @@
 }
 
 .contactItem > :not(span) {
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .contactItem > :not(h3) {
   display: block;
   margin-bottom: 8px;
+  font-size: 18px;
 }
 
 .importantInformation {
   font-weight: bold;
   background-clip: unset;
-  background-image: linear-gradient(-20deg, #007cf0, #008b87, #ff0080, #007cf0);
+  background: linear-gradient(20deg, #ffb347, #f8e700, #f8e700, #ffb347);
   -webkit-background-clip: text;
   color: transparent;
-  font-size: 18px;
+  font-size: 20px;
+  margin-top: 15px;
 }
 
 @media screen and (min-width: 768px) {
@@ -80,25 +84,19 @@
   }
 
   .contactItem > :not(span) {
-    font-size: 22px;
+    font-size: 30px;
   }
 
   .contactItem > :not(h3) {
     display: block;
     margin-bottom: 4px;
-    font-size: 15px;
+    font-size: 22px;
   }
 
   .importantInformation {
     font-weight: bold;
     background-clip: unset;
-    background-image: linear-gradient(
-      -20deg,
-      #007cf0,
-      #008b87,
-      #ff0080,
-      #007cf0
-    );
+    background: linear-gradient(20deg, #ffb347, #f8e700, #f8e700, #ffb347);
     -webkit-background-clip: text;
     color: transparent;
   }
@@ -107,5 +105,15 @@
 @media screen and (min-width: 1280px) {
   .contactContainer {
     margin-bottom: 250px;
+  }
+
+  .contactItem > :not(span) {
+    font-size: 24px;
+  }
+
+  .contactItem > :not(h3) {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 20px;
   }
 }

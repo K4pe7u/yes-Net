@@ -25,13 +25,15 @@
 .faqTitle {
   font-family: Blanka;
   text-align: center;
-  font-size: 32px;
+  font-size: 38px;
   text-transform: uppercase;
   text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
+  letter-spacing: 2px;
 }
 .faqDescription {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -64,7 +66,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #007cf0;
+  background-color: #ffa500;
   left: 0;
   top: 0;
   z-index: 5;
@@ -78,7 +80,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #ff0080;
+  background-color: #f8e700;
   right: 0;
   bottom: 0;
   z-index: 4;
@@ -168,6 +170,9 @@
 
   .faqImage {
     max-width: 384px;
+  }
+  .faqDescription {
+    font-size: 22px;
   }
 }
 

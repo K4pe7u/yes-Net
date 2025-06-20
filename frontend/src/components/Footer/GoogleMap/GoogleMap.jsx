@@ -4,7 +4,7 @@ import css from './GoogleMap.module.css'
 const GoogleMap = () => {
   return (
     <div className={css.googleMap}>
-      <h2 className={css.googleMap_title}>Lokalizacja punktów yesNET</h2>
+      <h2 className={css.googleMap_title}>Lokalizacje yesNET</h2>
       <iframe
         title='Google Map - Lokalizacja punktów yesNET'
         className={css.mapIframe}

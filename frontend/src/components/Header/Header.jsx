@@ -34,6 +34,10 @@ const Header = () => {
     // sectionToScrollTo.textContent = visualViewport.height
   }
 
+  function closeMenu() {
+    handleMobileMenu()
+  }
+
   function handleMobileMenu() {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -98,7 +102,8 @@ const Header = () => {
             <a
               className={css.navigation_link}
               onClick={() => {
-                scrollToSection('Ourself', [-194, 0, -120])
+                scrollToSection('Ourself', [-194, -200, -120])
+                closeMenu()
               }}
             >
               <svg className={`${css.groupPeople}`}>
@@ -113,6 +118,7 @@ const Header = () => {
               className={css.navigation_link}
               onClick={() => {
                 scrollToSection('News', [-40, -100, 50])
+                closeMenu()
               }}
             >
               <svg className={`${css.news}`}>
@@ -127,6 +133,7 @@ const Header = () => {
               className={css.navigation_link}
               onClick={() => {
                 scrollToSection('MiniFaq', [-100, -200, -50])
+                closeMenu()
               }}
             >
               <svg className={`${css.faq}`}>
@@ -141,6 +148,7 @@ const Header = () => {
               className={css.navigation_link}
               onClick={() => {
                 scrollToSection('Footer', [-90, -150, -30])
+                closeMenu()
               }}
             >
               <svg className={`${css.phone}`}>
@@ -154,7 +162,8 @@ const Header = () => {
             <a
               className={css.navigation_link}
               onClick={() => {
-                scrollToSection('Footer', [-850, -800, -950])
+                scrollToSection('Footer', [-900, -1050, -1000])
+                closeMenu()
               }}
             >
               <svg className={`${css.pen}`}>
@@ -169,7 +178,8 @@ const Header = () => {
             <a
               className={css.navigation_link}
               onClick={() => {
-                scrollToSection('Footer', [-1830, -1730, -1970])
+                scrollToSection('Footer', [-1830, -1730, -2050])
+                closeMenu()
               }}
             >
               <svg className={`${css.map}`}>
