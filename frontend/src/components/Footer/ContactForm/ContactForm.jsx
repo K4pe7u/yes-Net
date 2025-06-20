@@ -147,7 +147,7 @@ const ContactForm = () => {
     //  notiflix.Notify.failure('Proszę ukończyć weryfikację reCAPTCHA.')
     
     try {
-      await axios.post('http://localhost:5000/api/send-submission', {
+      await axios.post('http://localhost:5000/api/send-general', {
         ...formData,
        // captchaToken
       })

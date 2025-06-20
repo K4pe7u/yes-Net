@@ -21,40 +21,47 @@ const sendIndividualForm = async (req, res) => {
       devicesCount
     } = req.body;
 
+    const now = new Date();
+    const dateString = now.toLocaleString('pl-PL', { dateStyle: 'short', timeStyle: 'medium' });
+
+    const html = `
+      <div style="font-family:Arial,sans-serif;font-size:15px;color:#222;max-width:700px;">
+        <h2 style="color:#f8e700;">Nowy formularz indywidualny</h2>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr><td style="font-weight:bold;padding:4px 0;color:#1e1e1e;width:180px;">Typ klienta:</td><td>${clientType === 'individual' ? 'Indywidualny' : 'Biznesowy'}</td></tr>
+          ${clientType === 'individual' 
+            ? `<tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Imię:</td><td>${contactFirstName}</td></tr>
+               <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Nazwisko:</td><td>${contactLastName}</td></tr>`
+            : `<tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Nazwa firmy:</td><td>${companyName}</td></tr>
+               <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>NIP:</td><td>${nip}</td></tr>`
+          }
+          <tr><td colspan="2" style="padding:8px 0 0 0;"><b>Adres korespondencyjny:</b></td></tr>
+          <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Ulica:</td><td>${street}</td></tr>
+          <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Miasto:</td><td>${city}</td></tr>
+          <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Kod pocztowy:</td><td>${postalCode}</td></tr>
+          ${installStreet ? `
+            <tr><td colspan="2" style="padding:8px 0 0 0;"><b>Adres instalacji:</b></td></tr>
+            <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Ulica:</td><td>${installStreet}</td></tr>
+            <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Miasto:</td><td>${installCity}</td></tr>
+            <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Kod pocztowy:</td><td>${installPostalCode}</td></tr>
+          ` : ''}
+          <tr><td colspan="2" style="padding:8px 0 0 0;"><b>Dane kontaktowe:</b></td></tr>
+          <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Forma kontaktu:</td><td>${contactMethod === 'email' ? 'Email' : 'Telefon'}</td></tr>
+          <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>${contactMethod === 'email' ? 'Email' : 'Telefon'}:</td><td>${contactMethod === 'email' ? email : phone}</td></tr>
+          <tr><td colspan="2" style="padding:8px 0 0 0;"><b>Szczegóły usługi:</b></td></tr>
+          <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Przepustowość:</td><td>${bandwidth}</td></tr>
+          <tr><td style='font-weight:bold;padding:4px 0;color:#1e1e1e;'>Ilość urządzeń:</td><td>${devicesCount}</td></tr>
+        </table>
+        <div style='font-size:11px;color:#888;margin-top:18px;text-align:right;'>Wysłano: ${dateString}</div>
+      </div>
+    `;
+
     // Przygotowanie treści maila
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.ADMIN_EMAIL,
+      to: process.env.EMAIL_ADMIN,
       subject: 'Nowy formularz indywidualny',
-      html: `
-        <h2>Nowy formularz indywidualny</h2>
-        <p><strong>Typ klienta:</strong> ${clientType === 'individual' ? 'Indywidualny' : 'Biznesowy'}</p>
-        ${clientType === 'individual' 
-          ? `<p><strong>Imię:</strong> ${contactFirstName}</p>
-             <p><strong>Nazwisko:</strong> ${contactLastName}</p>`
-          : `<p><strong>Nazwa firmy:</strong> ${companyName}</p>
-             <p><strong>NIP:</strong> ${nip}</p>`
-        }
-        <h3>Adres korespondencyjny:</h3>
-        <p><strong>Ulica:</strong> ${street}</p>
-        <p><strong>Miasto:</strong> ${city}</p>
-        <p><strong>Kod pocztowy:</strong> ${postalCode}</p>
-        ${installStreet ? `
-        <h3>Adres instalacji:</h3>
-        <p><strong>Ulica:</strong> ${installStreet}</p>
-        <p><strong>Miasto:</strong> ${installCity}</p>
-        <p><strong>Kod pocztowy:</strong> ${installPostalCode}</p>
-        ` : ''}
-        <h3>Dane kontaktowe:</h3>
-        <p><strong>Forma kontaktu:</strong> ${contactMethod === 'email' ? 'Email' : 'Telefon'}</p>
-        ${contactMethod === 'email' 
-          ? `<p><strong>Email:</strong> ${email}</p>`
-          : `<p><strong>Telefon:</strong> ${phone}</p>`
-        }
-        <h3>Szczegóły usługi:</h3>
-        <p><strong>Przepustowość:</strong> ${bandwidth}</p>
-        <p><strong>Ilość urządzeń:</strong> ${devicesCount}</p>
-      `
+      html
     };
 
     // Wysłanie maila

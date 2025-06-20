@@ -128,30 +128,46 @@
   justify-content: center;
 }
 .contactForm_button {
-  color: rgb(255, 254, 254);
+  position: relative;
+  color: #ffffff;
   font-weight: 700;
+  font-size: 12px;
   text-transform: uppercase;
-  padding: 18px 32px;
+  padding: 12px 24px;
   border-radius: 8px;
   border: none;
-  background-color: rgba(7, 15, 43, 0.3);
-  transition: background-color 0.2s;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  margin-top: 18px;
+  background: transparent;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  transition: 0.25s;
+  font-family: poppins;
+  text-shadow: 0 0 1px #ffffff, 0 0 4px #00000085, 0 0 8px #0000006b;
 }
-@keyframes background-anim {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
 .contactForm_button:hover {
+  filter:opacity(0.8);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  background-color: rgba(7, 15, 43, 0.6);
+}
+
+.contactForm_button::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: linear-gradient(-90deg, #f8e700, #FFA500, rgb(255, 179, 71), #f8e700);
+  background-size: 400% 100%;
+  border-radius: 8px;
+  z-index: -1;
+  animation: background-anim-left 8s ease-in-out infinite;
+}
+
+@keyframes background-anim-left {
+  50% {
+    background-position: 140% 50%;
+  }
 }
 
 .contactInformation {

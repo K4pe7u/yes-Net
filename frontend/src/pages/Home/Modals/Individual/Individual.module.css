@@ -79,7 +79,7 @@
 }
 
 .formItem_button:hover {
-  filter: brightness(1.1);
+  filter:opacity(0.8);
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
   cursor: pointer;
 }
