@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Blanka;
+  src: url('../../../fonts/Blanka-Regular.otf') format('opentype');
+}
+
 .googleMap {
   display: flex;
   flex-direction: column;
@@ -6,8 +11,14 @@
   gap: 20px;
 }
 .googleMap_title {
-  font-size: 22px;
-  text-shadow: 4px 4px 3px #000;
+  font-weight: 900;
+  margin-bottom: 12px;
+  font-family: Blanka;
+  text-align: center;
+  font-size: 38px;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
+  letter-spacing: 3px;
 }
 .googleMap iframe {
   --width: 85%;

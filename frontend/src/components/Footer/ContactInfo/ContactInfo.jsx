@@ -1,5 +1,4 @@
-import React from "react";
-import css from "./ContactInfo.module.css";
+import css from './ContactInfo.module.css'
 
 const ContactInfo = () => {
   return (
@@ -10,18 +9,21 @@ const ContactInfo = () => {
           <li className={css.contactItem}>
             <h3 className={css.contactItem_title}>Biuro Obsługi Klienta</h3>
             <span>ul. Towarowa 1, Wronki</span>
-            <span>Czynne: Pn - Pt<br></br> godz. 8:00 - 16:00</span>
-            <span className={css.importantInformation}>
-              Tel.: +48 690 860 520
+            <span>
+              Czynne: Pn - Pt<br></br> godz. 8:00 - 16:00
             </span>
             <span className={css.importantInformation}>
+              Tel.: +48 690 860 520
+              <br></br>
               E-mail: bok@yesnet.pl
             </span>
           </li>
           <li className={css.contactItem}>
             <h3 className={css.contactItem_title}>Punkt Obsługi Abonenta</h3>
             <span>os. Młodych 8, Krzyż Wlkp</span>
-            <span>Czynne: Wt i Czw<br></br> godz. 10:00 - 14:30</span>
+            <span>
+              Czynne: Wt i Czw<br></br> godz. 10:00 - 14:30
+            </span>
             <span className={css.importantInformation}>
               Tel.: +48 672 565 797
             </span>
@@ -37,7 +39,7 @@ const ContactInfo = () => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ContactInfo;
+export default ContactInfo

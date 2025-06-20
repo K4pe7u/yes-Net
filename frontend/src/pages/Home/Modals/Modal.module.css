@@ -76,3 +76,15 @@
     padding: 20px 40px;
   }
 }
+
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: #50505079;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
