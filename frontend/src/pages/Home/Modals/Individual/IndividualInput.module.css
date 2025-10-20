@@ -1,0 +1,25 @@
+.individualInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input.invalid {
+  border-bottom-color: #ff0000;
+}
+
+.reqMessage {
+  display: block;
+  margin-top: 5px;
+  color: #ff0000;
+  font-size: 14px;
+}
+
+.fields {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  margin: 0;
+}

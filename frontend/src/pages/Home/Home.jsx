@@ -15,22 +15,22 @@ import ScrollTop from './Modals/ScrollTop/ScrollTop'
 import { useState, useEffect } from 'react'
 
 function Home() {
-  const [currentModal, setCurrentModal] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const openModal = (modalType) => {
-    setCurrentModal(modalType)
+  const openModal = () => {
+    setIsModalOpen(true)
   }
 
   const closeModal = () => {
-    setCurrentModal(null)
+    setIsModalOpen(false)
   }
   useEffect(() => {
-    if (currentModal) {
+    if (isModalOpen) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
     }
-  }, [currentModal])
+  }, [isModalOpen])
 
   notiflix.Notify.init({
     // height: '300px',
@@ -78,9 +78,7 @@ function Home() {
           <Footer />
         </div>
       </section>
-      {currentModal === 'individual' && (
-        <IndividualModal onClose={closeModal} />
-      )}
+      {isModalOpen && <IndividualModal onClose={closeModal} />}
       <div className={css.scrollTop}>
         <ScrollTop></ScrollTop>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import css from './Modal.module.css'
+import css from './Modal.module-old.css'
 
 const Modal = ({ onClose, children }) => {
   return (
